@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Sales Playbook Starter Template · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B; --blue: #2B60BE; --ink: #0B1230; --ink-2: #3A4366;
+    --gray: #F4F5F7; --gray-2: #E5E7EE; --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 44pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6.2in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.32in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+  h1.section-h { font-family: var(--serif); font-size: 24pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.22in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 13pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.32in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 13.5pt; font-weight: 700; color: var(--ink); margin: 0.26in 0 0.08in; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.11in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.28in; }
+  ul, ol { margin: 0 0 0.16in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.05in; line-height: 1.48; }
+  strong { color: var(--ink); font-weight: 600; }
+  /* Section template block */
+  .tpl { border: 1px solid var(--gray-2); border-radius: 8px; margin-bottom: 0.26in; overflow: hidden; }
+  .tpl__head { background: var(--navy); color: var(--white); padding: 0.13in 0.2in; display: flex; align-items: baseline; gap: 0.15in; }
+  .tpl__num { font-family: var(--serif); font-size: 16pt; font-weight: 700; color: var(--blue); }
+  .tpl__title { font-family: var(--sans); font-size: 11.5pt; font-weight: 700; letter-spacing: 0.01em; }
+  .tpl__week { margin-left: auto; font-family: var(--sans); font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .tpl__body { padding: 0.16in 0.2in; }
+  .tpl__label { font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 0 0 0.05in; }
+  .tpl__prompts { margin: 0 0 0.12in; padding-left: 0.22in; }
+  .tpl__prompts li { font-size: 10pt; line-height: 1.45; color: var(--ink-2); margin-bottom: 0.04in; }
+  .tpl__done { background: var(--gray); border-radius: 6px; padding: 0.1in 0.15in; font-size: 9.5pt; color: var(--ink); margin: 0; }
+  .tpl__done strong { color: var(--blue); font-size: 8.5pt; letter-spacing: 0.06em; text-transform: uppercase; }
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.25in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.09in 0.13in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · Fill-In Template</div>
+    <h1 class="cover__title">The Sales Playbook Starter <span class="accent">Template.</span></h1>
+    <p class="cover__sub">The 9-section skeleton of a working B2B SaaS sales playbook. Each section comes with the prompts to answer, the order to build in, and the test that tells you it's done. Built for velocity motions.</p>
+    <p class="cover__meta">8 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — How to use -->
+<section class="page">
+  <div class="page__header"><span>How to Use This</span><span>Page 2 of 8</span></div>
+  <h1 class="section-h">A playbook is a working document, not a slide deck.</h1>
+
+  <p class="lead">The test of a real playbook: a new rep could rebuild your sales motion from the document alone. If your reps don't reference it weekly, it's a museum exhibit, not a playbook.</p>
+
+  <h3 class="h3">The rules</h3>
+  <ul>
+    <li><strong>Build in dependency order, not importance order.</strong> You can't write the demo framework before the ICP. The 9 sections below are sequenced so each builds on the last.</li>
+    <li><strong>Pull from won deals, not theory.</strong> Look at your last 10 customers. What they have in common is your ICP. What your best rep says on calls is your messaging. Extract, don't invent.</li>
+    <li><strong>Done-enough beats perfect.</strong> Each section has a "done when" test. Pass the test, move on. You'll revise quarterly anyway.</li>
+    <li><strong>One owner, blocked time.</strong> Playbooks built "in spare time" don't get built. Assign an owner and block the weeks, or bring in outside help while the team keeps selling.</li>
+  </ul>
+
+  <h3 class="h3">The build sequence at a glance</h3>
+  <table>
+    <thead><tr><th>Week</th><th>Sections</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Week 1</strong></td><td>1. ICP + qualification rubric</td></tr>
+      <tr><td><strong>Weeks 1-2</strong></td><td>2. Messaging framework</td></tr>
+      <tr><td><strong>Weeks 2-3</strong></td><td>3. Pipeline stages with exit criteria</td></tr>
+      <tr><td><strong>Weeks 3-4</strong></td><td>4. Discovery framework · 5. Demo framework</td></tr>
+      <tr><td><strong>Week 5</strong></td><td>6. Outbound sequence design</td></tr>
+      <tr><td><strong>Weeks 5-6</strong></td><td>7. Meeting cadence · 8. KPI framework</td></tr>
+      <tr><td><strong>Weeks 6-7</strong></td><td>9. Hiring profile + org structure</td></tr>
+      <tr><td><strong>Weeks 7-8</strong></td><td>Consolidate, test with a fresh reader, set quarterly review date</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — Sections 1-2 -->
+<section class="page">
+  <div class="page__header"><span>Sections 1-2</span><span>Page 3 of 8</span></div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">1</span><span class="tpl__title">ICP Definition + Qualification Rubric</span><span class="tpl__week">Week 1</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Firmographics: company size, industry, geography, stage, tech stack of your last 10 won deals?</li>
+        <li>Persona: exact title, what they own, what they're measured on?</li>
+        <li>Trigger events: what was happening at the company when each of your last 10 customers bought?</li>
+        <li>Anti-ICP: who do you refuse to sell to, and why? (Churned customers are the data here.)</li>
+        <li>Rubric: write 5-7 yes/no questions a rep can answer about any lead in under 60 seconds.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · Someone who's never sold your product reads it and describes back a specific person at a specific kind of company with a specific problem. Generic = not done.</p>
+    </div>
+  </div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">2</span><span class="tpl__title">Messaging Framework</span><span class="tpl__week">Weeks 1-2</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>The 15-second pitch: what you do, for whom, solving what — in two sentences a rep can say cold.</li>
+        <li>Value proposition per persona: what does each role actually care about?</li>
+        <li>3-5 proof points: specific customer outcomes with numbers.</li>
+        <li>Top 3 objections you hear, with a documented response for each.</li>
+        <li>"What we are not": the sentence that disqualifies wrong-fit buyers fast.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · Three different reps deliver the 15-second pitch and sound substantively the same.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — Sections 3-4 -->
+<section class="page">
+  <div class="page__header"><span>Sections 3-4</span><span>Page 4 of 8</span></div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">3</span><span class="tpl__title">Pipeline Stages + Exit Criteria</span><span class="tpl__week">Weeks 2-3</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Define 4-7 stages from first contact to closed-won. Name them after what happened, not what's next.</li>
+        <li>For each stage: what specifically must be true for a deal to exit it? Write it as checkable facts.</li>
+        <li>Time-in-stage benchmark: how long does a healthy deal sit in each stage?</li>
+        <li>Stalled-deal protocol: what happens when a deal exceeds the benchmark?</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · You can pull any random deal from the CRM and place it in the right stage from the criteria alone, without asking the rep.</p>
+    </div>
+  </div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">4</span><span class="tpl__title">Discovery Framework</span><span class="tpl__week">Weeks 3-4</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>The 5-7 questions every rep asks, in order. (Start from the Velocity Discovery Framework if you have it.)</li>
+        <li>Branching logic: if the buyer says X, what's the follow-up?</li>
+        <li>The do-not-ask list: questions that waste time in a 20-minute call.</li>
+        <li>The next-step script: how every discovery call ends with a demo booked live.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · Three recorded discovery calls from three reps show the same structural moves, even if the wording differs.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — Sections 5-6 -->
+<section class="page">
+  <div class="page__header"><span>Sections 5-6</span><span>Page 5 of 8</span></div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">5</span><span class="tpl__title">Demo Framework</span><span class="tpl__week">Weeks 3-4</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>The opening: how the first 3 minutes recap discovery and set the agenda.</li>
+        <li>The standard flow: which 3-4 features, in what order, each tied to a stated pain.</li>
+        <li>Customization rules: what to add or skip based on discovery answers.</li>
+        <li>The pricing reveal: when and how price comes up (you bring it up, not the buyer).</li>
+        <li>The ask: how every demo ends with a clear yes/no/next-step, never "let me think about it."</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · Demos across reps land within 5 minutes of each other on length, and every one ends with an explicit ask.</p>
+    </div>
+  </div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">6</span><span class="tpl__title">Outbound Sequence Design</span><span class="tpl__week">Week 5</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Cadence: how many touches over how many days? (Velocity default: 12 touches, 14 days.)</li>
+        <li>Channel mix: email / phone / LinkedIn percentages for your ICP.</li>
+        <li>Theme per touch: cold opener, value follow-up, pattern interrupt, social proof, breakup.</li>
+        <li>Personalization rules: which touches require it, which run from the framework.</li>
+        <li>Stop conditions: when a prospect exits the sequence.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · A new BDR can run a full sequence in their first week without inventing anything.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Sections 7-8 -->
+<section class="page">
+  <div class="page__header"><span>Sections 7-8</span><span>Page 6 of 8</span></div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">7</span><span class="tpl__title">Meeting Cadence Framework</span><span class="tpl__week">Weeks 5-6</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Daily standup: 15 minutes, what three questions does it answer?</li>
+        <li>Weekly 1:1 per rep: how is time split between pipeline and coaching? (Hint: separate meetings.)</li>
+        <li>Weekly pipeline review: deal-by-deal with exit-criteria checks, not a forecast roll-up.</li>
+        <li>Monthly skill session: what gets taught, who teaches it?</li>
+        <li>Quarterly review: what does the team retro against?</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · Each meeting has a distinct purpose and none of them collapse into "what's happening with Acme."</p>
+    </div>
+  </div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">8</span><span class="tpl__title">KPI Framework</span><span class="tpl__week">Weeks 5-6</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Which 8-12 metrics predict outcomes in your motion? (Start: lead response time, demo conversion, cycle length by channel, pipeline coverage, activity-to-outcome.)</li>
+        <li>Target and threshold for each: what's healthy, what triggers action?</li>
+        <li>Data source and owner: where does each number come from, who updates it, how often?</li>
+        <li>Leading indicators at the top of the dashboard, lagging (revenue, win rate) below.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · You can answer "is the team on track this month?" from the dashboard alone, without anecdotes.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — Section 9 + assembly -->
+<section class="page">
+  <div class="page__header"><span>Section 9 + Assembly</span><span>Page 7 of 8</span></div>
+
+  <div class="tpl">
+    <div class="tpl__head">
+      <span class="tpl__num">9</span><span class="tpl__title">Hiring Profile + Org Structure</span><span class="tpl__week">Weeks 6-7</span>
+    </div>
+    <div class="tpl__body">
+      <p class="tpl__label">Answer these prompts</p>
+      <ul class="tpl__prompts">
+        <li>Rep profile per role: experience range, motion background, what to screen out.</li>
+        <li>Comp structure per role: base, variable, OTE, quota multiple, accelerators. (Use the Comp Plan Builder.)</li>
+        <li>Interview process: stages, what each tests, and a weighted scorecard.</li>
+        <li>Hiring sequence: who you hire when, and the trigger for each hire.</li>
+        <li>90-day ramp plan: milestones at day 30, 60, 90.</li>
+      </ul>
+      <p class="tpl__done"><strong>Done when</strong> · You could hand the section to a recruiter and they could source candidates without a briefing call.</p>
+    </div>
+  </div>
+
+  <h3 class="h3">Weeks 7-8: Assembly</h3>
+  <ul>
+    <li><strong>Consolidate</strong> all nine sections into one document with a table of contents.</li>
+    <li><strong>Test with a fresh reader.</strong> Hand it to someone unfamiliar with your motion. Every place they hesitate is a gap. Fix the gaps.</li>
+    <li><strong>Set the review cadence.</strong> Quarterly review date, named owner. A playbook that doesn't get updated decays into a museum exhibit within two quarters.</li>
+  </ul>
+
+  <h3 class="h3">The most common failure mode</h3>
+  <p>Building it in spare time. "After this quarter closes" becomes next quarter, becomes never. The teams that finish either block dedicated weeks for one owner, or bring in outside help to build it while the team keeps selling. Fitting it into the cracks is how playbooks stay 40% done forever.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Sales Playbook Starter Template</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — CTA -->
+<section class="page">
+  <div class="page__header"><span>Next Steps</span><span>Page 8 of 8</span></div>
+  <h1 class="section-h">Two ways to get this built.</h1>
+
+  <p class="lead">Option one: assign an owner, block six to eight weeks, and work through this template section by section. Option two: bring in someone who builds these for a living while your team keeps closing.</p>
+
+  <p>The Build phase of the SAILS engagement runs this exact sequence in 4 weeks, compressed because we're full-time on it. Output: a 20-30 page Sales Playbook covering all nine sections, customized to your product, ICP, and motion. The Coach phase then installs it through bi-weekly sessions so it drives behavior instead of sitting in a folder.</p>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>30 minutes. No deck. An honest conversation about where your playbook stands and whether SAILS is the right fit to finish it.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <h3 class="h3">Related resources</h3>
+  <ul>
+    <li><strong>The Velocity Discovery Framework</strong> — Section 4, expanded into a full working doc. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>The 25-Minute Demo Framework</strong> — Section 5, expanded. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>The Velocity Outbound Sequence Builder</strong> — Section 6, as a working Excel template. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>The Sales Comp Plan Builder</strong> — Section 9's comp math, as a live calculator. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>Funnel KPI Tracker</strong> — Section 8's dashboard, pre-built. <em>sailsadvisory.com/resources</em></li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>

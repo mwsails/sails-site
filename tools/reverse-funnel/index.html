@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reverse Funnel Calculator for B2B SaaS · SAILS Advisory</title>
+  <meta name="description" content="Free reverse funnel calculator. Start from your ARR goal and work backward: how many deals, opps, demos, and outbound touches you need per month, and how many reps that takes." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/tools/reverse-funnel/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="Reverse Funnel Calculator for B2B SaaS" />
+  <meta property="og:description" content="Start from your ARR goal and work backward to the daily activity it takes. Free, no email required." />
+  <meta property="og:url" content="https://sailsadvisory.com/tools/reverse-funnel/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reverse Funnel Calculator for B2B SaaS" />
+  <meta name="twitter:description" content="Start from your ARR goal and work backward to the daily activity it takes." />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../style.css?v=4" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://sailsadvisory.com/tools/reverse-funnel/#app",
+    "name": "Reverse Funnel Calculator",
+    "url": "https://sailsadvisory.com/tools/reverse-funnel/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Start from your ARR goal and work backward: how many deals, opps, demos, and outbound touches you need per month for a B2B SaaS velocity sales motion.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "@id": "https://sailsadvisory.com/#organization", "name": "SAILS Advisory", "url": "https://sailsadvisory.com/" }
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../../#engagement">The Engagement</a>
+        <a href="../../#fit">Who It's For</a>
+        <a href="../../#about">About</a>
+        <a href="../../#investment">Investment</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="calc-hero">
+      <div class="container">
+        <p class="kicker kicker--light">Free Calculator</p>
+        <h1 class="calc-hero__h">Reverse Funnel Calculator</h1>
+        <p class="calc-hero__sub">Start from the revenue goal and work backward. How many deals, opps, demos, and outbound touches does your number actually require? Pre-loaded with velocity sales benchmarks. Change anything.</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container calc-wrap">
+        <div class="calc-grid">
+
+          <div class="calc-inputs">
+            <h2 class="calc-inputs__h">Your numbers</h2>
+
+            <div class="calc-field">
+              <label for="rf-goal">Annual new ARR goal</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="rf-goal" type="number" value="1000000" min="0" step="50000" />
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label for="rf-acv">Average contract value (ACV)</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="rf-acv" type="number" value="10000" min="1" step="1000" />
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label for="rf-close">Close rate (qualified opp → won)</label>
+              <input id="rf-close" type="number" value="25" min="1" max="100" step="1" />
+              <span class="calc-hint">Velocity benchmark: 20-30%</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="rf-opp">Demo-to-opp rate (demo held → qualified opp)</label>
+              <input id="rf-opp" type="number" value="50" min="1" max="100" step="1" />
+              <span class="calc-hint">Velocity benchmark: 40-60%</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="rf-show">Show rate (demo booked → held)</label>
+              <input id="rf-show" type="number" value="75" min="1" max="100" step="1" />
+              <span class="calc-hint">Velocity benchmark: 70-85%</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="rf-touches">Outbound touches per demo booked</label>
+              <input id="rf-touches" type="number" value="50" min="1" step="5" />
+              <span class="calc-hint">Cold sequences typically book 1 meeting per 40-80 touches. Inbound-heavy motions can lower this.</span>
+            </div>
+          </div>
+
+          <div class="calc-results" aria-live="polite">
+            <p class="calc-results__h">What your goal requires</p>
+
+            <div class="calc-stat calc-stat--hero">
+              <span class="calc-stat__label">Outbound touches per month</span>
+              <span class="calc-stat__value" id="rf-out-touches">—</span>
+            </div>
+
+            <div class="calc-stat">
+              <span class="calc-stat__label">Deals to close per year</span>
+              <span class="calc-stat__value" id="rf-out-deals-yr">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Deals to close per month</span>
+              <span class="calc-stat__value" id="rf-out-deals-mo">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Qualified opps needed per month</span>
+              <span class="calc-stat__value" id="rf-out-opps">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Demos held per month</span>
+              <span class="calc-stat__value" id="rf-out-held">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Demos booked per month</span>
+              <span class="calc-stat__value" id="rf-out-booked">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Touches per working day (21/mo)</span>
+              <span class="calc-stat__value" id="rf-out-daily">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Outbound rep capacity needed (at 100 touches/day)</span>
+              <span class="calc-stat__value" id="rf-out-reps">—</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="calc-note"><strong>How the math works:</strong> deals = goal ÷ ACV. Opps = deals ÷ close rate. Demos held = opps ÷ demo-to-opp rate. Demos booked = held ÷ show rate. Touches = booked × touches-per-booking. The defaults are velocity sales benchmarks from the <a href="../../blog/velocity-sales-metrics.html">5 Velocity Sales Metrics</a>; replace them with your own funnel data for a real plan.</p>
+
+        <div class="calc-cta">
+          <p><strong>If the daily activity number looks impossible,</strong> the fix is usually conversion rates, not more volume. A documented playbook typically lifts demo-to-opp and close rates enough to cut the required activity by a third. That's the math behind the SAILS engagement.</p>
+          <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <div class="container">
+        <h2 class="related__h">Go deeper</h2>
+        <div class="related__grid">
+          <a class="related__card" href="../pipeline-coverage/">
+            <p class="related__topic">Calculator</p>
+            <p class="related__title">Pipeline Coverage Calculator: Do You Have Enough Pipeline to Hit Quota?</p>
+          </a>
+          <a class="related__card" href="../../blog/velocity-sales-metrics.html">
+            <p class="related__topic">Metrics</p>
+            <p class="related__title">The 5 Velocity Sales Metrics That Actually Predict Revenue</p>
+          </a>
+          <a class="related__card" href="../../resources/">
+            <p class="related__topic">Resources</p>
+            <p class="related__title">The Velocity Outbound Sequence Builder (free Excel template)</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: June 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js" defer></script>
+  <script>
+    (function () {
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      const inputs = ['rf-goal', 'rf-acv', 'rf-close', 'rf-opp', 'rf-show', 'rf-touches'].map($);
+      let gaTimer = null;
+
+      function fmt(n, dec) {
+        if (!isFinite(n)) return '—';
+        return n.toLocaleString('en-US', { maximumFractionDigits: dec === undefined ? 0 : dec, minimumFractionDigits: 0 });
+      }
+
+      function calc() {
+        const goal = +$('rf-goal').value || 0;
+        const acv = +$('rf-acv').value || 1;
+        const close = (+$('rf-close').value || 1) / 100;
+        const opp = (+$('rf-opp').value || 1) / 100;
+        const show = (+$('rf-show').value || 1) / 100;
+        const tpb = +$('rf-touches').value || 1;
+
+        const dealsYr = goal / acv;
+        const dealsMo = dealsYr / 12;
+        const oppsMo = dealsMo / close;
+        const heldMo = oppsMo / opp;
+        const bookedMo = heldMo / show;
+        const touchesMo = bookedMo * tpb;
+        const touchesDay = touchesMo / 21;
+        const reps = touchesDay / 100;
+
+        $('rf-out-deals-yr').textContent = fmt(dealsYr);
+        $('rf-out-deals-mo').textContent = fmt(dealsMo, 1);
+        $('rf-out-opps').textContent = fmt(oppsMo, 1);
+        $('rf-out-held').textContent = fmt(heldMo, 1);
+        $('rf-out-booked').textContent = fmt(bookedMo, 1);
+        $('rf-out-touches').textContent = fmt(touchesMo);
+        $('rf-out-daily').textContent = fmt(touchesDay);
+        $('rf-out-reps').textContent = fmt(reps, 1);
+
+        clearTimeout(gaTimer);
+        gaTimer = setTimeout(() => {
+          if (typeof gtag === 'function') gtag('event', 'calculate', { tool: 'reverse-funnel' });
+        }, 1500);
+      }
+
+      inputs.forEach((el) => el.addEventListener('input', calc));
+      calc();
+    })();
+  </script>
+</body>
+</html>

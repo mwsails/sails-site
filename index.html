@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAILS Advisory · B2B Sales Consulting for Velocity SaaS Motions</title>
+  <meta name="description" content="An 8-week fixed-price B2B sales consulting engagement for early-stage SaaS founders. Build a velocity sales playbook that scales past founder-led." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="SAILS Advisory · Put the Wind in Your Sales." />
+  <meta property="og:description" content="An 8-week fixed-price sales consulting engagement for B2B SaaS founders running velocity sales motions." />
+  <meta property="og:url" content="https://sailsadvisory.com/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/sails-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SAILS Advisory · Put the Wind in Your Sales." />
+  <meta name="twitter:description" content="An 8-week fixed-price sales consulting engagement for B2B SaaS founders running velocity sales motions." />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/sails-logo.png" />
+
+  <!-- Article dates -->
+  <meta name="article:published_time" content="2026-05-19" />
+  <meta name="article:modified_time" content="2026-05-19" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css?v=4" />
+
+  <!-- Structured data: Organization, Person, Service, FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sailsadvisory.com/#organization",
+        "name": "SAILS Advisory",
+        "url": "https://sailsadvisory.com/",
+        "logo": "https://sailsadvisory.com/assets/sails-logo.png",
+        "email": "matt@sailsadvisory.com",
+        "slogan": "Put the Wind in Your Sales.",
+        "description": "B2B sales consulting for SaaS founders running velocity sales motions. 8-week fixed-price engagements covering Assess, Build, and Coach.",
+        "founder": { "@id": "https://sailsadvisory.com/#matt" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://sailsadvisory.com/#matt",
+        "name": "Matt Weisman",
+        "jobTitle": "Founder, SAILS Advisory",
+        "worksFor": { "@id": "https://sailsadvisory.com/#organization" },
+        "description": "8+ years scaling B2B SaaS sales. VP of Sales managing 30+ reps across BDR, AE, and account management. Built outbound SMB motion from scratch, scaled AE demos from ~100/year to 10,000+/year, grew ARR 6x in 5 years, authored the AE Playbook used across segments.",
+        "email": "matt@sailsadvisory.com"
+      },
+      {
+        "@type": "Service",
+        "name": "SAILS 8-Week Sales Engagement",
+        "serviceType": "B2B sales consulting",
+        "provider": { "@id": "https://sailsadvisory.com/#organization" },
+        "description": "An 8-week fixed-price B2B sales consulting engagement with two tracks. Build track is for founder-led teams without a documented sales system. Scale track is for teams with reps in place but uneven results. Assess (weeks 1-2) provides a track-specific diagnostic. Build (weeks 3-6) produces a 20-30 page Sales Playbook covering ICP, messaging, pipeline, discovery and demo frameworks, outbound sequences, meeting cadence, KPIs, hiring profile, and org structure. Coach (weeks 5-8) implements through bi-weekly sessions with async support.",
+        "areaServed": "Worldwide",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "B2B SaaS founders, pre or at Series A, ACV $2K-$24K, sub-90-day sales cycles, BDR/AE or full-cycle inside sales motions, 0-10 reps"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "description": "Fixed-price, scope-bound. Investment shared during the discovery conversation, scaled to the right track."
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://sailsadvisory.com/diagnostic/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What's the difference between the Build track and the Scale track?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Build track is for teams with wins but no system: typically founder-led sales that needs to be handed off. Scale track is for teams with reps in place but uneven results. We determine which fits during the discovery call."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to have a sales team in place?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Many Build track clients are pre-first-hire. We build the engine before you hire into it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much time does this require from my team?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The engagement is designed to be async-first. You'll need to complete a diagnostic questionnaire before kickoff and commit to bi-weekly 60-minute sessions during the Coach phase. Outside of that, the work is mine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after week 8?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coaching retainers are available starting at $2K/month for continued bi-weekly sessions and async support. No obligation. It's an option, not the default."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this right for a non-SaaS business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Possibly. The frameworks are built around B2B SaaS velocity motions, but the underlying physics apply to any short-cycle, transactional B2B sale. Reach out and we'll be direct about fit."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sailsadvisory.com/#website",
+        "url": "https://sailsadvisory.com/",
+        "name": "SAILS Advisory",
+        "publisher": { "@id": "https://sailsadvisory.com/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <!-- ============== NAV ============== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="#engagement">The Engagement</a>
+        <a href="#fit">Who It's For</a>
+        <a href="#about">About</a>
+        <a href="#investment">Investment</a>
+        <a href="blog/">Blog</a>
+        <a href="resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <img src="assets/sails-mark.svg" alt="SAILS Advisory" class="hero__mark" width="320" height="240" />
+        <p class="hero__eyebrow">B2B Sales Consulting · Velocity Motions</p>
+        <h1 class="hero__headline">
+          Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
+        </h1>
+        <p class="hero__intro">
+          SAILS Advisory is an 8-week sales consulting engagement for B2B SaaS founders running velocity motions: short cycles, $2K to $24K ACVs, BDR/AE economics.
+        </p>
+        <p class="hero__sub">
+          Most sales consultants are enterprise operators trying to bolt MEDDIC onto velocity motions. It doesn't work. Velocity sales has its own physics, and most consultants don't know how to build for it. I do.
+        </p>
+        <div class="hero__cta">
+          <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+          <a href="diagnostic/" class="btn btn--ghost">Take the Fit Diagnostic</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE PROBLEM ============== -->
+    <section class="section section--light" id="problem">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker">01 · The Problem</p>
+          <h2 class="section__h">Why Most Early Sales Teams Stall</h2>
+        </div>
+
+        <div class="split">
+          <div class="prose split__col split__col--text">
+            <p class="reveal prose__definition"><strong>Velocity sales</strong> is a B2B motion built around short cycles, transactional buyers, and high-volume rep activity. ACVs run $2,000 to $24,000. Deal cycles close inside 90 days, often under 14. Reps work as BDR/AE pairs or full-cycle inside sales, and the team's job is to move volume through a documented playbook. It's the opposite of enterprise sales, where six-figure ACVs and 12-month cycles reward MEDDIC, multi-threading, and committee navigation.</p>
+            <p class="reveal">You're closing deals, but it's still the founder doing it, or one rep out of three is carrying the number. Every deal still feels like the first one. There's no process to hand anyone.</p>
+            <p class="reveal">Or you have a team in place, some results, but you can't explain why two reps are hitting and two aren't. Coaching is happening, but it's really just pipeline inspection.</p>
+            <p class="reveal"><strong>The problem isn't effort.</strong> It's that velocity sales has its own physics. Short cycles, transactional buyers, BDR/AE economics, and nobody built you an engine that matches how your buyers actually buy.</p>
+          </div>
+          <div class="split__col split__col--art reveal" aria-hidden="true">
+            <img src="assets/illo-problem.svg" alt="" class="split__img" loading="lazy" width="480" height="320" />
+            <p class="split__caption">Flat pipeline. No momentum. No system.</p>
+          </div>
+        </div>
+
+        <div class="compare reveal">
+          <h3 class="compare__h">Velocity vs Enterprise sales motions</h3>
+          <div class="compare__wrap">
+            <table class="compare__table">
+              <thead>
+                <tr><th scope="col">Dimension</th><th scope="col">Velocity</th><th scope="col">Enterprise</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">ACV</th><td>$2K to $24K</td><td>$100K to $1M+</td></tr>
+                <tr><th scope="row">Sales cycle</th><td>Under 90 days, often under 14</td><td>6 to 18 months</td></tr>
+                <tr><th scope="row">Decision-makers</th><td>1 to 2</td><td>5 to 12 (committee)</td></tr>
+                <tr><th scope="row">Rep motion</th><td>BDR/AE or full-cycle inside</td><td>Strategic AE, multi-threaded</td></tr>
+                <tr><th scope="row">Best-fit framework</th><td>Playbook, scripts, rep activity</td><td>MEDDIC, MEDDPICC, Force Management</td></tr>
+                <tr><th scope="row">What wins deals</th><td>Speed, message-market fit, volume</td><td>Relationship depth, political access</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE ENGAGEMENT ============== -->
+    <section class="section section--dark" id="engagement">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker kicker--light">02 · The Engagement</p>
+          <h2 class="section__h section__h--light">Assess. Build. Coach.<br /><span class="section__h-sub accent">The 8-Week Engine.</span></h2>
+          <p class="section__lede">Before you can <em>Always Be Closing,</em> you need to <strong>Assess, Build, Coach.</strong></p>
+        </div>
+
+        <div class="tracks reveal">
+          <p class="tracks__eyebrow">Two tracks · One engine</p>
+          <div class="tracks__grid">
+            <div class="track">
+              <p class="track__label">Build track</p>
+              <p class="track__desc">For founder-led teams with wins but no system. You've closed deals, but the process lives in your head. We extract it, document it, and make it teachable before your first AE hire.</p>
+            </div>
+            <div class="track">
+              <p class="track__label">Scale track</p>
+              <p class="track__desc">For teams with reps in seat but uneven results. Some are hitting, some aren't. We diagnose the funnel, the rep distribution, and the coaching cadence, then rebuild what isn't working.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <img src="assets/icon-assess.svg" alt="" loading="lazy" width="96" height="96" />
+            </div>
+            <p class="card__phase"><span class="card__phase-letter">A</span>ssess</p>
+            <p class="card__weeks">Weeks 1–2 · Track-specific</p>
+            <h3 class="card__h">Diagnosis before prescription.</h3>
+            <p class="card__body">Build track gets a <strong>GTM Foundations Brief</strong> (ICP, positioning, motion fit). Scale track gets an <strong>Audit Report</strong> with 3 to 5 prioritized quick wins. No assumptions. No generic frameworks applied before we know what's actually broken.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <img src="assets/icon-build.svg" alt="" loading="lazy" width="96" height="96" />
+            </div>
+            <p class="card__phase"><span class="card__phase-letter">B</span>uild</p>
+            <p class="card__weeks">Weeks 3–6</p>
+            <h3 class="card__h">The complete velocity sales engine.</h3>
+            <p class="card__body">A 20–30 page Sales Playbook built for your motion, including:</p>
+            <ul class="card__list">
+              <li>ICP definition and qualification rubric</li>
+              <li>Messaging framework and positioning</li>
+              <li>Pipeline stages with exit criteria</li>
+              <li>Discovery and demo frameworks</li>
+              <li>Outbound sequence design</li>
+              <li>Meeting cadence and KPI tracker</li>
+              <li>Hiring profile and org structure</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <img src="assets/icon-coach.svg" alt="" loading="lazy" width="96" height="96" />
+            </div>
+            <p class="card__phase"><span class="card__phase-letter">C</span>oach</p>
+            <p class="card__weeks">Weeks 5–8</p>
+            <h3 class="card__h">Implement, course-correct, make it stick.</h3>
+            <p class="card__body">Bi-weekly sessions during and after the Build phase, so nothing sits in a doc. Async support between sessions for quick reviews and gut-checks.</p>
+          </article>
+        </div>
+
+        <p class="engagement__note reveal">
+          This is an <strong>async-first engagement.</strong> Most of the work happens between sessions, not in meetings. You get a founder with 8 years of operator experience, not a slide deck and a handoff.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============== WHO IT'S FOR ============== -->
+    <section class="section section--light" id="fit">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker">03 · Who It's For</p>
+          <h2 class="section__h">Built for Velocity. Not for Everyone.</h2>
+        </div>
+
+        <div class="fit">
+          <div class="fit__col fit__col--yes reveal">
+            <h3 class="fit__h">
+              <span class="fit__icon fit__icon--yes" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              Right Fit
+            </h3>
+            <ul class="fit__list">
+              <li>B2B SaaS, pre/at Series A</li>
+              <li>ACV $2K–$24K, cycle sub-90 days (sweet spot under 14 days)</li>
+              <li>BDR/AE or full-cycle inside sales motion</li>
+              <li>0–10 reps</li>
+              <li>Founder-led sales that needs a system</li>
+              <li>Team in place, mixed results, no clear diagnosis</li>
+            </ul>
+          </div>
+
+          <div class="fit__col fit__col--no reveal">
+            <h3 class="fit__h">
+              <span class="fit__icon fit__icon--no" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </span>
+              Not a Fit
+            </h3>
+            <ul class="fit__list">
+              <li>Complex enterprise sales ($250K+ ACV, 12-month cycles)</li>
+              <li>6+ decision-maker committee buys</li>
+              <li>Pre-product or pre-any-revenue stage</li>
+              <li>Looking for a fractional VP to manage the team day-to-day</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT MATT ============== -->
+    <section class="section section--light" id="about">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker">04 · About Matt</p>
+          <h2 class="section__h">Why Me</h2>
+          <h3 class="about__h">Built by an operator, not a consultant.</h3>
+        </div>
+
+        <div class="prose prose--narrow">
+          <p class="reveal">I've spent 8+ years scaling sales at a high-growth B2B SaaS company. Joined as an early sales hire and grew into <strong>VP of Sales, managing a team of 30+ reps</strong> across BDR, AE, and account management. I built the outbound SMB motion from scratch, scaled AE demos from ~100/year in 2018 to 10,000+/year by 2023, and helped grow ARR 6x over five years.</p>
+          <p class="reveal">I authored the AE Playbook: the repeatable framework that standardized how the team discovers, demos, and closes across segments. I launched a new financial institution vertical from zero and engineered a 5x increase in average deal size in under 24 months.</p>
+          <p class="reveal"><strong>SAILS is built on what actually worked, not what looks good in a deck.</strong></p>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <p class="stat__num">8+</p>
+            <p class="stat__label">years scaling B2B SaaS sales</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num">30+</p>
+            <p class="stat__label">reps managed as VP of Sales</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num">6×</p>
+            <p class="stat__label">ARR growth in 5 years</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num">100 → 10K+</p>
+            <p class="stat__label">AE demos per year</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num">5×</p>
+            <p class="stat__label">avg deal size in 24 months</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INVESTMENT ============== -->
+    <section class="section section--dark section--photo" id="investment">
+      <div class="section__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker kicker--light">05 · Investment</p>
+          <h2 class="section__h section__h--light">One Engagement. Fixed Price. No Surprises.</h2>
+        </div>
+
+        <div class="callout reveal">
+          <p class="callout__eyebrow">Fixed-price · Scope-bound · 8 weeks</p>
+          <p class="callout__h">Sized to your stage, not your sticker price.</p>
+          <p class="callout__terms">Every SAILS engagement is fixed-price and scope-bound. The investment is shared during the discovery conversation, scoped to the right track for where you are: Build (no system yet) or Scale (team in place, uneven results). Founding cohort rates available for the first few clients.</p>
+          <a href="diagnostic/" class="btn btn--primary callout__cta">Get a Custom Proposal <span aria-hidden="true">→</span></a>
+        </div>
+
+        <p class="investment__note reveal">
+          Fixed-price means fixed. No hourly overages, no scope creep billing. If you want continued support after week 8, a coaching retainer is available starting at <strong>$2K/month.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============== FAQ ============== -->
+    <section class="section section--light" id="faq">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker">06 · FAQ</p>
+          <h2 class="section__h">Common Questions</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              <span>What's the difference between the Build track and the Scale track?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="faq__a"><p>Build track is for teams with wins but no system: typically founder-led sales that needs to be handed off. Scale track is for teams with reps in place but uneven results. We determine which fits during the discovery call.</p></div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              <span>Do I need to have a sales team in place?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="faq__a"><p>No. Many Build track clients are pre-first-hire. We build the engine before you hire into it.</p></div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              <span>How much time does this require from my team?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="faq__a"><p>The engagement is designed to be async-first. You'll need to complete a diagnostic questionnaire before kickoff and commit to bi-weekly 60-minute sessions during the Coach phase. Outside of that, the work is mine.</p></div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              <span>What happens after week 8?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="faq__a"><p>Coaching retainers are available starting at $2K/month for continued bi-weekly sessions and async support. No obligation. It's an option, not the default.</p></div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              <span>Is this right for a non-SaaS business?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="faq__a"><p>Possibly. The frameworks are built around B2B SaaS velocity motions, but the underlying physics apply to any short-cycle, transactional B2B sale. Reach out and we'll be direct about fit.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CONTACT / CTA ============== -->
+    <section class="section section--dark" id="contact">
+      <div class="container">
+        <div class="reveal">
+          <p class="kicker kicker--light">07 · Get in Touch</p>
+          <h2 class="section__h section__h--light">Ready to Diagnose?</h2>
+        </div>
+
+        <p class="contact__lede reveal">
+          The first step is a 30-minute discovery call. No pitch, no deck. Just an honest conversation about where you are and whether SAILS is the right fit.
+        </p>
+
+        <div class="contact__cta reveal">
+          <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+          <p class="contact__or">Or email directly: <a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        </div>
+
+        <div class="formwrap reveal">
+          <p class="formwrap__intro">Prefer to write? Tell me what's broken and I'll come back to you within one business day.</p>
+          <!-- Netlify Forms: uses native handling, no backend needed -->
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="form"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="form__row">
+              <div class="form__field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="form__field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+              </div>
+            </div>
+
+            <div class="form__field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+
+            <div class="form__field">
+              <label for="message">What's the main thing you're trying to fix?</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary form__submit">
+              <span class="form__submit-label">Send it <span aria-hidden="true">→</span></span>
+              <span class="form__submit-loading" aria-hidden="true">Sending…</span>
+            </button>
+
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: May 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

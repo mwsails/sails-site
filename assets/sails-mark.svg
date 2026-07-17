@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="m-main" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e8edf7"/>
+    </linearGradient>
+    <linearGradient id="m-jib" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5a8ee0"/>
+      <stop offset="100%" stop-color="#2B60BE"/>
+    </linearGradient>
+    <linearGradient id="m-hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a72d0"/>
+      <stop offset="100%" stop-color="#1f4ea3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sailboat lockup, centered in top portion -->
+  <g transform="translate(160 14)">
+    <!-- Pennant flag at top -->
+    <polygon points="0,0 14,5 0,10" fill="#2B60BE"/>
+    <!-- Mast -->
+    <line x1="0" y1="0" x2="0" y2="118" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Main sail (white, larger, right of mast) -->
+    <path d="M 0 8 L 56 116 L 0 116 Z" fill="url(#m-main)"/>
+    <!-- Sail seam shading -->
+    <g stroke="#cfd8ee" stroke-width="0.7" opacity="0.45">
+      <line x1="0" y1="40" x2="36" y2="116"/>
+      <line x1="0" y1="70" x2="22" y2="116"/>
+    </g>
+
+    <!-- Jib sail (accent blue, left of mast) -->
+    <path d="M 0 22 L -46 112 L 0 112 Z" fill="url(#m-jib)"/>
+    <g stroke="#1f4ea3" stroke-width="0.6" opacity="0.45">
+      <line x1="0" y1="44" x2="-30" y2="112"/>
+      <line x1="0" y1="74" x2="-16" y2="112"/>
+    </g>
+
+    <!-- Hull -->
+    <path d="M -54 118 L 64 118 L 50 138 L -42 138 Z" fill="url(#m-hull)"/>
+    <path d="M -54 118 L 64 118 L 60 124 L -50 124 Z" fill="#ffffff" opacity="0.25"/>
+
+    <!-- Water wave under the hull -->
+    <path d="M -78 150 Q -40 144 0 150 T 78 150" stroke="#2B60BE" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.7"/>
+    <path d="M -94 158 Q -50 152 0 158 T 94 158" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.35"/>
+  </g>
+
+  <!-- Wordmark: SAILS in spaced serif white letters -->
+  <text x="160" y="210" text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="48"
+        font-weight="700"
+        fill="#ffffff"
+        letter-spacing="14">SAILS</text>
+</svg>

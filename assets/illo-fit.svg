@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="f-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4F5F7"/>
+      <stop offset="100%" stop-color="#E5E7EE"/>
+    </linearGradient>
+    <linearGradient id="f-mainsail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dfe5f5"/>
+    </linearGradient>
+    <linearGradient id="f-jib" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2B60BE"/>
+      <stop offset="100%" stop-color="#1f4ea3"/>
+    </linearGradient>
+    <linearGradient id="f-hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2B60BE"/>
+      <stop offset="100%" stop-color="#163a8a"/>
+    </linearGradient>
+    <linearGradient id="f-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a72d0"/>
+      <stop offset="100%" stop-color="#2B60BE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#f-bg)"/>
+
+  <!-- Ascending chart bars in background (full color, momentum) -->
+  <g opacity="0.55">
+    <rect x="40"  y="200" width="32" height="54" rx="3" fill="url(#f-bar)"/>
+    <rect x="82"  y="178" width="32" height="76" rx="3" fill="url(#f-bar)"/>
+    <rect x="124" y="150" width="32" height="104" rx="3" fill="url(#f-bar)"/>
+    <rect x="166" y="124" width="32" height="130" rx="3" fill="url(#f-bar)"/>
+    <rect x="378" y="148" width="32" height="106" rx="3" fill="url(#f-bar)"/>
+    <rect x="420" y="118" width="32" height="136" rx="3" fill="url(#f-bar)"/>
+    <!-- Rising trend line linking tops -->
+    <polyline points="56,194 98,172 140,144 182,118 232,102 394,142 436,112"
+              fill="none" stroke="#0D1B4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <polygon points="436,112 428,118 432,108" fill="#0D1B4B" opacity="0.7"/>
+    <polygon points="436,112 436,122 442,118" fill="#0D1B4B" opacity="0.7"/>
+  </g>
+
+  <!-- Wind lines suggesting motion -->
+  <g opacity="0.45" stroke="#2B60BE" stroke-width="1.5" stroke-linecap="round" fill="none">
+    <path d="M 56 76 Q 100 70 144 76"/>
+    <path d="M 50 96 Q 96 90 142 96"/>
+    <path d="M 60 116 Q 102 112 144 116"/>
+  </g>
+
+  <!-- The sailboat in motion, leaning slightly forward (right) -->
+  <g transform="translate(232 96) rotate(6)">
+    <!-- Pennant flag streaming -->
+    <polygon points="0,0 14,5 0,10" fill="#2B60BE"/>
+    <!-- Mast -->
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#0D1B4B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Main sail (white, fully billowed) -->
+    <path d="M 0 8 Q 38 24 64 122 L 0 122 Z" fill="url(#f-mainsail)"/>
+    <g stroke="#0D1B4B" stroke-width="0.6" opacity="0.25">
+      <line x1="0" y1="40" x2="40" y2="122"/>
+      <line x1="0" y1="70" x2="26" y2="122"/>
+    </g>
+
+    <!-- Jib sail (accent blue, fully billowed forward) -->
+    <path d="M 0 22 Q -32 56 -52 116 L 0 116 Z" fill="url(#f-jib)"/>
+    <g stroke="#ffffff" stroke-width="0.6" opacity="0.45">
+      <line x1="0" y1="44" x2="-32" y2="116"/>
+      <line x1="0" y1="74" x2="-18" y2="116"/>
+    </g>
+  </g>
+
+  <!-- Hull with momentum tilt and bow wave -->
+  <g transform="translate(0 0)">
+    <path d="M 162 224 L 312 224 L 296 252 L 184 252 Z" fill="url(#f-hull)"/>
+    <path d="M 162 224 L 312 224 L 306 232 L 168 232 Z" fill="#ffffff" opacity="0.3"/>
+    <!-- Bow spray -->
+    <path d="M 158 226 Q 144 222 132 232" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.65"/>
+    <circle cx="146" cy="224" r="1.6" fill="#ffffff" opacity="0.6"/>
+    <circle cx="138" cy="230" r="1.4" fill="#ffffff" opacity="0.5"/>
+  </g>
+
+  <!-- Active water waves (moving) -->
+  <path d="M 14 268 Q 60 258 110 268 T 220 268 T 330 268 T 462 268"
+        stroke="#2B60BE" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M 0 280 Q 50 270 100 280 T 210 280 T 320 280 T 460 280"
+        stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M 0 292 Q 50 286 100 292 T 210 292 T 320 292 T 460 292"
+        stroke="#2B60BE" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.45"/>
+
+  <!-- "wind" annotation, opposite of "no wind" in problem illo -->
+  <g opacity="0.7">
+    <text x="56" y="58" font-family="Inter, sans-serif" font-size="11" font-style="italic" fill="#2B60BE" letter-spacing="0.05em">wind ↗</text>
+  </g>
+
+  <!-- Subtle sun lower-right, suggesting forward momentum toward horizon -->
+  <circle cx="406" cy="76" r="22" fill="#ffffff" opacity="0.8"/>
+  <circle cx="406" cy="76" r="14" fill="#cfd8ee" opacity="0.55"/>
+</svg>

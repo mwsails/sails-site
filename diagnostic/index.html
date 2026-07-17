@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fit Diagnostic · SAILS Advisory · See if SAILS is the right fit</title>
+  <meta name="description" content="A 3-minute diagnostic to see whether your B2B SaaS sales motion is a fit for the SAILS engagement. Honest answers, honest verdict." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/diagnostic/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="SAILS Fit Diagnostic" />
+  <meta property="og:description" content="A 3-minute diagnostic to see if your B2B SaaS sales motion is a fit for the SAILS engagement." />
+  <meta property="og:url" content="https://sailsadvisory.com/diagnostic/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SAILS Fit Diagnostic" />
+  <meta name="twitter:description" content="A 3-minute diagnostic to see if your B2B SaaS sales motion is a fit for the SAILS engagement." />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style.css?v=4" />
+
+  <!--
+    Hidden static form for Netlify form detection.
+    The visible form below submits via fetch (AJAX) and keeps the user on the page.
+  -->
+  <form name="fit-diagnostic" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <input type="text" name="role" />
+    <input type="text" name="what-you-do" />
+    <input type="text" name="sales-situation" />
+    <input type="text" name="acv-range" />
+    <input type="text" name="sales-cycle" />
+    <input type="text" name="motion-type" />
+    <input type="text" name="primary-problem" />
+    <input type="text" name="timeline" />
+    <input type="text" name="referral-source" />
+    <input type="text" name="bot-field" />
+  </form>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../#engagement">The Engagement</a>
+        <a href="../#fit">Who It's For</a>
+        <a href="../#about">About</a>
+        <a href="../#investment">Investment</a>
+        <a href="../blog/">Blog</a>
+        <a href="../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="diag-hero">
+      <div class="container">
+        <p class="kicker kicker--light">Fit Diagnostic</p>
+        <h1 class="diag-hero__h">3 minutes. 10 questions. An honest read on whether SAILS is the right fit.</h1>
+        <p class="diag-hero__sub">No pitch. No drip campaign. Your answers go straight to Matt and inform the discovery call. If you're not a fit, you'll hear that too.</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container diag-wrap">
+        <form id="diagnostic-form" class="diag-form">
+          <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <!-- Group 1: About you -->
+          <fieldset class="diag-group">
+            <legend class="diag-group__h"><span class="diag-group__num">1</span> About you</legend>
+
+            <div class="diag-field">
+              <label for="diag-name">Your name</label>
+              <input id="diag-name" name="name" type="text" required autocomplete="name" />
+            </div>
+
+            <div class="diag-row">
+              <div class="diag-field">
+                <label for="diag-email">Work email</label>
+                <input id="diag-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="diag-field">
+                <label for="diag-company">Company</label>
+                <input id="diag-company" name="company" type="text" required autocomplete="organization" />
+              </div>
+            </div>
+
+            <div class="diag-field">
+              <label for="diag-role">Your role / title</label>
+              <input id="diag-role" name="role" type="text" required placeholder="Founder, VP Sales, etc." />
+            </div>
+          </fieldset>
+
+          <!-- Group 2: Your business -->
+          <fieldset class="diag-group">
+            <legend class="diag-group__h"><span class="diag-group__num">2</span> Your business</legend>
+
+            <div class="diag-field">
+              <label for="diag-what-you-do">What does your company do? (One sentence, no jargon)</label>
+              <input id="diag-what-you-do" name="what-you-do" type="text" required placeholder="e.g., We sell expense management software to SMB finance teams." />
+            </div>
+          </fieldset>
+
+          <!-- Group 3: Your sales today -->
+          <fieldset class="diag-group">
+            <legend class="diag-group__h"><span class="diag-group__num">3</span> Your sales today</legend>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">Who is doing the selling right now?</p>
+              <label class="diag-radio"><input type="radio" name="sales-situation" value="Founder/CEO doing all the selling" required /><span>Founder / CEO is doing all the selling</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-situation" value="1-2 reps" /><span>1 to 2 dedicated reps</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-situation" value="3-5 reps" /><span>3 to 5 reps</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-situation" value="6+ reps" /><span>6 or more reps</span></label>
+            </div>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">Typical annual contract value (ACV)?</p>
+              <label class="diag-radio"><input type="radio" name="acv-range" value="Under $2K" required /><span>Under $2K</span></label>
+              <label class="diag-radio"><input type="radio" name="acv-range" value="$2K-$24K" /><span>$2K to $24K</span></label>
+              <label class="diag-radio"><input type="radio" name="acv-range" value="$25K-$50K" /><span>$25K to $50K</span></label>
+              <label class="diag-radio"><input type="radio" name="acv-range" value="$50K+" /><span>$50K or more</span></label>
+            </div>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">Typical sales cycle length?</p>
+              <label class="diag-radio"><input type="radio" name="sales-cycle" value="Same day" required /><span>Same day</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-cycle" value="1-14 days" /><span>1 to 14 days</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-cycle" value="15-30 days" /><span>15 to 30 days</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-cycle" value="31-90 days" /><span>31 to 90 days</span></label>
+              <label class="diag-radio"><input type="radio" name="sales-cycle" value="90+ days" /><span>90+ days</span></label>
+            </div>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">Sales motion?</p>
+              <label class="diag-radio"><input type="radio" name="motion-type" value="BDR/AE split" required /><span>Split: BDRs set, AEs close</span></label>
+              <label class="diag-radio"><input type="radio" name="motion-type" value="Full-cycle inside" /><span>Full-cycle inside sales (AEs prospect and close)</span></label>
+              <label class="diag-radio"><input type="radio" name="motion-type" value="Field/enterprise" /><span>Field or enterprise sales</span></label>
+              <label class="diag-radio"><input type="radio" name="motion-type" value="Founder-led only" /><span>Founder-led only (no formal motion yet)</span></label>
+            </div>
+          </fieldset>
+
+          <!-- Group 4: Your situation -->
+          <fieldset class="diag-group">
+            <legend class="diag-group__h"><span class="diag-group__num">4</span> Your situation</legend>
+
+            <div class="diag-field">
+              <label for="diag-problem">In one sentence, what's the main thing you're trying to fix?</label>
+              <textarea id="diag-problem" name="primary-problem" rows="3" required placeholder="e.g., We have wins but no repeatable system. Or: Some reps hit, most don't, and I don't know why."></textarea>
+            </div>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">When do you want to start?</p>
+              <label class="diag-radio"><input type="radio" name="timeline" value="ASAP - this week" required /><span>ASAP, this week</span></label>
+              <label class="diag-radio"><input type="radio" name="timeline" value="Within 30 days" /><span>Within 30 days</span></label>
+              <label class="diag-radio"><input type="radio" name="timeline" value="30-60 days" /><span>30 to 60 days</span></label>
+              <label class="diag-radio"><input type="radio" name="timeline" value="Just exploring" /><span>Just exploring for now</span></label>
+            </div>
+
+            <div class="diag-radios">
+              <p class="diag-radios__label">How did you hear about SAILS? (Optional)</p>
+              <label class="diag-radio"><input type="radio" name="referral-source" value="LinkedIn" /><span>LinkedIn</span></label>
+              <label class="diag-radio"><input type="radio" name="referral-source" value="Referral" /><span>Referral from a colleague or peer</span></label>
+              <label class="diag-radio"><input type="radio" name="referral-source" value="Podcast/content" /><span>Podcast or content</span></label>
+              <label class="diag-radio"><input type="radio" name="referral-source" value="Cold outreach from us" /><span>Cold outreach from SAILS</span></label>
+              <label class="diag-radio"><input type="radio" name="referral-source" value="Other" /><span>Other</span></label>
+            </div>
+          </fieldset>
+
+          <div class="diag-submit-row">
+            <button type="submit" class="btn btn--primary btn--lg">
+              <span class="form__submit-label">Send to Matt <span aria-hidden="true">→</span></span>
+              <span class="form__submit-loading" aria-hidden="true">Sending…</span>
+            </button>
+            <p class="diag-submit-note">Your answers go straight to Matt's inbox. No drip sequences, no newsletter, no sharing.</p>
+          </div>
+
+          <p class="diag-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: May 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+  <script src="diagnostic.js" defer></script>
+</body>
+</html>

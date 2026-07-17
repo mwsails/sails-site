@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="i-bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2a73"/>
+      <stop offset="100%" stop-color="#0D1B4B"/>
+    </radialGradient>
+    <linearGradient id="i-anchor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cfd8ee"/>
+    </linearGradient>
+    <linearGradient id="i-bar-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a72d0"/>
+      <stop offset="100%" stop-color="#2B60BE"/>
+    </linearGradient>
+    <linearGradient id="i-bar-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a8ee0"/>
+      <stop offset="100%" stop-color="#3a72d0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#i-bg)"/>
+
+  <!-- Background growth chart bars (left of anchor) -->
+  <g opacity="0.55">
+    <rect x="40"  y="200" width="28" height="60" rx="3" fill="url(#i-bar-1)"/>
+    <rect x="76"  y="180" width="28" height="80" rx="3" fill="url(#i-bar-1)"/>
+    <rect x="112" y="156" width="28" height="104" rx="3" fill="url(#i-bar-2)"/>
+    <rect x="148" y="132" width="28" height="128" rx="3" fill="url(#i-bar-2)"/>
+    <!-- Trend line connecting tops -->
+    <polyline points="54,196 90,176 126,152 162,128 200,108"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Trend arrow -->
+    <polygon points="200,108 192,108 196,100" fill="#ffffff"/>
+    <polygon points="200,108 208,112 200,116" fill="#ffffff"/>
+  </g>
+
+  <!-- Right side: large 3D-ish anchor (the "anchor" of a fixed-price engagement) -->
+  <g transform="translate(330 160)">
+    <!-- Top ring -->
+    <circle cx="0" cy="-78" r="14" fill="none" stroke="url(#i-anchor)" stroke-width="6"/>
+    <!-- Vertical shaft -->
+    <rect x="-4" y="-64" width="8" height="100" rx="2" fill="url(#i-anchor)"/>
+    <!-- Crossbar (stock) -->
+    <rect x="-32" y="-52" width="64" height="8" rx="2" fill="url(#i-anchor)"/>
+    <!-- Crossbar nubs -->
+    <circle cx="-32" cy="-48" r="5" fill="url(#i-anchor)"/>
+    <circle cx="32" cy="-48" r="5" fill="url(#i-anchor)"/>
+    <!-- Lower curved arc / arms -->
+    <path d="M -54 22 Q -50 56 0 56 Q 50 56 54 22"
+          fill="none" stroke="url(#i-anchor)" stroke-width="8" stroke-linecap="round"/>
+    <!-- Flukes (tips at the end of the arms) -->
+    <polygon points="-54,22 -64,18 -52,36" fill="url(#i-anchor)"/>
+    <polygon points="54,22 64,18 52,36" fill="url(#i-anchor)"/>
+    <!-- Subtle blue rim light -->
+    <ellipse cx="0" cy="56" rx="58" ry="6" fill="#2B60BE" opacity="0.25"/>
+  </g>
+
+  <!-- Decorative coin / value markers floating subtly -->
+  <g opacity="0.7">
+    <circle cx="248" cy="80" r="10" fill="#2B60BE"/>
+    <circle cx="248" cy="80" r="6" fill="#ffffff" opacity="0.85"/>
+    <circle cx="218" cy="58" r="6" fill="#ffffff" opacity="0.45"/>
+    <circle cx="278" cy="60" r="5" fill="#ffffff" opacity="0.35"/>
+  </g>
+
+  <!-- Subtle dotted horizon line -->
+  <line x1="20" y1="280" x2="460" y2="280" stroke="#5a8ee0" stroke-width="1" stroke-dasharray="2 6" opacity="0.4"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" aria-hidden="true">
+  <path d="M 0 40 Q 120 20 240 40 T 480 40 T 720 40 T 960 40 T 1200 40 T 1440 40 L 1440 80 L 0 80 Z"
+        fill="#0D1B4B" opacity="0.05"/>
+  <path d="M 0 50 Q 120 30 240 50 T 480 50 T 720 50 T 960 50 T 1200 50 T 1440 50"
+        fill="none" stroke="#2B60BE" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M 0 58 Q 180 42 360 58 T 720 58 T 1080 58 T 1440 58"
+        fill="none" stroke="#2B60BE" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
+</svg>

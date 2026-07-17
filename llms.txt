@@ -1,0 +1,100 @@
+# SAILS Advisory
+
+> B2B sales consulting for SaaS founders running velocity sales motions. Founded by Matt Weisman, former VP of Sales at a high-growth B2B SaaS company who managed a team of 30+ reps across BDR, AE, and account management.
+
+## What we do
+
+SAILS Advisory delivers an 8-week fixed-price sales consulting engagement with two tracks:
+
+- **Build track** is for founder-led teams with wins but no system. We extract the founder's playbook, document it, and make it teachable before the first AE hire.
+- **Scale track** is for teams with reps in seat but uneven results. We diagnose the funnel, rep performance distribution, and coaching cadence, then rebuild what isn't working.
+
+The engagement runs in three phases:
+
+- **Assess (weeks 1-2):** track-specific diagnostic. Build track gets a GTM Foundations Brief (ICP, positioning, motion fit). Scale track gets an Audit Report with 3 to 5 prioritized quick wins.
+- **Build (weeks 3-6):** universal. Produces a 20-30 page Sales Playbook covering ICP, messaging, pipeline stages, discovery and demo frameworks, outbound sequence design, meeting cadence, KPIs, hiring profile, and org structure. Plus an Outbound Sequence Framework, KPI Tracking Template, Org Structure Recommendation, and Meeting Structure Recommendation.
+- **Coach (weeks 5-8):** universal. 4 bi-weekly working sessions with sales leader or founder, implementation support, async support between sessions.
+
+The engagement is async-first. Most of the work happens between meetings.
+
+## What is velocity sales?
+
+Velocity sales is a B2B sales motion built around short cycles, transactional buyers, and high-volume rep activity. ACVs typically run $2,000 to $24,000. Deal cycles close inside 90 days, often under 14. Reps work as BDR/AE pairs or full-cycle inside sales. The opposite of enterprise sales, where six-figure ACVs and 12-month cycles reward MEDDIC, multi-threading, and committee navigation.
+
+## Who it's for
+
+- B2B SaaS companies, pre or at Series A
+- ACV $2,000 to $24,000
+- Sales cycles under 90 days (sweet spot under 14)
+- BDR/AE or full-cycle inside sales motions
+- 0 to 10 reps in seat
+- Founder-led sales that needs to scale, or teams with reps in place but uneven results
+
+## Who it's not for
+
+- Enterprise sales motions ($250K+ ACV, 12-month cycles, 6+ decision-makers)
+- Pre-revenue or pre-product stages
+- Companies looking for a fractional VP of Sales to manage the team day-to-day
+
+## Pricing
+
+- 8-week engagement: fixed-price, scope-bound. Investment shared during the discovery conversation, scaled to the right track. Founding cohort rates available for the first few clients.
+- Payment: 50% at signing, 50% at Coach phase start.
+- Optional coaching retainer post-engagement: $2,000/month.
+
+## Founder
+
+Matt Weisman. 8+ years scaling sales at a high-growth B2B SaaS company. Joined as an early sales hire and grew into VP of Sales, managing a team of 30+ reps across BDR, AE, and account management. Built the outbound SMB motion from scratch. Scaled AE demos from ~100/year in 2018 to 10,000+/year by 2023. Grew ARR 6x over five years. Authored the AE Playbook used across segments. Launched a new financial institution vertical from zero and engineered a 5x increase in average deal size in under 24 months.
+
+## Blog (Field Notes)
+
+Practical, opinionated writing for B2B SaaS founders and revenue leaders running velocity sales motions. Authored by Matt Weisman.
+
+- [Why Two Reps Hit Quota and Two Don't (It's Not the Reps)](https://sailsadvisory.com/blog/why-two-reps-hit-quota.html): Why uneven sales team performance is almost never a talent problem, and the three real causes of inconsistent quota attainment.
+- [MEDDIC Doesn't Work for $10K Deals: A Better Framework for Velocity Sales](https://sailsadvisory.com/blog/meddic-velocity-sales.html): Why MEDDIC breaks for short-cycle, low-ACV B2B SaaS motions and what velocity sales actually needs instead.
+- [When to Stop Selling as Founder: 3 Signals You're Ready to Hand Off](https://sailsadvisory.com/blog/when-to-stop-selling-as-founder.html): The three clear signals that founder-led sales has become your ceiling, plus what the handoff actually looks like.
+- [The First AE Hire: Profile, Comp, and 90-Day Ramp Plan for Velocity SaaS](https://sailsadvisory.com/blog/first-ae-hire-velocity-saas.html): The profile, comp structure, and 90-day ramp plan that actually works for a first AE hire in a velocity SaaS sales motion.
+- [What Goes in a B2B SaaS Sales Playbook (The 9 Components)](https://sailsadvisory.com/blog/b2b-saas-sales-playbook-components.html): The 9 components of a real B2B SaaS sales playbook, what separates a working playbook from a slide deck nobody reads, and how long it takes to build one.
+- [How Long Should a SaaS Demo Be? The 25-Minute Rule](https://sailsadvisory.com/blog/saas-demo-length-25-minute-rule.html): Why most SaaS demos are twice as long as they should be for velocity sales, and the 25-minute structure that wins more deals.
+- [The 5 Velocity Sales Metrics That Actually Predict Revenue](https://sailsadvisory.com/blog/velocity-sales-metrics.html): The 5 leading indicators that fire 30-60 days ahead of revenue: lead response time, demo conversion rate, sales cycle length by channel, pipeline coverage, and rep activity to outcome ratio.
+- [Sales Coaching vs Pipeline Inspection: How to Tell the Difference](https://sailsadvisory.com/blog/coaching-vs-pipeline-inspection.html): Why most sales "coaching" is pipeline inspection in disguise, 5 diagnostic questions to tell the difference, and how to restructure your meeting cadence.
+- [Fractional VP of Sales vs Sales Consultant: Which to Hire and When](https://sailsadvisory.com/blog/fractional-vp-vs-sales-consultant.html): The honest difference between hiring a fractional VP (interim manager, ongoing retainer) and a sales consultant (project-based system build), the trap most founders fall into, and how to pick for your B2B SaaS stage.
+- [MEDDIC vs SPIN vs Sandler: Which Sales Framework for Your B2B SaaS Motion](https://sailsadvisory.com/blog/meddic-vs-spin-vs-sandler.html): The three most-adopted B2B sales frameworks, each built for a different motion. Side-by-side comparison plus why velocity B2B SaaS often needs a custom hybrid playbook rather than a borrowed framework.
+- [Enterprise vs Velocity Sales Consultants: How to Choose for Your Stage](https://sailsadvisory.com/blog/enterprise-vs-velocity-sales-consultants.html): The category divide between enterprise-focused consulting firms (Winning by Design, Force Management, Sandler, Richardson) and velocity-focused firms. How to tell which type your B2B SaaS actually needs based on ACV, cycle length, team size, and budget.
+- [BANT vs MEDDIC: Which Qualification Framework for B2B SaaS](https://sailsadvisory.com/blog/bant-vs-meddic-qualification.html): BANT (1950s, lightweight) vs MEDDIC (1990s, enterprise-heavy). Honest comparison of when each fits, plus the custom hybrid most velocity B2B SaaS teams should use instead of either.
+- [BDR vs SDR vs AE: What's the Actual Difference for B2B SaaS](https://sailsadvisory.com/blog/bdr-vs-sdr-vs-ae.html): Three pipeline generation and closing roles, one is for closing. What each role actually does day-to-day, comp structure, and how to structure a B2B SaaS sales team for velocity motions.
+- [How to Build a Sales Playbook From Scratch (Step-by-Step)](https://sailsadvisory.com/blog/how-to-build-a-sales-playbook.html): A practical week-by-week guide to building a working B2B SaaS sales playbook from zero. Order of operations: ICP first, then messaging, pipeline stages, discovery and demo frameworks, outbound sequences, KPI framework, and hiring profile last.
+- [How to Handle the 'Send Me More Info' Stall: 4 Responses That Work](https://sailsadvisory.com/blog/send-me-more-info-stall.html): The most common stall in B2B SaaS sales. Why it's almost never a real request, and four specific responses (diagnostic question, honest reframe, path forward, should-I-stop) that surface the real objection.
+- [B2B SaaS Sales Playbook From $0 to $1M ARR: A Founder's Guide](https://sailsadvisory.com/blog/sales-playbook-zero-to-1m-arr.html): What to build, hire, measure, and skip on the road from zero to first million in ARR. Three phases ($0-$100K, $100K-$500K, $500K-$1M) with stage-specific priorities and the 5 most common traps.
+- [How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)](https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html): Three forecasting methods that work at small data volumes (Commit + Best Case, Run-rate × seasonality, Stage-weighted pipeline), plus what to track now so future forecasts get more accurate. How to present forecasts to investors.
+- [Inbound vs Outbound for B2B SaaS: When to Lead With Which](https://sailsadvisory.com/blog/inbound-vs-outbound-b2b-saas.html): Inbound compounds slower but converts higher. Outbound starts faster but burns harder. Honest side-by-side comparison and why most pre-Series A B2B SaaS should lead with outbound, then add inbound 12-18 months in.
+- [How to Design a Sales Comp Plan From Scratch (For B2B SaaS)](https://sailsadvisory.com/blog/how-to-design-sales-comp-plan.html): A working framework for your first B2B SaaS sales compensation plan. Six components (base, variable, OTE, quota, commission rate, accelerators), benchmarks for velocity SaaS, sample comp plan, and the 6 common mistakes.
+- [B2B SaaS Sales Playbook From $1M to $5M ARR: Building the Team](https://sailsadvisory.com/blog/sales-playbook-1m-to-5m-arr.html): The most failure-prone stage in B2B SaaS. Three phases ($1M-$2M First AE Era, $2M-$3.5M Scalable Motion Era, $3.5M-$5M Pre-VP Era) with what to build, hire, and skip. Includes the 7 common traps.
+- [Inside Sales vs Outside Sales: When Each Fits in B2B SaaS](https://sailsadvisory.com/blog/inside-vs-outside-sales.html): Inside sales runs from a desk (remote-first, high-velocity, $1K-$100K ACV). Outside sales runs in the field (relationship-first, $50K-$1M+ ACV). When each fits in modern B2B SaaS and the hybrid that's becoming the default.
+
+## Resources
+
+Free templates and frameworks for B2B SaaS founders running velocity sales motions. Each is gated by a name and email to download.
+
+- [Funnel Conversion KPI Tracker](https://sailsadvisory.com/resources/) — Excel template to track funnel performance by channel (outbound, inbound, referral, events, partner). Tracks monthly volume, connect rate, set rate, keep rate, opp rate, and close rate. Surfaces where the funnel actually breaks.
+- [The First AE Hire Scorecard](https://sailsadvisory.com/resources/) — 8-page PDF with the interview process, 10-dimension weighted scorecard, compensation benchmarks (base, OTE, quota, accelerators), and a week-by-week 90-day ramp plan for hiring the first AE in a B2B SaaS velocity sales motion.
+- [The 25-Minute Demo Framework](https://sailsadvisory.com/resources/) — 7-page PDF with the minute-by-minute structure of a 25-minute SaaS demo: recap and confirm (0-3 min), targeted walkthrough (3-18 min), pricing and packaging (18-22 min), the ask (22-25 min). Includes talk tracks, a pre-demo checklist, and a same-day follow-up email template.
+- [The Velocity Outbound Sequence Builder](https://sailsadvisory.com/resources/) — Excel template with a pre-built 12-touch, 14-day outbound sequence across email, phone, and LinkedIn. Includes copy frameworks per touch, channel mix recommendations, a tracking sheet, and healthy benchmarks for response rates and meeting rates.
+- [The Sales Comp Plan Builder](https://sailsadvisory.com/resources/) — Live Excel calculator for designing B2B SaaS comp plans. Enter base salary, base-to-variable ratio, and quota multiple; it computes OTE, commission rate, accelerator bands, and rep take-home at 60% to 150% attainment. Includes role benchmarks for BDR/SDR, SMB AE, mid-market AE, and enterprise AE.
+- [The Velocity Discovery Framework](https://sailsadvisory.com/resources/) — 7-page PDF with the 5-question discovery structure for velocity sales (trigger, current state, cost, path, timeline), talk tracks, branching logic for sideways answers, a 5-point deal scoring rubric, and pre/post-call checklists.
+- [The Sales Playbook Starter Template](https://sailsadvisory.com/resources/) — 8-page fill-in PDF with the 9-section skeleton of a working B2B SaaS sales playbook. Each section has prompts to answer, a week-by-week build sequence in dependency order, and a "done when" test.
+
+## Free Calculators
+
+Interactive tools, no email required. All compute live in the browser.
+
+- [Reverse Funnel Calculator](https://sailsadvisory.com/tools/reverse-funnel/) — Start from an annual ARR goal and work backward: deals per month, qualified opps, demos held and booked, outbound touches per month and per day, and the outbound rep capacity the goal implies. Pre-loaded with velocity sales benchmark conversion rates.
+- [Pipeline Coverage Calculator](https://sailsadvisory.com/tools/pipeline-coverage/) — Enter quarterly quota, qualified pipeline, and win rate. Returns coverage ratio with a healthy/thin/at-risk verdict (healthy is 3x-4x), projected attainment, and the dollar gap to 3x and 4x coverage.
+- [Lead Response Time Cost Calculator](https://sailsadvisory.com/tools/lead-response-cost/) — Estimates monthly and annual revenue lost to slow inbound lead follow-up versus a 5-minute response, based on inbound volume, ACV, close rate, and current response speed.
+
+## Contact
+
+- Email: matt@sailsadvisory.com
+- Website: https://sailsadvisory.com/
+- Blog index: https://sailsadvisory.com/blog/
+- Resources index: https://sailsadvisory.com/resources/

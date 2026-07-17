@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Velocity Discovery Framework · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B; --blue: #2B60BE; --ink: #0B1230; --ink-2: #3A4366;
+    --gray: #F4F5F7; --gray-2: #E5E7EE; --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 46pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.35in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+  h1.section-h { font-family: var(--serif); font-size: 26pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.25in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.4in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 14pt; font-weight: 700; color: var(--ink); margin: 0.3in 0 0.1in; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.3in; }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+  .qblock { display: flex; gap: 0.25in; margin-bottom: 0.22in; padding: 0.18in 0.2in; border-left: 4px solid var(--blue); background: var(--gray); border-radius: 0 6px 6px 0; }
+  .qblock__num { font-family: var(--serif); font-size: 22pt; font-weight: 700; color: var(--blue); min-width: 0.5in; line-height: 1; }
+  .qblock__content { flex: 1; }
+  .qblock__h { font-family: var(--sans); font-size: 11.5pt; font-weight: 700; color: var(--ink); margin: 0 0 0.06in; }
+  .qblock__body { font-size: 10pt; line-height: 1.5; color: var(--ink-2); margin: 0; }
+  .talktrack { background: var(--gray); border-left: 4px solid var(--ink); padding: 0.16in 0.2in; margin: 0.12in 0; border-radius: 0 6px 6px 0; }
+  .talktrack__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.05in; }
+  .talktrack__body { font-family: var(--serif); font-style: italic; font-size: 11pt; line-height: 1.5; color: var(--ink); margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.3in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.1in 0.14in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 0.06in 0 0.06in 0.28in; position: relative; font-size: 10.5pt; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.13in; width: 14px; height: 14px; border: 1.5px solid var(--blue); border-radius: 3px; }
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Founders &amp; Reps</div>
+    <h1 class="cover__title">The Velocity Discovery <span class="accent">Framework.</span></h1>
+    <p class="cover__sub">Five questions, twenty minutes, one clear next step. The discovery structure for B2B SaaS velocity sales, with talk tracks and branching logic for the conversations that actually happen.</p>
+    <p class="cover__meta">7 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — Principle -->
+<section class="page">
+  <div class="page__header"><span>The Principle</span><span>Page 2 of 7</span></div>
+  <h1 class="section-h">Discovery in velocity sales is 20 minutes. Not 45.</h1>
+
+  <p class="lead">Enterprise discovery is an excavation: an hour of layered questions to map a committee's politics. Velocity discovery is a filter: five questions that tell you whether this deal deserves a demo, asked fast enough that the buyer doesn't lose patience.</p>
+
+  <h3 class="h3">What velocity discovery has to accomplish</h3>
+  <ul>
+    <li><strong>Qualify in or out.</strong> Does this buyer match the ICP? If not, end gracefully and save both of you an hour.</li>
+    <li><strong>Surface the trigger.</strong> Why are they talking to you this week instead of last quarter? The trigger predicts urgency better than anything they say about budget.</li>
+    <li><strong>Get the pain in their words.</strong> You'll replay their exact phrasing in the demo. Their words, not your pitch.</li>
+    <li><strong>Map the path to yes.</strong> Who signs, what they're comparing you against, and when they want this solved.</li>
+    <li><strong>Book the demo before hanging up.</strong> Discovery that ends with "I'll send some times" loses a third of its conversions. Calendar invite goes out during the call.</li>
+  </ul>
+
+  <h3 class="h3">What it does NOT have to accomplish</h3>
+  <ul>
+    <li>Building rapport for 10 minutes. Two minutes of human warmth, then work.</li>
+    <li>A full needs analysis. That's what the demo customization is for.</li>
+    <li>Multi-threading. At $2K-$24K ACVs there is usually one buyer. Find them, talk to them.</li>
+    <li>Pricing negotiation. Price comes up at the demo, on your terms, not as a discovery ambush.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Discovery Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — The Five Questions (1-3) -->
+<section class="page">
+  <div class="page__header"><span>The Five Questions</span><span>Page 3 of 7</span></div>
+  <h1 class="section-h">The five questions, in order.</h1>
+  <h2 class="section-sub">Order matters. Each question earns the right to ask the next one.</h2>
+
+  <div class="qblock">
+    <div class="qblock__num">1</div>
+    <div class="qblock__content">
+      <p class="qblock__h">The trigger question</p>
+      <p class="qblock__body">"What made you reach out now?" (inbound) or "What made you take this call?" (outbound). The answer reveals urgency, the event that created the search, and often the internal politics. A buyer with a real trigger ("our spreadsheet broke during board prep") closes 3x faster than one who is "just looking around."</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">2</div>
+    <div class="qblock__content">
+      <p class="qblock__h">The current-state question</p>
+      <p class="qblock__body">"How are you handling this today?" Gets you the incumbent — a competitor, a spreadsheet, a manual process, or nothing. Each one changes your demo. Competing with a spreadsheet means selling time savings. Competing with a rival product means selling the delta.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">3</div>
+    <div class="qblock__content">
+      <p class="qblock__h">The cost question</p>
+      <p class="qblock__body">"What's it costing you to keep doing it that way?" Hours, dollars, deals lost, churn risk, founder sanity. If the buyer can't articulate a cost, the deal will stall at the proposal stage, because nobody buys a fix for a free problem. Help them put a number on it now and the close gets easier later.</p>
+    </div>
+  </div>
+
+  <div class="talktrack">
+    <p class="talktrack__h">If the buyer can't name a cost</p>
+    <p class="talktrack__body">"Let me ask it differently: if this stayed exactly the way it is for the next 12 months, what happens?" Silence means low urgency. A wince means there's a cost they haven't said out loud yet.</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Discovery Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — The Five Questions (4-5) -->
+<section class="page">
+  <div class="page__header"><span>The Five Questions</span><span>Page 4 of 7</span></div>
+
+  <div class="qblock">
+    <div class="qblock__num">4</div>
+    <div class="qblock__content">
+      <p class="qblock__h">The path question</p>
+      <p class="qblock__body">"If the demo shows you what you need, what happens next on your end?" One question that surfaces three things: who signs, what the approval process looks like, and whether there's a hidden stakeholder. In velocity sales the answer is usually simple ("I'd sign up") — and when it isn't, you just learned that before the demo instead of after the proposal.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">5</div>
+    <div class="qblock__content">
+      <p class="qblock__h">The timeline question</p>
+      <p class="qblock__body">"When do you want this solved by?" Not "what's your timeline" (invites vagueness) but "when do you want this solved by" (invites a date). Anchor the rest of the deal to their date. If they say "no rush," pair it with the trigger answer: a real trigger with no rush usually means a hidden blocker. Ask about it.</p>
+    </div>
+  </div>
+
+  <h3 class="h3">Then stop asking questions</h3>
+  <p>Five questions, honestly answered, is enough to qualify a velocity deal. The instinct to keep digging comes from enterprise training. Resist it. Every additional question past the point of qualification spends buyer patience you'll want at the demo.</p>
+
+  <h3 class="h3">The close of the discovery call</h3>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track — book the demo live</p>
+    <p class="talktrack__body">"Based on what you've told me, this is worth 25 minutes of your time. I'll show you exactly how we handle [their pain, their words]. I have [day] at [time] or [day] at [time] — which works? ... Great, invite is on its way before we hang up."</p>
+  </div>
+  <p>Send the calendar invite during the call. Confirm they accepted before ending. This single habit lifts demo show rates by double digits.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Discovery Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — Branching logic -->
+<section class="page">
+  <div class="page__header"><span>Branching Logic</span><span>Page 5 of 7</span></div>
+  <h1 class="section-h">When the answers go sideways.</h1>
+
+  <table>
+    <thead>
+      <tr><th>What you hear</th><th>What it means</th><th>What to do</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>"Just doing research."</strong></td>
+        <td>No trigger. Low urgency.</td>
+        <td>Shorten the call. Offer a resource instead of a demo. Set a 60-day follow-up. Do not push a demo on a researcher.</td>
+      </tr>
+      <tr>
+        <td><strong>"My boss told me to look into this."</strong></td>
+        <td>You're talking to a scout, not the buyer.</td>
+        <td>Treat the scout as an ally: "What does your boss need to see to feel good about this?" Then ask to have the boss at the demo.</td>
+      </tr>
+      <tr>
+        <td><strong>"We're comparing 3 or 4 tools."</strong></td>
+        <td>Active evaluation. Real deal, real competition.</td>
+        <td>Ask: "What would make one of them the obvious winner?" Their criteria becomes your demo agenda.</td>
+      </tr>
+      <tr>
+        <td><strong>"We tried a tool like yours and it didn't stick."</strong></td>
+        <td>Burned buyer. Skepticism, not resistance.</td>
+        <td>Ask exactly why it failed. Address that specific failure in the demo before anything else.</td>
+      </tr>
+      <tr>
+        <td><strong>"What does this cost?" (early)</strong></td>
+        <td>Either price-sensitive or efficiency-minded.</td>
+        <td>Give the range immediately and confidently, then: "Is that in the realm of workable?" Hiding price loses velocity buyers.</td>
+      </tr>
+      <tr>
+        <td><strong>Answers are vague on every question</strong></td>
+        <td>Not a real evaluation.</td>
+        <td>Qualify out politely. "It sounds like the timing might not be right — totally fine. Want me to check back in a quarter?"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Discovery Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Scoring + checklist -->
+<section class="page">
+  <div class="page__header"><span>Scoring the Call</span><span>Page 6 of 7</span></div>
+  <h1 class="section-h">Qualify in or out, on paper.</h1>
+  <h2 class="section-sub">After every discovery call, score the deal in under a minute. Five dimensions, one point each.</h2>
+
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>1 point if…</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Trigger</strong></td><td>A specific event created this search (not "just looking").</td></tr>
+      <tr><td><strong>Fit</strong></td><td>Company and persona match the ICP rubric.</td></tr>
+      <tr><td><strong>Cost</strong></td><td>Buyer articulated a real cost of the status quo.</td></tr>
+      <tr><td><strong>Path</strong></td><td>You know who signs and how the approval works.</td></tr>
+      <tr><td><strong>Timeline</strong></td><td>Buyer named a date they want this solved by.</td></tr>
+    </tbody>
+  </table>
+
+  <ul>
+    <li><strong>4-5 points:</strong> Demo booked, deal in pipeline at full confidence.</li>
+    <li><strong>3 points:</strong> Demo booked, but flag the missing dimension and resolve it at the demo.</li>
+    <li><strong>0-2 points:</strong> Nurture, don't demo. Resource + scheduled follow-up.</li>
+  </ul>
+
+  <h3 class="h3">Pre-call checklist (5 minutes before)</h3>
+  <ul class="checklist">
+    <li>Looked at their website and noted one specific thing to reference.</li>
+    <li>Checked the lead source and any form answers they gave.</li>
+    <li>Confirmed their title matches a persona in the ICP rubric.</li>
+    <li>Calendar open to book the demo live.</li>
+    <li>CRM record open to score the call immediately after.</li>
+  </ul>
+
+  <h3 class="h3">Post-call workflow (within 15 minutes)</h3>
+  <ul class="checklist">
+    <li>Score the deal (5-point rubric above) and log it in CRM.</li>
+    <li>Write the pain in the buyer's exact words in the opportunity record.</li>
+    <li>Confirm the demo invite was accepted.</li>
+    <li>Send a 3-line recap email: what you heard, what the demo will cover, when it is.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Discovery Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — CTA -->
+<section class="page">
+  <div class="page__header"><span>Next Steps</span><span>Page 7 of 7</span></div>
+  <h1 class="section-h">Making this stick on your team.</h1>
+
+  <p class="lead">A framework on paper changes nothing. The shift happens when every rep runs the same five questions, every call gets scored, and call reviews inspect against the structure week after week.</p>
+
+  <h3 class="h3">Three changes to make this stick</h3>
+  <ul>
+    <li><strong>Put the five questions in the CRM.</strong> Five fields on the opportunity record. A deal can't advance to demo stage until they're filled.</li>
+    <li><strong>Review two recorded discovery calls per rep per week.</strong> Inspect for the structure, not the style. Reps keep their own voice.</li>
+    <li><strong>Track discovery-to-demo and demo-show rates.</strong> Both lift within 30 days when the framework is actually being run.</li>
+  </ul>
+
+  <h3 class="h3">When to bring in outside help</h3>
+  <p>If your reps each run their own version of discovery and the results are uneven across the team, the issue is almost never talent. It's that the framework lives in your best rep's head instead of in a document everyone trains on.</p>
+
+  <p>The Build phase of the SAILS engagement produces the documented discovery framework (customized to your ICP and buyers), and the Coach phase installs it through bi-weekly call review sessions.</p>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>30 minutes. No deck. And yes — we run this exact framework on you, so you'll feel it from the buyer's side.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <h3 class="h3">Related resources</h3>
+  <ul>
+    <li><strong>The 25-Minute Demo Framework</strong> — What happens after discovery qualifies the deal. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>The Velocity Outbound Sequence Builder</strong> — How the discovery call gets booked in the first place. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>Blog: BANT vs MEDDIC</strong> — Where this framework sits relative to the named methodologies. <em>sailsadvisory.com/blog</em></li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>

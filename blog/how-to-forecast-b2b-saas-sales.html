@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Forecast B2B SaaS Sales (When Pipeline Is Still Building) · SAILS Advisory</title>
+  <meta name="description" content="Forecasting B2B SaaS sales is hard when you have less than 90 days of pipeline data. Three forecasting methods that work at small data volumes, plus what to track to make next quarter easier." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)" />
+  <meta property="og:description" content="Three forecasting methods that work at small data volumes, plus what to track to make next quarter easier." />
+  <meta property="og:url" content="https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+  <meta property="article:published_time" content="2026-06-01" />
+  <meta property="article:modified_time" content="2026-06-01" />
+  <meta property="article:author" content="Matt Weisman" />
+  <meta property="article:section" content="Sales Operations" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)" />
+  <meta name="twitter:description" content="Three forecasting methods that work at small data volumes." />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style.css?v=4" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html#post",
+        "headline": "How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)",
+        "description": "Forecasting B2B SaaS sales is hard when you have less than 90 days of pipeline data. Three forecasting methods that work at small data volumes.",
+        "datePublished": "2026-06-01",
+        "dateModified": "2026-06-01",
+        "author": { "@type": "Person", "@id": "https://sailsadvisory.com/#matt", "name": "Matt Weisman", "jobTitle": "Founder, SAILS Advisory" },
+        "publisher": { "@type": "Organization", "@id": "https://sailsadvisory.com/#organization", "name": "SAILS Advisory", "url": "https://sailsadvisory.com/", "logo": "https://sailsadvisory.com/assets/sails-logo.png" },
+        "image": "https://sailsadvisory.com/assets/hero-sail.png",
+        "mainEntityOfPage": "https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html",
+        "wordCount": 1520,
+        "articleSection": "Sales Operations",
+        "keywords": ["B2B SaaS sales forecasting", "sales forecast methods", "pipeline forecasting", "early stage forecasting"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sailsadvisory.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sailsadvisory.com/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "How to Forecast B2B SaaS Sales" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../#engagement">The Engagement</a>
+        <a href="../#fit">Who It's For</a>
+        <a href="../#about">About</a>
+        <a href="../#investment">Investment</a>
+        <a href="./">Blog</a>
+        <a href="../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <article class="post">
+      <header class="post-header">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="../">Home</a></li>
+              <li><a href="./">Blog</a></li>
+              <li aria-current="page">How to Forecast B2B SaaS Sales</li>
+            </ol>
+          </nav>
+          <p class="kicker kicker--light">Sales Operations</p>
+          <h1 class="post__h">How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)</h1>
+          <p class="post__dek">Forecasting is hard when you have less than 90 days of pipeline data. Three methods that work at small data volumes, plus what to track now so next quarter is easier.</p>
+          <div class="post__meta">
+            <span>By Matt Weisman</span>
+            <span aria-hidden="true">·</span>
+            <time datetime="2026-06-01">June 1, 2026</time>
+            <span aria-hidden="true">·</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <div class="container">
+          <p>Sales forecasting at a B2B SaaS startup is statistically broken. You have 8 to 30 deals in pipeline. Maybe 50. Win rates swing 20 points quarter to quarter. Cycle lengths vary by 60 days depending on the buyer. And your investor wants a quarterly number.</p>
+
+          <p>Enterprise forecasting frameworks (probability-weighted pipeline, MEDDIC-scored stage progression, sophisticated CRM forecasting modules) all assume you have enough deals for the averages to mean something. You don't. Not yet.</p>
+
+          <p>Here are three forecasting methods that actually work at small data volumes, ranked from least to most rigorous. Plus what to track now so the math gets easier over time.</p>
+
+          <h2>The TL;DR</h2>
+
+          <p>Use multiple methods and compare them. Each one has a different bias. The truth is usually somewhere between them.</p>
+
+          <ul>
+            <li><strong>Method 1: Commit + Best Case</strong> — Reps commit to deals they're confident in. Best case = stretch upside. Simple, honest, fast.</li>
+            <li><strong>Method 2: Run-rate × seasonality</strong> — Average closed-won per month × number of months × seasonal adjustment. Ignores pipeline entirely. Useful sanity check.</li>
+            <li><strong>Method 3: Stage-weighted pipeline</strong> — Each pipeline stage has a historical win rate. Multiply pipeline value by stage weight. The standard model, but only reliable once you have ~50 closed deals to compute stage weights.</li>
+          </ul>
+
+          <h2>Method 1: Commit + Best Case</h2>
+
+          <p>The simplest method. Used by most founder-led teams and small sales orgs because it doesn't require statistical confidence in stage weights.</p>
+
+          <p>How it works:</p>
+
+          <ul>
+            <li><strong>Commit:</strong> Deals you're confident will close this period. The rep is willing to put their commission on it.</li>
+            <li><strong>Best case:</strong> Deals that could close this period if things break right. Includes the commit deals plus stretch opportunities.</li>
+          </ul>
+
+          <p>Your forecast lives between commit and best case. Internally, you call the number 70-80% of best case for investors (because best case is optimistic by design).</p>
+
+          <p>This method works because it relies on rep judgment, which is the most accurate signal when sample sizes are too small for statistics. The downside: it's heavily influenced by rep psychology. Pessimistic reps under-commit. Optimistic reps over-commit. Calibrate by comparing each rep's last 3 commits to what they actually closed.</p>
+
+          <p>Best for: 0 to 5 reps. Less than 30 deals per quarter.</p>
+
+          <h2>Method 2: Run-rate × seasonality</h2>
+
+          <p>Ignore pipeline entirely. Look at what you closed in the last 3 months. Take the monthly run-rate. Adjust for seasonality if you have a year of data. Project forward.</p>
+
+          <p>Example: Last 3 months you closed $25K, $30K, $35K. Run-rate = $30K/month. Next quarter forecast = $90K, adjusted for any seasonal patterns.</p>
+
+          <p>This method is dumb on purpose. It doesn't care what's in pipeline, what reps think, or what's "supposed to close." It just looks at trailing reality.</p>
+
+          <p>When it's useful: as a sanity check against your pipeline-based forecast. If pipeline math says $300K and run-rate math says $90K, one of those numbers is wrong. Usually the pipeline number is wrong.</p>
+
+          <p>The trap: it doesn't capture growth or step-change events. If you just hired a second AE who'll start producing in 60 days, run-rate math doesn't see it. If a 10x larger deal is about to land, run-rate doesn't see it either.</p>
+
+          <h2>Method 3: Stage-weighted pipeline</h2>
+
+          <p>The standard B2B SaaS forecasting model. Each pipeline stage has a historical close rate. Multiply pipeline value by the close rate to get an expected value. Sum across all stages. That's your forecast.</p>
+
+          <p>Example stage weights:</p>
+
+          <div class="compare reveal">
+            <div class="compare__wrap">
+              <table class="compare__table">
+                <thead>
+                  <tr><th scope="col">Stage</th><th scope="col">Historical win rate</th><th scope="col">Pipeline value</th><th scope="col">Expected value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Discovery</th><td>15%</td><td>$200K</td><td>$30K</td></tr>
+                  <tr><th scope="row">Demo</th><td>30%</td><td>$150K</td><td>$45K</td></tr>
+                  <tr><th scope="row">Proposal</th><td>55%</td><td>$80K</td><td>$44K</td></tr>
+                  <tr><th scope="row">Negotiation</th><td>75%</td><td>$40K</td><td>$30K</td></tr>
+                  <tr><th scope="row">Verbal</th><td>90%</td><td>$25K</td><td>$22.5K</td></tr>
+                  <tr><th scope="row"><strong>Forecast</strong></th><td></td><td><strong>$495K total pipeline</strong></td><td><strong>$171.5K expected</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p>This is rigorous and works well once you have enough data. It also fails badly when you don't.</p>
+
+          <p>How much data do you need? Roughly 30-50 closed deals per stage to have stable close rates. If a stage has only 3 deals that have ever moved through it, the "win rate" is just noise.</p>
+
+          <p>Best for: 5+ reps, 100+ deals per quarter, 12+ months of historical data.</p>
+
+          <h2>What to track now so future forecasting is easier</h2>
+
+          <p>If you're early stage, the forecasts will be noisy regardless of method. The path to better forecasting is data hygiene. Three things to lock down now:</p>
+
+          <p><strong>1. Stage exit criteria.</strong> Every pipeline stage needs documented criteria for what has to be true to enter and exit. Without this, deals sit in the wrong stage and your stage weights become meaningless. (Read more: <a href="how-to-build-a-sales-playbook.html">How to Build a Sales Playbook</a>.)</p>
+
+          <p><strong>2. Deal close date discipline.</strong> Reps need to update close dates weekly. Stale close dates from 60 days ago make every forecast wrong. A weekly pipeline review with explicit close date confirmation per deal fixes this.</p>
+
+          <p><strong>3. Source tracking.</strong> Tag every deal with its source (inbound, outbound, referral, event, partner). Channels have very different conversion rates. Aggregating them hides the truth. (Read more: <a href="velocity-sales-metrics.html">The 5 Velocity Sales Metrics</a>.)</p>
+
+          <p>If you fix these three things, you can use any of the methods above and the numbers will get noticeably more reliable within a quarter.</p>
+
+          <h2>How to present the forecast to investors</h2>
+
+          <p>Three numbers, every quarter:</p>
+
+          <ul>
+            <li><strong>Commit:</strong> What we're confident will close.</li>
+            <li><strong>Forecast:</strong> Our best estimate of the period.</li>
+            <li><strong>Best case:</strong> The upside if everything breaks right.</li>
+          </ul>
+
+          <p>Always present all three. A single number invites the investor to anchor on it and treat the variance as failure. A range invites a conversation about probability.</p>
+
+          <p>Be specific about assumptions. "We're forecasting $150K. This assumes our top 3 deals (Acme, Beta, Charlie) close as expected. If Beta slips, we land closer to $100K. If we close all three plus the stretch deal we're working at Delta, we hit $200K."</p>
+
+          <h2>The trap most founders fall into</h2>
+
+          <p>Trying to forecast with confidence you don't have. You have 12 deals in pipeline. The math says $180K. You tell the board $180K. The deals don't close on the timeline you thought. You miss the number. Investor confidence drops.</p>
+
+          <p>The right move: forecast a range, explain your assumptions, and be honest about how thin the data is. Investors fund pattern recognition, not point estimates. They want to see that you understand your motion well enough to know what you don't know.</p>
+
+          <h2>Where SAILS fits</h2>
+
+          <p>The Build phase of the SAILS engagement produces a documented KPI framework including a forecasting methodology calibrated to your stage and data volume. The Coach phase then implements weekly pipeline review cadence that surfaces forecast risk 30 to 60 days early.</p>
+
+          <div class="post-cta-inline">
+            <p><strong>If forecasts keep surprising you</strong> (in either direction), the problem is almost always upstream of forecasting — in stage definitions or pipeline review cadence. Book a 30-minute discovery call to talk through where the leak is.</p>
+            <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <section class="related">
+        <div class="container">
+          <h2 class="related__h">Keep reading</h2>
+          <div class="related__grid">
+            <a class="related__card" href="velocity-sales-metrics.html">
+              <p class="related__topic">Metrics</p>
+              <p class="related__title">The 5 Velocity Sales Metrics That Actually Predict Revenue</p>
+            </a>
+            <a class="related__card" href="how-to-build-a-sales-playbook.html">
+              <p class="related__topic">Playbooks</p>
+              <p class="related__title">How to Build a Sales Playbook From Scratch (Step-by-Step)</p>
+            </a>
+            <a class="related__card" href="coaching-vs-pipeline-inspection.html">
+              <p class="related__topic">Coaching</p>
+              <p class="related__title">Sales Coaching vs Pipeline Inspection: How to Tell the Difference</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: June 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>

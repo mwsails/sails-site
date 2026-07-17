@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The 25-Minute Demo Framework · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B;
+    --blue: #2B60BE;
+    --ink: #0B1230;
+    --ink-2: #3A4366;
+    --gray: #F4F5F7;
+    --gray-2: #E5E7EE;
+    --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 48pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.35in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+
+  h1.section-h { font-family: var(--serif); font-size: 26pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.25in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.4in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 14pt; font-weight: 700; color: var(--ink); margin: 0.3in 0 0.1in; letter-spacing: -0.005em; }
+  h4.h4 { font-family: var(--sans); font-size: 10.5pt; font-weight: 700; color: var(--ink); margin: 0.2in 0 0.08in; }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.3in; }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* Timeline blocks for minute-by-minute */
+  .timeline { margin: 0.2in 0; }
+  .timeblock { display: flex; gap: 0.25in; margin-bottom: 0.22in; padding: 0.15in 0.2in; border-left: 4px solid var(--blue); background: var(--gray); border-radius: 0 6px 6px 0; }
+  .timeblock__time { font-family: var(--serif); font-size: 16pt; font-weight: 700; color: var(--blue); min-width: 1.1in; letter-spacing: -0.005em; }
+  .timeblock__content { flex: 1; }
+  .timeblock__h { font-family: var(--sans); font-size: 11pt; font-weight: 700; color: var(--ink); margin: 0 0 0.05in; letter-spacing: -0.005em; }
+  .timeblock__body { font-size: 10pt; line-height: 1.5; color: var(--ink-2); margin: 0; }
+
+  /* Talk track callout */
+  .talktrack { background: var(--gray); border-left: 4px solid var(--ink); padding: 0.18in 0.22in; margin: 0.15in 0; border-radius: 0 6px 6px 0; }
+  .talktrack__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.06in; }
+  .talktrack__body { font-family: var(--serif); font-style: italic; font-size: 11.5pt; line-height: 1.5; color: var(--ink); margin: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 0.06in 0 0.06in 0.28in; position: relative; font-size: 10.5pt; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.13in; width: 14px; height: 14px; border: 1.5px solid var(--blue); border-radius: 3px; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.3in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.1in 0.14in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+
+  /* Boxes */
+  .boxes { display: flex; gap: 0.18in; margin: 0.25in 0; }
+  .box { flex: 1; background: var(--gray); border-left: 3px solid var(--blue); padding: 0.18in 0.2in; border-radius: 6px; }
+  .box__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.06in; }
+  .box__body { font-size: 10pt; line-height: 1.45; color: var(--ink); margin: 0; }
+
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Founders & Reps</div>
+    <h1 class="cover__title">The 25-Minute Demo <span class="accent">Framework.</span></h1>
+    <p class="cover__sub">Why most SaaS demos are twice as long as they should be, and the minute-by-minute structure that wins more deals in less time. Built for velocity sales motions.</p>
+    <p class="cover__meta">7 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="page__header"><span>The Principle</span><span>Page 2 of 7</span></div>
+  <h1 class="section-h">Why 25 minutes wins more deals than 45.</h1>
+
+  <p class="lead">For velocity sales (short cycles, $2K-$24K ACVs, BDR/AE economics), the right demo length is 25 minutes. Not 30. Not 45. Twenty-five. The 45-minute default is killing your close rate.</p>
+
+  <h3 class="h3">Why the 45-minute demo became the default</h3>
+  <p>Enterprise SaaS made it the default. In enterprise, a demo is a meeting with five stakeholders, multiple use cases, a sales engineer, and a real-time Q&amp;A session. It needs an hour because five different versions of the same question are being asked.</p>
+
+  <p>Velocity sales has one stakeholder. Sometimes zero stakeholders beyond the person on the call. There's no committee, no SE in the room, no security review. There's a buyer with a problem and 25 minutes between meetings to figure out if you solve it.</p>
+
+  <h3 class="h3">What the 45-minute demo does in that context</h3>
+
+  <div class="boxes">
+    <div class="box">
+      <p class="box__h">Buries the close</p>
+      <p class="box__body">Reps spend 35 minutes walking through features, then rush pricing and next-step in the last 5. Buyer leaves without seeing the ask clearly.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">Bores the buyer</p>
+      <p class="box__body">Once they've seen the 3-4 features that solve their problem, they're done. Each extra feature dilutes the message and creates new objections.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">Signals you don't know</p>
+      <p class="box__body">A demo trying to show everything signals you don't know what specifically matters. A tight demo signals confidence in what does.</p>
+    </div>
+  </div>
+
+  <h3 class="h3">What 25 minutes forces</h3>
+  <ul>
+    <li>You have to <strong>cut the feature tour</strong>. Pick 3-4 features that map to discovery. Everything else gets cut.</li>
+    <li>You have to <strong>tighten the discovery preamble</strong> to 3 minutes.</li>
+    <li>You have to <strong>get to the ask</strong> by minute 20. Every demo. No more skipping the close because time ran out.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The 25-Minute Demo Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — Structure -->
+<section class="page">
+  <div class="page__header"><span>The Structure</span><span>Page 3 of 7</span></div>
+  <h1 class="section-h">Minute-by-minute breakdown.</h1>
+  <h2 class="section-sub">Every demo runs this structure. Reps deliver it in their own voice, but the segments are fixed.</h2>
+
+  <div class="timeline">
+    <div class="timeblock">
+      <div class="timeblock__time">0 – 3</div>
+      <div class="timeblock__content">
+        <p class="timeblock__h">Recap and confirm</p>
+        <p class="timeblock__body">Three minutes max. Restate what they told you in discovery in their own words. Confirm nothing has changed. Confirm who else should be on this call. Then move directly to demo.</p>
+      </div>
+    </div>
+    <div class="timeblock">
+      <div class="timeblock__time">3 – 18</div>
+      <div class="timeblock__content">
+        <p class="timeblock__h">Targeted walkthrough</p>
+        <p class="timeblock__body">15 minutes. Show 3-4 features max, each tied to a specific pain from discovery. Every feature comes with a "this is how it solves X" sentence so the buyer never has to translate features into outcomes. Skip everything that doesn't map to their stated problem.</p>
+      </div>
+    </div>
+    <div class="timeblock">
+      <div class="timeblock__time">18 – 22</div>
+      <div class="timeblock__content">
+        <p class="timeblock__h">Pricing and packaging</p>
+        <p class="timeblock__body">4 minutes. Show the package. Show the price. Bring it up yourself before they ask. Stating it confidently signals you're not afraid of the answer.</p>
+      </div>
+    </div>
+    <div class="timeblock">
+      <div class="timeblock__time">22 – 25</div>
+      <div class="timeblock__content">
+        <p class="timeblock__h">The ask</p>
+        <p class="timeblock__body">3 minutes. "Based on what you've seen, does this solve the problem you came in with?" Schedule the next step inside this call. Always. Never end on "let me think about it."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The 25-Minute Demo Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — Talk Tracks Part 1 -->
+<section class="page">
+  <div class="page__header"><span>Talk Tracks — Opening &amp; Walkthrough</span><span>Page 4 of 7</span></div>
+  <h1 class="section-h">What to actually say.</h1>
+  <h2 class="section-sub">Not word-for-word scripts. These are the structural moves. Adapt the voice to your style.</h2>
+
+  <h3 class="h3">Opening (0-3 min)</h3>
+  <p>Start by anchoring on discovery. Show them you remember what they said, in their words.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track</p>
+    <p class="talktrack__body">"Last call you told me the biggest issue is [X], that it's costing you [Y], and that you wanted to see if we could [Z]. I'm going to focus the next 20 minutes on exactly that. Before I jump in, anything change since we last talked? And is there anyone else who should be on this call?"</p>
+  </div>
+  <p>If they say no major changes, advance to demo. If they bring up something new, triage it now before opening the product.</p>
+
+  <h3 class="h3">Transition to demo</h3>
+  <p>Don't ask if they're ready. Just go.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track</p>
+    <p class="talktrack__body">"Let me show you exactly how we solve [their X]. I'm going to focus on three things. The first is..."</p>
+  </div>
+
+  <h3 class="h3">Per-feature framing (during walkthrough)</h3>
+  <p>Each of the 3-4 features you demo gets the same structure: name the pain, show the fix, confirm it lands.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track</p>
+    <p class="talktrack__body">"You told me [specific pain]. Watch what happens when [specific action in product]. Now [outcome]. Does that look like what you're trying to do?"</p>
+  </div>
+  <p>The confirmation question at the end is non-negotiable. Get a yes after each feature, and by the time you hit pricing they've agreed three times. The close becomes a confirmation, not an ask.</p>
+
+  <h3 class="h3">What to cut from the walkthrough</h3>
+  <ul>
+    <li>The 5-minute "let me show you the dashboard first" tour. Skip it.</li>
+    <li>Features they didn't ask about. No matter how cool they are.</li>
+    <li>Integration logos. Mention only the one or two they specifically need.</li>
+    <li>"You can also..." tangents. Each one adds time and dilutes the core pitch.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The 25-Minute Demo Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — Talk Tracks Part 2 -->
+<section class="page">
+  <div class="page__header"><span>Talk Tracks — Pricing &amp; Close</span><span>Page 5 of 7</span></div>
+  <h1 class="section-h">Pricing reveal and the close.</h1>
+
+  <h3 class="h3">Pricing reveal (18-22 min)</h3>
+  <p>The biggest tell of a confident rep: they bring up price before the buyer asks. Most reps wait for the buyer to ask "so what does this cost." That signals you're hoping they'll forget. Just bring it up.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track</p>
+    <p class="talktrack__body">"OK, I want to make sure we have time for the pricing conversation before we wrap. For a company your size, you'd be on the [tier name] plan. That's [$X]/month, billed annually. Most customers like you start there and expand into [next tier] in year two if [trigger]. Any questions on packaging?"</p>
+  </div>
+  <p>Notice three things: (1) you didn't apologize, (2) you anchored to their company size to pre-empt "is that for us?", (3) you suggested expansion to signal you're thinking long-term.</p>
+
+  <h3 class="h3">The close (22-25 min)</h3>
+  <p>Three minutes. One job: get a clear next step on the calendar before they leave.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track — open the ask</p>
+    <p class="talktrack__body">"Based on what you've seen, does this solve the problem you came in with?"</p>
+  </div>
+  <p><strong>If yes:</strong> "Great. Let's get this moving. Who handles billing on your end, and what's the right next step to get a contract over?"</p>
+  <p><strong>If "let me think about it":</strong> Don't accept it.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track — handle stalls</p>
+    <p class="talktrack__body">"Totally fair. What specifically would you want to think through? I'd rather address it now than have you sit with it for a week."</p>
+  </div>
+  <p>Most buyer hesitations dissolve once you ask the actual question. The ones that don't are real objections you needed to surface anyway.</p>
+
+  <h3 class="h3">If they say no</h3>
+  <p>That's information, not a failure. Ask the gap-finding question and book a follow-up if there's a real path.</p>
+  <div class="talktrack">
+    <p class="talktrack__h">Talk track — find the gap</p>
+    <p class="talktrack__body">"Got it. What's the gap between what we showed you and what you'd actually need to move forward? I'd rather understand it now than guess."</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The 25-Minute Demo Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Checklist -->
+<section class="page">
+  <div class="page__header"><span>Pre &amp; Post Demo</span><span>Page 6 of 7</span></div>
+  <h1 class="section-h">Before and after the call.</h1>
+
+  <h3 class="h3">Pre-demo checklist (do 30 minutes before)</h3>
+  <ul class="checklist">
+    <li>Re-read discovery notes. Identify the 3-4 features you'll demo.</li>
+    <li>Open the product in a clean account with sample data that matches their use case.</li>
+    <li>Pull up their company website. Note 1-2 things you can reference live.</li>
+    <li>Check who else accepted the calendar invite. If a new stakeholder, plan how to acknowledge them in the opening.</li>
+    <li>Confirm pricing tier and any approval limits in case discount comes up.</li>
+    <li>Have the contract template open in another tab. If they say yes, you're sending it during the call.</li>
+    <li>Test screen share and audio 2 minutes before the call.</li>
+  </ul>
+
+  <h3 class="h3">Post-demo workflow (within 60 minutes of the call)</h3>
+  <ul class="checklist">
+    <li>Send the follow-up email with the meeting recap, the pricing, and the next step (contract link, security questionnaire, second call invite, etc).</li>
+    <li>Log the call in CRM. Update pipeline stage. Set the next-step date.</li>
+    <li>If they said yes, send the contract immediately. Don't wait until tomorrow.</li>
+    <li>If they had a stall or objection, note it specifically in the CRM. Track patterns across deals.</li>
+    <li>Listen to the recording within 24 hours. Note one thing to do differently next demo.</li>
+  </ul>
+
+  <h3 class="h3">Same-day follow-up email template</h3>
+  <div class="talktrack">
+    <p class="talktrack__h">Email template</p>
+    <p class="talktrack__body">
+      Subject: [Their company] · Next steps<br><br>
+      [Name],<br><br>
+      Quick recap from our call: you said the biggest issue is [X], and we showed you how [feature 1, feature 2, feature 3] solves it. You confirmed [the close outcome — yes, follow-up call, contract review, etc.].<br><br>
+      Next step: [specific action with a date]. I've attached [contract / security doc / second-call invite].<br><br>
+      Anything I missed, just reply here.<br><br>
+      [Your name]
+    </p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The 25-Minute Demo Framework</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — CTA -->
+<section class="page">
+  <div class="page__header"><span>Next Steps</span><span>Page 7 of 7</span></div>
+  <h1 class="section-h">Making this stick on your team.</h1>
+
+  <p class="lead">If your team's demos are running long, the shift to 25 minutes won't happen because a rep read a doc. It happens because the manager runs call reviews against the framework, week after week, until the structure becomes muscle memory.</p>
+
+  <h3 class="h3">Three changes to make this stick</h3>
+  <ul>
+    <li><strong>Change the default Calendly link</strong> to 25 minutes. Just that change forces the structure.</li>
+    <li><strong>Pull last week's recorded demos and time them.</strong> Most will run long. Note where time gets eaten. Coach to those moments.</li>
+    <li><strong>Role-play the 25-minute structure</strong> with each rep until they can hit time without rushing the close.</li>
+  </ul>
+
+  <h3 class="h3">When to bring in outside help</h3>
+  <p>If you've tried to make this shift and the team keeps drifting back to 45-minute demos, the underlying problem is usually that the discovery and demo frameworks aren't documented. Without a baseline, reps default to what they've always done.</p>
+
+  <p>The Build phase of the SAILS engagement produces the documented discovery and demo frameworks (tailored to your motion), and the Coach phase installs them through bi-weekly call review sessions.</p>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>30 minutes. No deck. Direct conversation about where you are and what would actually move the needle.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <h3 class="h3">Related resources</h3>
+  <ul>
+    <li><strong>Funnel KPI Tracker</strong> — Excel template to measure demo-to-opp conversion across your team. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>The First AE Hire Scorecard</strong> — How to hire a rep who can run this demo. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>Blog: How Long Should a SaaS Demo Be?</strong> — Long-form on the principle behind this framework. <em>sailsadvisory.com/blog</em></li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>

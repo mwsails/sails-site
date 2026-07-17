@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="p-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4F5F7"/>
+      <stop offset="100%" stop-color="#E5E7EE"/>
+    </linearGradient>
+    <linearGradient id="p-sail-limp" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dfe5f5"/>
+    </linearGradient>
+    <linearGradient id="p-hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2B60BE"/>
+      <stop offset="100%" stop-color="#1f4ea3"/>
+    </linearGradient>
+    <linearGradient id="p-flat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c5cbe0"/>
+      <stop offset="100%" stop-color="#a8b0ca"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#p-bg)"/>
+
+  <!-- Flat / declining chart bars in background, muted -->
+  <g opacity="0.55">
+    <rect x="40"  y="220" width="32" height="34" rx="3" fill="url(#p-flat)"/>
+    <rect x="82"  y="216" width="32" height="38" rx="3" fill="url(#p-flat)"/>
+    <rect x="124" y="222" width="32" height="32" rx="3" fill="url(#p-flat)"/>
+    <rect x="166" y="226" width="32" height="28" rx="3" fill="url(#p-flat)"/>
+    <rect x="294" y="224" width="32" height="30" rx="3" fill="url(#p-flat)"/>
+    <rect x="336" y="232" width="32" height="22" rx="3" fill="url(#p-flat)"/>
+    <rect x="378" y="240" width="32" height="14" rx="3" fill="url(#p-flat)"/>
+    <rect x="420" y="244" width="32" height="10" rx="3" fill="url(#p-flat)"/>
+    <!-- Flat trend line above bars -->
+    <polyline points="56,200 98,202 140,210 182,216 310,220 352,228 394,236 436,240"
+              fill="none" stroke="#8e98b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- Calm flat water line -->
+  <line x1="20" y1="262" x2="460" y2="262" stroke="#2B60BE" stroke-width="1.5" opacity="0.35"/>
+  <line x1="20" y1="270" x2="460" y2="270" stroke="#2B60BE" stroke-width="1" opacity="0.25"/>
+
+  <!-- The stalled sailboat, slightly tilted, sails hanging limp -->
+  <g transform="translate(212 100)">
+    <!-- Mast (slightly tilted) -->
+    <line x1="0" y1="0" x2="-6" y2="140" stroke="#0D1B4B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Limp pennant flag drooping -->
+    <path d="M 0 0 Q 6 10 0 18" fill="none" stroke="#2B60BE" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Limp main sail (dropped, no wind) -->
+    <path d="M -6 14 Q 18 60 6 138 L -6 138 Z" fill="url(#p-sail-limp)" opacity="0.95"/>
+    <!-- Subtle sail creases -->
+    <path d="M -6 30 Q 6 70 -2 130" stroke="#cfd8ee" stroke-width="1" fill="none" opacity="0.7"/>
+    <path d="M -6 50 Q 4 90 0 130" stroke="#cfd8ee" stroke-width="1" fill="none" opacity="0.5"/>
+
+    <!-- Limp jib sail (small triangle, drooping) -->
+    <path d="M -6 26 Q -28 80 -16 134 L -6 134 Z" fill="url(#p-sail-limp)" opacity="0.85"/>
+  </g>
+
+  <!-- Hull -->
+  <path d="M 156 240 L 308 240 L 286 270 L 178 270 Z" fill="url(#p-hull)"/>
+  <path d="M 156 240 L 308 240 L 302 248 L 162 248 Z" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Wind indicator: empty puff of "no wind" -->
+  <g opacity="0.4">
+    <path d="M 90 90 Q 110 95 130 88" stroke="#8e98b8" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="3 5"/>
+    <path d="M 100 110 Q 120 114 140 108" stroke="#8e98b8" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="3 5"/>
+    <text x="60" y="80" font-family="Inter, sans-serif" font-size="11" font-style="italic" fill="#8e98b8" letter-spacing="0.04em">no wind</text>
+  </g>
+
+  <!-- Calm horizon sun (muted) -->
+  <circle cx="400" cy="100" r="30" fill="#ffffff" opacity="0.6"/>
+  <circle cx="400" cy="100" r="22" fill="#dfe5f5" opacity="0.5"/>
+</svg>

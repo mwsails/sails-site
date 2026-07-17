@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog · SAILS Advisory · Field Notes on Velocity B2B Sales</title>
+  <meta name="description" content="Field notes on building B2B SaaS sales engines for velocity motions. Founder-led sales, first AE hires, sales playbook design, and what actually works in short-cycle sales." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="SAILS Advisory Blog · Field Notes on Velocity B2B Sales" />
+  <meta property="og:description" content="Practical, opinionated writing on building B2B SaaS sales engines for velocity motions." />
+  <meta property="og:url" content="https://sailsadvisory.com/blog/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SAILS Advisory Blog · Field Notes on Velocity B2B Sales" />
+  <meta name="twitter:description" content="Practical, opinionated writing on building B2B SaaS sales engines for velocity motions." />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style.css?v=4" />
+
+  <!-- Structured data: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://sailsadvisory.com/blog/#blog",
+    "name": "SAILS Advisory Blog",
+    "description": "Field notes on building B2B SaaS sales engines for velocity motions.",
+    "url": "https://sailsadvisory.com/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://sailsadvisory.com/#organization",
+      "name": "SAILS Advisory",
+      "url": "https://sailsadvisory.com/",
+      "logo": "https://sailsadvisory.com/assets/sails-logo.png"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)",
+        "url": "https://sailsadvisory.com/blog/how-to-forecast-b2b-saas-sales.html",
+        "datePublished": "2026-06-01",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Inbound vs Outbound for B2B SaaS: When to Lead With Which",
+        "url": "https://sailsadvisory.com/blog/inbound-vs-outbound-b2b-saas.html",
+        "datePublished": "2026-06-01",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Design a Sales Comp Plan From Scratch (For B2B SaaS)",
+        "url": "https://sailsadvisory.com/blog/how-to-design-sales-comp-plan.html",
+        "datePublished": "2026-06-01",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "B2B SaaS Sales Playbook From $1M to $5M ARR: Building the Team",
+        "url": "https://sailsadvisory.com/blog/sales-playbook-1m-to-5m-arr.html",
+        "datePublished": "2026-06-01",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Inside Sales vs Outside Sales: When Each Fits in B2B SaaS",
+        "url": "https://sailsadvisory.com/blog/inside-vs-outside-sales.html",
+        "datePublished": "2026-06-01",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "BANT vs MEDDIC: Which Qualification Framework for B2B SaaS",
+        "url": "https://sailsadvisory.com/blog/bant-vs-meddic-qualification.html",
+        "datePublished": "2026-05-31",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "BDR vs SDR vs AE: What's the Actual Difference for B2B SaaS",
+        "url": "https://sailsadvisory.com/blog/bdr-vs-sdr-vs-ae.html",
+        "datePublished": "2026-05-31",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Build a Sales Playbook From Scratch (Step-by-Step)",
+        "url": "https://sailsadvisory.com/blog/how-to-build-a-sales-playbook.html",
+        "datePublished": "2026-05-31",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Handle the 'Send Me More Info' Stall: 4 Responses That Work",
+        "url": "https://sailsadvisory.com/blog/send-me-more-info-stall.html",
+        "datePublished": "2026-05-31",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "B2B SaaS Sales Playbook From $0 to $1M ARR: A Founder's Guide",
+        "url": "https://sailsadvisory.com/blog/sales-playbook-zero-to-1m-arr.html",
+        "datePublished": "2026-05-31",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Fractional VP of Sales vs Sales Consultant: Which to Hire and When",
+        "url": "https://sailsadvisory.com/blog/fractional-vp-vs-sales-consultant.html",
+        "datePublished": "2026-05-30",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "MEDDIC vs SPIN vs Sandler: Which Sales Framework for Your B2B SaaS Motion",
+        "url": "https://sailsadvisory.com/blog/meddic-vs-spin-vs-sandler.html",
+        "datePublished": "2026-05-30",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Enterprise vs Velocity Sales Consultants: How to Choose for Your Stage",
+        "url": "https://sailsadvisory.com/blog/enterprise-vs-velocity-sales-consultants.html",
+        "datePublished": "2026-05-30",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "What Goes in a B2B SaaS Sales Playbook (The 9 Components)",
+        "url": "https://sailsadvisory.com/blog/b2b-saas-sales-playbook-components.html",
+        "datePublished": "2026-05-21",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How Long Should a SaaS Demo Be? The 25-Minute Rule",
+        "url": "https://sailsadvisory.com/blog/saas-demo-length-25-minute-rule.html",
+        "datePublished": "2026-05-21",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The 5 Velocity Sales Metrics That Actually Predict Revenue",
+        "url": "https://sailsadvisory.com/blog/velocity-sales-metrics.html",
+        "datePublished": "2026-05-21",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Sales Coaching vs Pipeline Inspection: How to Tell the Difference",
+        "url": "https://sailsadvisory.com/blog/coaching-vs-pipeline-inspection.html",
+        "datePublished": "2026-05-21",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Two Reps Hit Quota and Two Don't (It's Not the Reps)",
+        "url": "https://sailsadvisory.com/blog/why-two-reps-hit-quota.html",
+        "datePublished": "2026-05-19",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "MEDDIC Doesn't Work for $10K Deals: A Better Framework for Velocity Sales",
+        "url": "https://sailsadvisory.com/blog/meddic-velocity-sales.html",
+        "datePublished": "2026-05-19",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "When to Stop Selling as Founder: 3 Signals You're Ready to Hand Off",
+        "url": "https://sailsadvisory.com/blog/when-to-stop-selling-as-founder.html",
+        "datePublished": "2026-05-19",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The First AE Hire: Profile, Comp, and 90-Day Ramp Plan for Velocity SaaS",
+        "url": "https://sailsadvisory.com/blog/first-ae-hire-velocity-saas.html",
+        "datePublished": "2026-05-19",
+        "author": { "@type": "Person", "name": "Matt Weisman" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <!-- ============== NAV ============== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../#engagement">The Engagement</a>
+        <a href="../#fit">Who It's For</a>
+        <a href="../#about">About</a>
+        <a href="../#investment">Investment</a>
+        <a href="./" aria-current="page">Blog</a>
+        <a href="../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="blog-hero">
+      <div class="container">
+        <p class="kicker kicker--light">Field Notes</p>
+        <h1 class="blog-hero__h">Practical writing on building velocity B2B sales engines.</h1>
+        <p class="blog-hero__sub">Sharp, opinionated essays for B2B SaaS founders and revenue leaders running short-cycle sales motions. Written by Matt Weisman.</p>
+      </div>
+    </section>
+
+    <!-- ============== POST GRID ============== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="post-grid">
+
+          <article class="post-card">
+            <a href="sales-playbook-1m-to-5m-arr.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Stage Playbooks</span> · 8 min read</p>
+              <h2 class="post-card__h">B2B SaaS Sales Playbook From $1M to $5M ARR: Building the Team</h2>
+              <p class="post-card__excerpt">The hardest stage in B2B SaaS sales. The founder hands off, the first AEs ramp, and the motion has to scale before it breaks. The honest playbook for $1M to $5M ARR — what to build, hire, and skip.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="how-to-design-sales-comp-plan.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Hiring</span> · 8 min read</p>
+              <h2 class="post-card__h">How to Design a Sales Comp Plan From Scratch (For B2B SaaS)</h2>
+              <p class="post-card__excerpt">A working framework for your first B2B SaaS sales compensation plan. Base, variable, quota, accelerators, comp ratios, and the 6 common mistakes that wreck early-stage comp plans.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="how-to-forecast-b2b-saas-sales.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Sales Operations</span> · 7 min read</p>
+              <h2 class="post-card__h">How to Forecast B2B SaaS Sales (When Pipeline Is Still Building)</h2>
+              <p class="post-card__excerpt">Forecasting is hard when you have less than 90 days of pipeline data. Three methods that work at small data volumes, plus what to track now so next quarter is easier.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="inbound-vs-outbound-b2b-saas.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 7 min read</p>
+              <h2 class="post-card__h">Inbound vs Outbound for B2B SaaS: When to Lead With Which</h2>
+              <p class="post-card__excerpt">Inbound compounds slower but converts higher. Outbound starts faster but burns harder. The honest comparison and how to decide which to lead with at your B2B SaaS stage.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="inside-vs-outside-sales.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 6 min read</p>
+              <h2 class="post-card__h">Inside Sales vs Outside Sales: When Each Fits in B2B SaaS</h2>
+              <p class="post-card__excerpt">Inside sales runs from a desk. Outside sales runs in the field. The honest difference, what each looks like in modern B2B SaaS, and how to decide which fits your motion.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="sales-playbook-zero-to-1m-arr.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Stage Playbooks</span> · 8 min read</p>
+              <h2 class="post-card__h">B2B SaaS Sales Playbook From $0 to $1M ARR: A Founder's Guide</h2>
+              <p class="post-card__excerpt">What to build, hire, measure, and skip on the road from zero to first million in B2B SaaS ARR. The honest playbook for founder-led sales at the earliest stage, plus the 5 most common traps.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="how-to-build-a-sales-playbook.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Playbooks</span> · 9 min read</p>
+              <h2 class="post-card__h">How to Build a Sales Playbook From Scratch (Step-by-Step)</h2>
+              <p class="post-card__excerpt">A practical week-by-week guide to building a working B2B SaaS sales playbook from zero. What to write, in what order, with what level of detail. Built for velocity sales motions.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="bant-vs-meddic-qualification.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 7 min read</p>
+              <h2 class="post-card__h">BANT vs MEDDIC: Which Qualification Framework for B2B SaaS</h2>
+              <p class="post-card__excerpt">BANT is older, simpler, and faster. MEDDIC is heavier and built for enterprise. Which qualification framework actually fits your B2B SaaS motion, and the third option most velocity teams should use instead.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="bdr-vs-sdr-vs-ae.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Roles</span> · 7 min read</p>
+              <h2 class="post-card__h">BDR vs SDR vs AE: What's the Actual Difference for B2B SaaS</h2>
+              <p class="post-card__excerpt">Four roles, three are pipeline generators, one closes. The honest difference, what each role actually does, and how to structure your sales team for a B2B SaaS velocity motion.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="send-me-more-info-stall.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Objection Handling</span> · 6 min read</p>
+              <h2 class="post-card__h">How to Handle the "Send Me More Info" Stall: 4 Responses That Work</h2>
+              <p class="post-card__excerpt">The most common stall in B2B SaaS sales. Why it's almost never a real request, and four specific responses that surface the underlying objection without losing the deal.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="fractional-vp-vs-sales-consultant.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 9 min read</p>
+              <h2 class="post-card__h">Fractional VP of Sales vs Sales Consultant: Which to Hire and When</h2>
+              <p class="post-card__excerpt">Both bring outside sales expertise. They're not the same thing. The honest difference between the two roles, the trap most founders fall into, and how to decide which one your company actually needs.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="meddic-vs-spin-vs-sandler.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 8 min read</p>
+              <h2 class="post-card__h">MEDDIC vs SPIN vs Sandler: Which Sales Framework for Your B2B SaaS Motion</h2>
+              <p class="post-card__excerpt">Three of the most adopted sales frameworks in B2B. Each built for a completely different motion. Picking the wrong one slows your team down. Here's the comparison and how to pick the right one.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="enterprise-vs-velocity-sales-consultants.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Comparison</span> · 8 min read</p>
+              <h2 class="post-card__h">Enterprise vs Velocity Sales Consultants: How to Choose for Your Stage</h2>
+              <p class="post-card__excerpt">Most sales consulting firms are built for enterprise deals. Velocity sales needs its own physics. How to tell the difference and pick the right partner for where your B2B SaaS actually is.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="b2b-saas-sales-playbook-components.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Playbooks</span> · 8 min read</p>
+              <h2 class="post-card__h">What Goes in a B2B SaaS Sales Playbook (The 9 Components)</h2>
+              <p class="post-card__excerpt">Most "sales playbooks" are slide decks nobody reads. A real playbook drives daily rep behavior. Here's what should actually be in one and how long it takes to build.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="saas-demo-length-25-minute-rule.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Sales Process</span> · 6 min read</p>
+              <h2 class="post-card__h">How Long Should a SaaS Demo Be? The 25-Minute Rule</h2>
+              <p class="post-card__excerpt">Most SaaS demos are 45-60 minutes. For velocity sales motions, that's twice as long as it should be. Here's why 25 minutes wins more deals and how to restructure your demo to land it.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="velocity-sales-metrics.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Metrics</span> · 7 min read</p>
+              <h2 class="post-card__h">The 5 Velocity Sales Metrics That Actually Predict Revenue</h2>
+              <p class="post-card__excerpt">Most sales dashboards track 30+ metrics. For velocity sales motions, you only need 5. Track these and you'll see revenue trouble 60 days before it hits your forecast.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="coaching-vs-pipeline-inspection.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Coaching</span> · 6 min read</p>
+              <h2 class="post-card__h">Sales Coaching vs Pipeline Inspection: How to Tell the Difference</h2>
+              <p class="post-card__excerpt">Most sales "coaching" sessions are status reports with extra steps. Five questions to diagnose whether you're actually developing reps or just inspecting their deals, and how to fix it.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="why-two-reps-hit-quota.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Sales Operations</span> · 6 min read</p>
+              <h2 class="post-card__h">Why Two Reps Hit Quota and Two Don't (It's Not the Reps)</h2>
+              <p class="post-card__excerpt">Same hiring profile, same comp plan, same product. Two reps blow past quota, two reps miss. The easy answer is to blame the reps. That's almost always wrong. Here's what's actually causing uneven performance and how to fix it.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="meddic-velocity-sales.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Frameworks</span> · 7 min read</p>
+              <h2 class="post-card__h">MEDDIC Doesn't Work for $10K Deals: A Better Framework for Velocity Sales</h2>
+              <p class="post-card__excerpt">MEDDIC is the most adopted qualification framework in B2B. It will also slow your velocity team to a crawl. Different sales motions need different frameworks. Here's why MEDDIC breaks at $10K and what works instead.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="when-to-stop-selling-as-founder.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Founder-Led Sales</span> · 7 min read</p>
+              <h2 class="post-card__h">When to Stop Selling as Founder: 3 Signals You're Ready to Hand Off</h2>
+              <p class="post-card__excerpt">Founder-led sales works until it doesn't. The question isn't whether you should stop selling as founder. It's when. Here are the three clear signals you're past the right moment to hand off and what to do about it.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+          <article class="post-card">
+            <a href="first-ae-hire-velocity-saas.html" class="post-card__link">
+              <p class="post-card__meta"><span class="post-card__topic">Hiring</span> · 8 min read</p>
+              <h2 class="post-card__h">The First AE Hire: Profile, Comp, and 90-Day Ramp Plan for Velocity SaaS</h2>
+              <p class="post-card__excerpt">Your first AE hire is the single most consequential sales hire you'll ever make. Here's the profile, the comp structure, and the 90-day ramp plan that actually works for a velocity SaaS first AE.</p>
+              <span class="post-card__cta">Read the post <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CTA STRIP ============== -->
+    <section class="section section--dark">
+      <div class="container blog-cta">
+        <h2 class="section__h section__h--light">Want a diagnosis of your current sales motion?</h2>
+        <p class="blog-cta__sub">A 30-minute discovery call. No pitch, no deck. Just an honest conversation about where you are and whether SAILS is the right fit.</p>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: May 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>

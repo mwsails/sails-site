@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Internal business documents — must NOT be deployed publicly.
+# The SOW contains private pricing. Keep it out of the repo and out of Netlify deploys.
+SAILS_Proposal_SOW_Template.pdf
+
+# Stray duplicate of assets/sails-logo.png (local-only clutter)
+SAILS logo copy.png

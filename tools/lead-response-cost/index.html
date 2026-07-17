@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lead Response Time Cost Calculator · SAILS Advisory</title>
+  <meta name="description" content="Free calculator: estimate the revenue your team loses to slow lead follow-up. Enter inbound volume, ACV, and your actual response time. See the monthly and annual cost versus a 5-minute response." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/tools/lead-response-cost/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="Lead Response Time Cost Calculator" />
+  <meta property="og:description" content="What is slow follow-up actually costing you? Free calculator, no email required." />
+  <meta property="og:url" content="https://sailsadvisory.com/tools/lead-response-cost/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lead Response Time Cost Calculator" />
+  <meta name="twitter:description" content="What is slow follow-up actually costing you?" />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../style.css?v=4" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://sailsadvisory.com/tools/lead-response-cost/#app",
+    "name": "Lead Response Time Cost Calculator",
+    "url": "https://sailsadvisory.com/tools/lead-response-cost/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Estimate the revenue lost to slow inbound lead follow-up versus a 5-minute response, based on inbound volume, ACV, and current response time.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "@id": "https://sailsadvisory.com/#organization", "name": "SAILS Advisory", "url": "https://sailsadvisory.com/" }
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../../#engagement">The Engagement</a>
+        <a href="../../#fit">Who It's For</a>
+        <a href="../../#about">About</a>
+        <a href="../../#investment">Investment</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="calc-hero">
+      <div class="container">
+        <p class="kicker kicker--light">Free Calculator</p>
+        <h1 class="calc-hero__h">Lead Response Time Cost Calculator</h1>
+        <p class="calc-hero__sub">Speed to lead is the most underrated metric in velocity sales. This estimates what your current response time costs you every month, compared to contacting inbound leads within 5 minutes.</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container calc-wrap">
+        <div class="calc-grid">
+
+          <div class="calc-inputs">
+            <h2 class="calc-inputs__h">Your numbers</h2>
+
+            <div class="calc-field">
+              <label for="lr-leads">Inbound leads per month</label>
+              <input id="lr-leads" type="number" value="100" min="1" step="10" />
+              <span class="calc-hint">Demo requests, trial signups you call, contact form fills.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="lr-acv">Average contract value (ACV)</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="lr-acv" type="number" value="10000" min="1" step="1000" />
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label for="lr-close">Lead-to-close rate at fast response</label>
+              <input id="lr-close" type="number" value="5" min="0.1" max="100" step="0.5" />
+              <span class="calc-hint">% of inbound leads that become customers when contacted within 5 minutes. Velocity SaaS typically lands 3-8%.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="lr-speed">Your typical first-response time today</label>
+              <select id="lr-speed">
+                <option value="1">Under 5 minutes</option>
+                <option value="0.8">5 to 30 minutes</option>
+                <option value="0.6" selected>30 minutes to 4 hours</option>
+                <option value="0.4">4 to 24 hours</option>
+                <option value="0.25">More than 24 hours</option>
+              </select>
+              <span class="calc-hint">Be honest. Check the timestamps in your CRM, not the aspiration.</span>
+            </div>
+          </div>
+
+          <div class="calc-results" aria-live="polite">
+            <p class="calc-results__h">What slow follow-up costs you</p>
+
+            <div class="calc-stat calc-stat--hero">
+              <span class="calc-stat__label">Revenue lost per year</span>
+              <span class="calc-stat__value is-bad" id="lr-out-yearly">—</span>
+            </div>
+
+            <div class="calc-stat">
+              <span class="calc-stat__label">Revenue lost per month</span>
+              <span class="calc-stat__value" id="lr-out-monthly">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Deals lost per year</span>
+              <span class="calc-stat__value" id="lr-out-deals">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Monthly revenue at 5-minute response</span>
+              <span class="calc-stat__value" id="lr-out-fast">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Monthly revenue at your current speed</span>
+              <span class="calc-stat__value" id="lr-out-current">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Conversion retained at your speed</span>
+              <span class="calc-stat__value" id="lr-out-mult">—</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="calc-note"><strong>About the assumptions:</strong> the decay multipliers (100% under 5 minutes, down to 25% past 24 hours) are illustrative defaults reflecting widely reported research that inbound conversion drops sharply as response time grows. Your actual decay curve depends on your buyer and channel. Treat the output as directional: the shape of the loss is real even if your exact numbers differ. Related reading: <a href="../../blog/velocity-sales-metrics.html">lead response time is metric #1 of the 5 velocity sales metrics</a>.</p>
+
+        <div class="calc-cta">
+          <p><strong>If the annual number stings,</strong> the fix is cheap relative to the loss: response-time SLAs, lead routing rules, and a backup queue. All three are standard deliverables in the playbook the SAILS engagement builds.</p>
+          <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <div class="container">
+        <h2 class="related__h">Go deeper</h2>
+        <div class="related__grid">
+          <a class="related__card" href="../../blog/velocity-sales-metrics.html">
+            <p class="related__topic">Metrics</p>
+            <p class="related__title">The 5 Velocity Sales Metrics That Actually Predict Revenue</p>
+          </a>
+          <a class="related__card" href="../reverse-funnel/">
+            <p class="related__topic">Calculator</p>
+            <p class="related__title">Reverse Funnel Calculator: What Your Revenue Goal Actually Requires</p>
+          </a>
+          <a class="related__card" href="../../blog/bdr-vs-sdr-vs-ae.html">
+            <p class="related__topic">Roles</p>
+            <p class="related__title">BDR vs SDR vs AE: What's the Actual Difference for B2B SaaS</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: June 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js" defer></script>
+  <script>
+    (function () {
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      let gaTimer = null;
+
+      function money(n) {
+        if (!isFinite(n)) return '—';
+        return '$' + Math.round(n).toLocaleString('en-US');
+      }
+
+      function calc() {
+        const leads = +$('lr-leads').value || 0;
+        const acv = +$('lr-acv').value || 0;
+        const close = (+$('lr-close').value || 0) / 100;
+        const mult = +$('lr-speed').value || 1;
+
+        const fast = leads * close * acv;
+        const current = fast * mult;
+        const lostMo = fast - current;
+        const lostYr = lostMo * 12;
+        const dealsLost = leads * close * (1 - mult) * 12;
+
+        $('lr-out-fast').textContent = money(fast);
+        $('lr-out-current').textContent = money(current);
+        $('lr-out-monthly').textContent = money(lostMo);
+        $('lr-out-yearly').textContent = money(lostYr);
+        $('lr-out-deals').textContent = dealsLost.toLocaleString('en-US', { maximumFractionDigits: 1 });
+        $('lr-out-mult').textContent = Math.round(mult * 100) + '%';
+
+        const hero = $('lr-out-yearly');
+        hero.className = 'calc-stat__value ' + (lostYr > 0 ? 'is-bad' : 'is-good');
+
+        clearTimeout(gaTimer);
+        gaTimer = setTimeout(() => {
+          if (typeof gtag === 'function') gtag('event', 'calculate', { tool: 'lead-response-cost' });
+        }, 1500);
+      }
+
+      ['lr-leads', 'lr-acv', 'lr-close', 'lr-speed'].forEach((id) => {
+        $(id).addEventListener('input', calc);
+        $(id).addEventListener('change', calc);
+      });
+      calc();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The First AE Hire Scorecard · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B;
+    --blue: #2B60BE;
+    --ink: #0B1230;
+    --ink-2: #3A4366;
+    --gray: #F4F5F7;
+    --gray-2: #E5E7EE;
+    --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+
+  /* Page wrapper — letter size, 0.75in margins */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.75in;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* COVER PAGE */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0;
+    min-height: 11in;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+  .cover__top {
+    padding: 0.75in 0.75in 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover__brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    font-size: 14pt;
+    color: var(--white);
+    margin-bottom: 0.5in;
+  }
+  .cover__brand-sub {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    display: inline-block;
+    margin-left: 0.25rem;
+  }
+  .cover__eyebrow {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.4in;
+  }
+  .cover__title {
+    font-family: var(--serif);
+    font-size: 48pt;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.3in;
+    max-width: 6in;
+  }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub {
+    font-size: 13pt;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.78);
+    max-width: 5.5in;
+    margin: 0 0 0.5in;
+  }
+  .cover__meta {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .cover__bottom {
+    padding: 0 0.75in 0.75in;
+  }
+  .cover__bottom-row {
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 0.2in;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.04em;
+  }
+
+  /* CONTENT PAGES */
+  .page__header {
+    border-bottom: 1px solid var(--gray-2);
+    padding-bottom: 0.18in;
+    margin-bottom: 0.35in;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    color: var(--ink-2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+
+  h1.section-h {
+    font-family: var(--serif);
+    font-size: 26pt;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 0.25in;
+  }
+  h2.section-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin: 0 0 0.4in;
+    line-height: 1.3;
+  }
+  h3.h3 {
+    font-family: var(--serif);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0.3in 0 0.1in;
+    letter-spacing: -0.005em;
+  }
+  h4.h4 {
+    font-family: var(--sans);
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0.2in 0 0.08in;
+    letter-spacing: 0.005em;
+  }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead {
+    font-size: 12pt;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 3px solid var(--blue);
+    padding-left: 0.18in;
+    margin-bottom: 0.3in;
+  }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* Pillar boxes */
+  .boxes { display: flex; gap: 0.18in; margin: 0.25in 0; }
+  .box { flex: 1; background: var(--gray); border-left: 3px solid var(--blue); padding: 0.18in 0.2in; border-radius: 6px; }
+  .box__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.06in; }
+  .box__body { font-size: 10pt; line-height: 1.45; color: var(--ink); margin: 0; }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.15in 0 0.3in;
+    font-size: 10pt;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.1in 0.14in;
+    border-bottom: 1px solid var(--gray-2);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gray);
+    font-size: 9pt;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+
+  /* Scorecard styling */
+  .scorecard td.score-col { text-align: center; width: 0.6in; }
+  .scorecard td.weight-col { text-align: center; width: 0.6in; color: var(--blue); font-weight: 600; }
+
+  /* Checkbox list */
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li {
+    padding: 0.05in 0 0.05in 0.25in;
+    position: relative;
+    font-size: 10.5pt;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1in;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--blue);
+    border-radius: 3px;
+  }
+
+  /* Page footer */
+  .page__footer {
+    position: absolute;
+    bottom: 0.4in;
+    left: 0.75in;
+    right: 0.75in;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 8pt;
+    color: var(--ink-2);
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--gray-2);
+    padding-top: 0.12in;
+  }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+
+  /* CTA panel */
+  .cta-panel {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.4in 0.5in;
+    border-radius: 8px;
+    margin: 0.3in 0;
+  }
+  .cta-panel h3 {
+    font-family: var(--serif);
+    font-size: 18pt;
+    color: var(--white);
+    margin: 0 0 0.15in;
+    letter-spacing: -0.01em;
+  }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Founders</div>
+    <h1 class="cover__title">The First AE Hire <span class="accent">Scorecard.</span></h1>
+    <p class="cover__sub">A working interview scorecard, compensation benchmarks, and 90-day ramp plan for your first Account Executive hire in a B2B SaaS velocity sales motion.</p>
+    <p class="cover__meta">8 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — The Stakes -->
+<section class="page">
+  <div class="page__header">
+    <span>The Stakes</span><span>Page 2 of 8</span>
+  </div>
+  <h1 class="section-h">Why this hire matters more than any other.</h1>
+  <h2 class="section-sub">If it goes right, you have a repeatable motion. If it goes wrong, you waste six months and $150K.</h2>
+
+  <p class="lead">Your first AE hire is the single most consequential sales hire you will ever make. Get it right and the next ten hires ramp on a template. Get it wrong, blame the rep, hire again, and watch the same outcome repeat.</p>
+
+  <h3 class="h3">The two failure modes</h3>
+
+  <div class="boxes">
+    <div class="box">
+      <p class="box__h">Mode 1 — Over-hire</p>
+      <p class="box__body">You hire a senior AE from a brand-name SaaS. They've never built pipeline. They expect inbound. They quit in month four.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">Mode 2 — Under-hire</p>
+      <p class="box__body">You hire someone hungry but green. No coaching cadence. No documented motion. They flounder for six months. You blame the hire.</p>
+    </div>
+  </div>
+
+  <h3 class="h3">The fix</h3>
+
+  <p>Hire to your motion, not to a resume. Build the playbook first. Set up the coaching cadence before day one. Pay competitively for velocity sales (1:1 base-to-variable), not enterprise. And evaluate against a written scorecard so every interviewer is calibrated to the same bar.</p>
+
+  <p>This doc gives you the scorecard, the comp benchmarks, the ramp plan, and the most common pitfalls. Use it as-is or adapt it to your situation.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 3 — Profile -->
+<section class="page">
+  <div class="page__header">
+    <span>The Profile</span><span>Page 3 of 8</span>
+  </div>
+  <h1 class="section-h">What to look for. What to screen out.</h1>
+
+  <h3 class="h3">The profile that works for first AE</h3>
+  <ul>
+    <li><strong>2 to 4 years of B2B SaaS sales experience.</strong> Enough to know the basics, not enough to be set in their ways.</li>
+    <li><strong>Velocity-motion experience.</strong> SMB or mid-market. Not enterprise. Fast cycle environments only.</li>
+    <li><strong>Documented outbound chops.</strong> Cold email, cold call, LinkedIn outreach. They've generated their own pipeline before.</li>
+    <li><strong>High activity tolerance.</strong> Can handle 50+ daily activities without burning out.</li>
+    <li><strong>Coachable.</strong> Non-negotiable. You'll be teaching them constantly. If they push back on feedback in the interview, they'll push back at month six.</li>
+    <li><strong>Comfortable with ambiguity.</strong> Some days the playbook will be wrong. They need to roll with it and bring back feedback.</li>
+  </ul>
+
+  <h3 class="h3">What to screen out</h3>
+  <ul>
+    <li><strong>Senior AEs (6+ years) from enterprise environments.</strong> They know how to run a process. They don't know how to build one.</li>
+    <li><strong>Reps who can't demo the product live.</strong> If they can't do a back-of-the-envelope demo in the interview, they can't do one with a real prospect.</li>
+    <li><strong>Anyone who talks about "their territory" or "their book."</strong> Those concepts don't exist at your stage. They want structure you can't yet provide.</li>
+    <li><strong>Reps from companies where they never generated their own pipeline.</strong> If marketing always fed them leads, they don't know how to build a pipeline from scratch.</li>
+    <li><strong>Reps with 12-month tenure stints across multiple recent jobs.</strong> Pattern signal.</li>
+  </ul>
+
+  <div class="boxes">
+    <div class="box">
+      <p class="box__h">Logo prestige</p>
+      <p class="box__body">Less important than you think. A rep who closed $1.2M ARR at a no-name SMB SaaS often outperforms one who closed $3M at a famous brand.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">Tenure track record</p>
+      <p class="box__body">Two-plus years at their last meaningful role. Job hoppers won't ride out the ramp.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 4 — Interview Process -->
+<section class="page">
+  <div class="page__header">
+    <span>The Interview Process</span><span>Page 4 of 8</span>
+  </div>
+  <h1 class="section-h">A 4-stage process designed to surface fit.</h1>
+
+  <table>
+    <thead>
+      <tr><th>Stage</th><th>Format</th><th>What it tests</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Screen</strong><br>30 min</td>
+        <td>Founder or hiring manager. Phone or video.</td>
+        <td>Basics: prior motion, ACV experience, recent attainment, why they're looking.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Sell us</strong><br>45 min</td>
+        <td>Candidate prepares a 15-min mock pitch of your product (you send a deck and ICP brief in advance). Then 30 min of Q&A.</td>
+        <td>Sales instincts, ability to absorb new product fast, coachability when you push back on their pitch.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Mock discovery</strong><br>45 min</td>
+        <td>You play the prospect. Candidate runs a discovery call cold. Then debrief.</td>
+        <td>Whether they actually run structured discovery, ask the right questions, handle pushback, know when to advance the deal.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Founder fit</strong><br>30 min</td>
+        <td>1:1 with founder. No agenda. Honest conversation.</td>
+        <td>Trust, alignment on stage, willingness to operate in ambiguity. The "would I want to be in the trenches with this person at month nine" gut check.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Total candidate time: 2.5 hours. Total interviewer time: 2.5 hours. Do this over 7-10 days. Don't rush — the cost of a wrong hire is much higher than two extra weeks of process.</p>
+
+  <h3 class="h3">Two non-negotiables</h3>
+  <ul>
+    <li><strong>The mock pitch (Stage 2) must include a curve-ball.</strong> Push back on something they say. Watch how they respond. A coachable rep absorbs and adapts. An uncoachable one defends.</li>
+    <li><strong>The mock discovery (Stage 3) must end with the candidate trying to advance the deal.</strong> If they end the call without an explicit next-step ask, that's the answer to whether they'll do it with real prospects.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 5 — Scorecard -->
+<section class="page">
+  <div class="page__header">
+    <span>The Scorecard</span><span>Page 5 of 8</span>
+  </div>
+  <h1 class="section-h">Score each candidate against the same 10 dimensions.</h1>
+  <h2 class="section-sub">1 = poor · 3 = meets bar · 5 = exceptional. Multiply by weight. Total of 100 possible points.</h2>
+
+  <table class="scorecard">
+    <thead>
+      <tr><th>Dimension</th><th class="score-col">Score (1-5)</th><th class="weight-col">Weight</th><th class="score-col">Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Velocity motion fit</strong><br>SMB/mid-market cycle experience, comfortable with $2K-$24K ACVs.</td><td class="score-col">__</td><td class="weight-col">×3</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Outbound demonstrated</strong><br>Can show specific examples of self-sourced pipeline.</td><td class="score-col">__</td><td class="weight-col">×3</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Coachability</strong><br>How they absorbed your push-back in the mock pitch.</td><td class="score-col">__</td><td class="weight-col">×3</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Discovery skill</strong><br>Quality of questions, sequencing, ability to surface real pain.</td><td class="score-col">__</td><td class="weight-col">×2</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Closing instinct</strong><br>Asked for next step explicitly in mock discovery.</td><td class="score-col">__</td><td class="weight-col">×2</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Product absorption speed</strong><br>How quickly they understood your product enough to pitch it.</td><td class="score-col">__</td><td class="weight-col">×2</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Activity tolerance</strong><br>Honest assessment of daily call/email volume they can sustain.</td><td class="score-col">__</td><td class="weight-col">×2</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Tenure track record</strong><br>2+ years at last meaningful role, no recent job-hopping.</td><td class="score-col">__</td><td class="weight-col">×1</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Comfort with ambiguity</strong><br>Reaction when you describe the unstructured environment honestly.</td><td class="score-col">__</td><td class="weight-col">×1</td><td class="score-col">__</td></tr>
+      <tr><td><strong>Founder fit</strong><br>Trust, alignment, "trenches at month nine" gut check.</td><td class="score-col">__</td><td class="weight-col">×1</td><td class="score-col">__</td></tr>
+      <tr><th colspan="3" style="text-align:right;">TOTAL OUT OF 100</th><th class="score-col">__</th></tr>
+    </tbody>
+  </table>
+
+  <h3 class="h3">How to read the total</h3>
+  <ul>
+    <li><strong>80+:</strong> Make the offer. This profile fits your motion.</li>
+    <li><strong>65-79:</strong> Strong candidate with a gap. Identify the lowest-scoring dimension. If it's coachability or velocity fit, pass. Other dimensions can be developed.</li>
+    <li><strong>50-64:</strong> Pass. Don't talk yourself into this hire because you're tired of recruiting.</li>
+    <li><strong>Below 50:</strong> Hard no, regardless of how nice they were.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 6 — Comp Benchmarks -->
+<section class="page">
+  <div class="page__header">
+    <span>Compensation Benchmarks</span><span>Page 6 of 8</span>
+  </div>
+  <h1 class="section-h">What to pay your first AE.</h1>
+  <h2 class="section-sub">For velocity SaaS motions, $2K-$24K ACVs, 14-90 day cycles.</h2>
+
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Range</th><th>Why this number</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Base salary</strong></td><td>$70K-$90K</td><td>Enough to live on while ramping, low enough to keep them hungry for variable.</td></tr>
+      <tr><td><strong>On-target variable</strong></td><td>$70K-$90K</td><td>1:1 base-to-variable is the velocity standard. Anything higher base ratio attracts coasters.</td></tr>
+      <tr><td><strong>OTE</strong></td><td>$140K-$180K</td><td>Total at 100% of quota. Market-competitive for the profile.</td></tr>
+      <tr><td><strong>Quota (annual ARR)</strong></td><td>$700K-$900K</td><td>5x-6x base salary. Industry standard for healthy sales economics.</td></tr>
+      <tr><td><strong>Accelerator</strong></td><td>1.5x-2x above 100%</td><td>Critical. A rep who hits 120% should feel it. Otherwise they coast after hitting number.</td></tr>
+      <tr><td><strong>Draw / floor</strong></td><td>None</td><td>No safety net on commission. Forces hunter mentality. (Optional ramp draw for first 90 days only.)</td></tr>
+      <tr><td><strong>Commission rate (typical)</strong></td><td>10-12% of ACV</td><td>OTE divided by quota. Check the math against your specific numbers.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="h3">Common comp mistakes</h3>
+
+  <div class="boxes">
+    <div class="box">
+      <p class="box__h">Paying senior AE comp</p>
+      <p class="box__body">$120K+ base for a first AE attracts the wrong profile and creates pressure to hire upward. Don't.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">No accelerator</p>
+      <p class="box__body">A rep at 100% has no reason to push to 120%. Build the lever in from day one.</p>
+    </div>
+    <div class="box">
+      <p class="box__h">Soft quota</p>
+      <p class="box__body">5x base is the math. Lower than that and the role isn't profitable. Higher and you can't recruit.</p>
+    </div>
+  </div>
+
+  <h3 class="h3">Equity</h3>
+  <p>For a first AE at a pre-Series A B2B SaaS, equity range is typically 0.10% - 0.30% with standard 4-year vest and 1-year cliff. Higher if the rep is taking a meaningful pay cut to join, lower if the comp is at market.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 7 — 90-Day Ramp -->
+<section class="page">
+  <div class="page__header">
+    <span>The 90-Day Ramp Plan</span><span>Page 7 of 8</span>
+  </div>
+  <h1 class="section-h">The first 90 days determine whether the hire works.</h1>
+
+  <h3 class="h3">Days 1-30 · Product and ICP mastery</h3>
+  <p>First 30 days are about absorbing context, not generating pipeline.</p>
+  <ul class="checklist">
+    <li>Week 1 — Product training. Can demo every core feature.</li>
+    <li>Week 2 — ICP and positioning. Reads every marketing asset, customer interview, playbook artifact.</li>
+    <li>Week 3 — Sits in on 5+ live customer calls (current customers or active prospects).</li>
+    <li>Week 4 — Shadows founder on 3+ live sales calls. Delivers the pitch unaided by end of week.</li>
+  </ul>
+
+  <h3 class="h3">Days 31-60 · Supervised activity</h3>
+  <p>Running the motion with heavy supervision.</p>
+  <ul class="checklist">
+    <li>Takes inbound leads, every call reviewed.</li>
+    <li>Outbound activity at half-volume (15 calls/day, 25 emails/day).</li>
+    <li>Bi-weekly call reviews with founder or sales leader.</li>
+    <li>First demos by week 6. First closed deal expected by week 8.</li>
+    <li>Activity targets: 30 calls/day, 50 emails/day, 5 demos/week by day 60.</li>
+  </ul>
+
+  <h3 class="h3">Days 61-90 · Full activity</h3>
+  <p>Reaching full ramp.</p>
+  <ul class="checklist">
+    <li>Full activity: 50 calls/day, 75 emails/day, 8 demos/week.</li>
+    <li>Call reviews drop to weekly cadence.</li>
+    <li>Pipeline coverage: 3x to 4x of monthly quota.</li>
+    <li>Closed-won ARR expectation: at least 25% of monthly quota by day 90.</li>
+    <li>On track to hit 100% of monthly quota by month 6.</li>
+  </ul>
+
+  <h3 class="h3">What goes wrong (and how to avoid it)</h3>
+  <ul>
+    <li><strong>No playbook to ramp into.</strong> Build it first, then hire. Reverse this and you lose three months.</li>
+    <li><strong>Founder disappears in week three.</strong> Block 5 hours/week for the rep through day 30. Don't taper down until ramp is on track.</li>
+    <li><strong>Wrong rep profile slipped through.</strong> Trust the scorecard. If they scored under 65, don't talk yourself into it.</li>
+    <li><strong>No coaching cadence.</strong> Weekly pipeline review is not coaching. Real coaching means reviewing recorded calls and assigning specific behavior changes.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>The First AE Hire Scorecard</span>
+  </div>
+</section>
+
+<!-- PAGE 8 — CTA / Next Steps -->
+<section class="page">
+  <div class="page__header">
+    <span>Next Steps</span><span>Page 8 of 8</span>
+  </div>
+  <h1 class="section-h">When to bring in outside help.</h1>
+
+  <p class="lead">If you're a founder about to make this hire and the playbook isn't documented, the hire will struggle. Build the engine first. Hire second. Ramp third. The sequence matters.</p>
+
+  <p>The Build phase of the SAILS engagement produces the hiring profile, the comp structure, the 90-day ramp plan, and the documented playbook the rep will run. The Coach phase then runs alongside the new AE's ramp to ensure they hit 100% of quota by month 6.</p>
+
+  <p>If you're about to make your first AE hire (or your first one didn't work and you're trying again), the first step is a 30-minute discovery call. No pitch, no deck. Just an honest conversation about whether SAILS is the right fit.</p>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>30 minutes. No deck. Direct conversation about where you are and what would actually move the needle.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <h3 class="h3">Other resources</h3>
+  <ul>
+    <li><strong>Funnel KPI Tracker</strong> — Excel template to track the 5 metrics that predict velocity sales revenue. <em>sailsadvisory.com/resources</em></li>
+    <li><strong>Blog</strong> — More writing on velocity sales motions, playbook design, and founder-led sales handoff. <em>sailsadvisory.com/blog</em></li>
+    <li><strong>Fit Diagnostic</strong> — 3-minute online diagnostic to see whether SAILS is the right fit for your motion. <em>sailsadvisory.com/diagnostic</em></li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span>
+    <span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>
