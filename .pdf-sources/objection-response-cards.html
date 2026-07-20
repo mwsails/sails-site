@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Objection Response Cards · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B; --blue: #2B60BE; --ink: #0B1230; --ink-2: #3A4366;
+    --gray: #F4F5F7; --gray-2: #E5E7EE; --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 46pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.35in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+  h1.section-h { font-family: var(--serif); font-size: 26pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.25in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.4in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 14pt; font-weight: 700; color: var(--ink); margin: 0.3in 0 0.1in; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.3in; }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+  .qblock { display: flex; gap: 0.25in; margin-bottom: 0.22in; padding: 0.18in 0.2in; border-left: 4px solid var(--blue); background: var(--gray); border-radius: 0 6px 6px 0; }
+  .qblock__num { font-family: var(--serif); font-size: 22pt; font-weight: 700; color: var(--blue); min-width: 0.5in; line-height: 1; }
+  .qblock__content { flex: 1; }
+  .qblock__h { font-family: var(--sans); font-size: 11.5pt; font-weight: 700; color: var(--ink); margin: 0 0 0.06in; }
+  .qblock__body { font-size: 10pt; line-height: 1.5; color: var(--ink-2); margin: 0; }
+  .talktrack { background: var(--gray); border-left: 4px solid var(--ink); padding: 0.16in 0.2in; margin: 0.12in 0; border-radius: 0 6px 6px 0; }
+  .talktrack__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.05in; }
+  .talktrack__body { font-family: var(--serif); font-style: italic; font-size: 11pt; line-height: 1.5; color: var(--ink); margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.3in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.1in 0.14in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 0.06in 0 0.06in 0.28in; position: relative; font-size: 10.5pt; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.13in; width: 14px; height: 14px; border: 1.5px solid var(--blue); border-radius: 3px; }
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+  .compact .checklist li { padding: 0.03in 0 0.03in 0.28in; font-size: 10pt; line-height: 1.35; }
+  .compact .checklist li::before { top: 0.07in; width: 12px; height: 12px; }
+  .compact h3.h3 { margin: 0.14in 0 0.05in; font-size: 12.5pt; }
+  .compact h1.section-h { font-size: 22pt; margin-bottom: 0.12in; }
+  .compact h2.section-sub { font-size: 12pt; margin-bottom: 0.2in; }
+  .compact .cta-panel { padding: 0.26in 0.36in; margin: 0.18in 0 0; }
+  .compact .cta-panel h3 { font-size: 15pt; margin-bottom: 0.1in; }
+  .compact .cta-panel p { font-size: 10pt; margin-bottom: 0.12in; }
+  .obj-card { border: 1px solid var(--gray-2); border-left: 4px solid var(--blue); border-radius: 0 6px 6px 0; padding: 0.14in 0.18in; margin-bottom: 0.16in; }
+  .obj-card__h { font-family: var(--sans); font-size: 11pt; font-weight: 700; color: var(--ink); margin: 0 0 0.04in; }
+  .obj-card__meaning { font-size: 9.5pt; color: var(--ink-2); margin: 0 0 0.06in; }
+  .obj-card__meaning strong { font-size: 8.5pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
+  .obj-card__track { font-family: var(--serif); font-style: italic; font-size: 10pt; line-height: 1.45; color: var(--ink); margin: 0; background: var(--gray); padding: 0.08in 0.12in; border-radius: 4px; }
+  .compact table { font-size: 9.5pt; margin: 0.12in 0 0.2in; }
+  .compact th, .compact td { padding: 0.07in 0.1in; }
+  .compact ul { margin-bottom: 0.14in; }
+  .compact p.lead { margin-bottom: 0.2in; font-size: 11.5pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Reps &amp; Founders Who Sell</div>
+    <h1 class="cover__title">The Objection Response <span class="accent">Cards.</span></h1>
+    <p class="cover__sub">The twelve objections velocity reps hear most: what each one actually means, the isolate question, and the full talk track. One card per objection, built for the moment it happens.</p>
+    <p class="cover__meta">6 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 · The Pattern -->
+<section class="page compact">
+  <div class="page__header"><span>The Pattern</span><span>Page 2 of 6</span></div>
+  <h1 class="section-h">Every response is the same three moves.</h1>
+
+  <p class="lead">Most objections aren't objections. They're unfinished sentences with a problem hiding inside. Arguing with the surface statement entrenches it; the pattern below finds the real cause and converts it into a next step.</p>
+
+  <h3 class="h3">The three moves</h3>
+  <ul>
+    <li><strong>Acknowledge.</strong> The concern is legitimate. "Fair enough" costs nothing and buys everything. Defensiveness confirms doubt.</li>
+    <li><strong>Isolate.</strong> Confirm it's the real and only blocker: "If we solved X, would you move forward?" Handling a fake objection brilliantly still loses.</li>
+    <li><strong>Respond and advance.</strong> Answer the isolated cause, then propose one specific, dated next step. A beautiful answer that ends with "so think it over" just scheduled the deal's funeral.</li>
+  </ul>
+
+  <h3 class="h3">The five families</h3>
+  <table>
+    <thead>
+      <tr><th style="width:1.2in">Family</th><th>Objections</th><th style="width:2.1in">Root cause</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Price</strong></td><td>Too expensive · No budget · Competitor cheaper</td><td>Cost of the problem never established</td></tr>
+      <tr><td><strong>Timing</strong></td><td>Not a priority · Next quarter · Send me info</td><td>No trigger, or trigger lost to something louder</td></tr>
+      <tr><td><strong>Status quo</strong></td><td>Spreadsheet works · Already have a tool</td><td>Switching cost feels bigger than the pain</td></tr>
+      <tr><td><strong>Trust</strong></td><td>You're too small · Need to ask my boss</td><td>Risk of choosing wrong feels personal</td></tr>
+      <tr><td><strong>Product</strong></td><td>Missing feature · Doesn't integrate</td><td>Usually a proxy for a workflow worry</td></tr>
+    </tbody>
+  </table>
+
+  <p>Remember: objection handling is 70% something you did or didn't do two calls ago. Reps who run a real qualification rubric hear fewer objections, because unqualified deals produce most of them.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Objection Response Cards</span>
+  </div>
+</section>
+
+<!-- PAGE 3 · Price -->
+<section class="page compact">
+  <div class="page__header"><span>Price</span><span>Page 3 of 6</span></div>
+  <h1 class="section-h">The three money objections.</h1>
+
+  <div class="obj-card">
+    <p class="obj-card__h">1 · "It's too expensive."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> expensive relative to a problem whose cost was never named. <strong>Isolate:</strong> "If the price were right, is this the tool you'd pick?"</p>
+    <p class="obj-card__track">"Fair enough. Can I ask: when we talked, you said missed follow-ups were costing you about two deals a month. What's a deal worth to you?"</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">2 · "We don't have budget."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> at velocity price points, budget is a decision, not a line item. <strong>Isolate:</strong> is this a no, or a not-like-this?</p>
+    <p class="obj-card__track">"Totally understand. If budget weren't the issue, is this something you'd want running this quarter?" (Yes: structure the start date or package. Hesitation: budget was never the real objection.)</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">3 · "Your competitor is cheaper."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> they're price-anchoring, or genuinely comparing. Never argue the competitor's price. <strong>Isolate:</strong> what's driving the comparison?</p>
+    <p class="obj-card__track">"They might be the right call. The difference is [the one thing that maps to their trigger]. If that's not worth the gap, I'd honestly go with them." (Confidence sells. Defensiveness confirms doubt.)</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Objection Response Cards</span>
+  </div>
+</section>
+
+<!-- PAGE 4 · Timing -->
+<section class="page compact">
+  <div class="page__header"><span>Timing</span><span>Page 4 of 6</span></div>
+  <h1 class="section-h">The three delay objections.</h1>
+
+  <div class="obj-card">
+    <p class="obj-card__h">4 · "This isn't a priority right now."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> the trigger resolved, or something bigger jumped the line. <strong>Isolate:</strong> which one?</p>
+    <p class="obj-card__track">"That's useful to know. When we first talked, [trigger] was the reason you took the call. Has that resolved, or has something bigger jumped the line?" (Resolved: nurture with a revisit date. Jumped: find out what's above it.)</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">5 · "Come back next quarter."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> usually a polite no; occasionally a real budget cycle. <strong>Isolate:</strong> ask for something small now.</p>
+    <p class="obj-card__track">"Happy to. So next quarter's conversation is fast: would you be open to a 20-minute pilot scoping call now, so you can start day one of the quarter?" (Yes: it's real. No: nurture, stop spending touches.)</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">6 · "Send me more info."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> the classic stall. Never just send the deck. <strong>Isolate:</strong> what would the info need to answer?</p>
+    <p class="obj-card__track">"Happy to. To make sure I send the right thing: what specifically would help you make a decision?" (Or trade the send for a booked follow-up: "I'll send it today. Can we grab 15 minutes Thursday so I can answer whatever it raises?")</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Objection Response Cards</span>
+  </div>
+</section>
+
+<!-- PAGE 5 · Status Quo + Trust -->
+<section class="page compact">
+  <div class="page__header"><span>Status Quo &amp; Trust</span><span>Page 5 of 6</span></div>
+  <h1 class="section-h">Inertia and risk.</h1>
+
+  <div class="obj-card">
+    <p class="obj-card__h">7 · "The spreadsheet works fine."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> it does, for the part of the job they can see. <strong>Isolate:</strong> make the invisible cost visible, in question form.</p>
+    <p class="obj-card__track">"For tracking, spreadsheets are honestly fine. Where teams get burned is the part the spreadsheet doesn't do: who followed up, who didn't, what fell through. How do you catch that today?"</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">8 · "We already have a tool for that."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> if the tool worked, they wouldn't be on the call. <strong>Isolate:</strong> find the gap that produced the meeting.</p>
+    <p class="obj-card__track">"Makes sense. What made you take this call anyway?" (That answer is the entire deal. Sell to it and nothing else.)</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">9 · "You're too small / too new."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> the risk of choosing wrong feels personal. Structure beats reassurance. <strong>Isolate:</strong> what would make the risk acceptable?</p>
+    <p class="obj-card__track">"Fair concern. That's why the first 30 days are structured as [pilot / month-to-month / onboarding milestones], so the decision you're making today is small, and the big decision happens after you've seen it work."</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">10 · "I need to talk to my partner / boss."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> sometimes true, always a threat to deal control. <strong>Isolate:</strong> get into that conversation.</p>
+    <p class="obj-card__track">"Of course. What do you think their main question will be? Would it be easier if the three of us took 15 minutes so they hear it straight?"</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Objection Response Cards</span>
+  </div>
+</section>
+
+<!-- PAGE 6 · Product + CTA -->
+<section class="page compact">
+  <div class="page__header"><span>Product</span><span>Page 6 of 6</span></div>
+  <h1 class="section-h">The two capability objections.</h1>
+
+  <div class="obj-card">
+    <p class="obj-card__h">11 · "You're missing feature X."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> half the time it's a wish, not a dealbreaker. <strong>Isolate:</strong> day one or roadmap?</p>
+    <p class="obj-card__track">"Got it. Is X something you need on day one, or something you'd want on the roadmap? And what's the job you'd use it for?" (Half the time the job is doable another way. The other half: be honest, log it, and decide whether to sell around it or walk.)</p>
+  </div>
+
+  <div class="obj-card">
+    <p class="obj-card__h">12 · "It doesn't integrate with Y."</p>
+    <p class="obj-card__meaning"><strong>Means:</strong> the worry underneath is double data entry. Answer the worry, not the API question. <strong>Isolate:</strong> what needs to flow?</p>
+    <p class="obj-card__track">"What would you need flowing between the two systems?" (Then show the actual workflow: export, Zapier, native, or manual-but-five-minutes. If it truly breaks their operation, disqualify honestly; it beats a churn in month three.)</p>
+  </div>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>If the same objection keeps killing deals across the whole team, that's not a rep problem: it's positioning or qualification upstream. The SAILS engagement finds which one, then fixes the playbook so the objection stops arriving. 30 minutes, no deck.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>

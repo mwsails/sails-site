@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AE Break-Even Calculator · SAILS Advisory</title>
+  <meta name="description" content="Free AE break-even calculator. Enter OTE, quota, ramp, and margin. Get the fully loaded monthly cost, the month your first AE turns profitable, and first-year net contribution." />
+  <meta name="theme-color" content="#0D1B4B" />
+  <meta name="author" content="Matt Weisman" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sailsadvisory.com/tools/ae-break-even/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SAILS Advisory" />
+  <meta property="og:title" content="AE Break-Even Calculator" />
+  <meta property="og:description" content="When does your first AE pay for themselves? Loaded cost, break-even month, and first-year net. Free, no email required." />
+  <meta property="og:url" content="https://sailsadvisory.com/tools/ae-break-even/" />
+  <meta property="og:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AE Break-Even Calculator" />
+  <meta name="twitter:description" content="When does your first AE pay for themselves?" />
+  <meta name="twitter:image" content="https://sailsadvisory.com/assets/hero-sail.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../style.css?v=5" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://sailsadvisory.com/tools/ae-break-even/#app",
+    "name": "AE Break-Even Calculator",
+    "url": "https://sailsadvisory.com/tools/ae-break-even/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Enter OTE, annual quota, gross margin, ramp time, and attainment. Get the fully loaded monthly cost of an AE, the cumulative break-even month, and first-year net contribution.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "@id": "https://sailsadvisory.com/#organization", "name": "SAILS Advisory", "url": "https://sailsadvisory.com/" }
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PN2PNK63C');
+  </script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../" class="nav__brand" aria-label="SAILS Advisory home">
+        <span class="nav__brand-mark">SAILS</span>
+        <span class="nav__brand-sub">Advisory</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a href="../../#engagement">The Engagement</a>
+        <a href="../../#fit">Who It's For</a>
+        <a href="../../#about">About</a>
+        <a href="../../#investment">Investment</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../resources/">Resources</a>
+        <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary btn--pill nav__cta" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="calc-hero">
+      <div class="container">
+        <p class="kicker kicker--light">Free Calculator</p>
+        <h1 class="calc-hero__h">AE Break-Even Calculator</h1>
+        <p class="calc-hero__sub">When does your first AE pay for themselves? Founders budget the salary and forget the ramp. This is the actual math: loaded cost, ramp curve, and the month the hire turns cumulative-positive.</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container calc-wrap">
+        <div class="calc-grid">
+
+          <div class="calc-inputs">
+            <h2 class="calc-inputs__h">Your numbers</h2>
+
+            <div class="calc-field">
+              <label for="ae-ote">On-target earnings (OTE, annual)</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="ae-ote" type="number" value="120000" min="1" step="5000" />
+              </div>
+              <span class="calc-hint">Base plus variable at 100% attainment. We load this by 1.25x for taxes, benefits, and tools.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="ae-quota">Annual quota (new ARR)</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="ae-quota" type="number" value="480000" min="1" step="10000" />
+              </div>
+              <span class="calc-hint">Healthy velocity ratio is 4x to 5x OTE. The verdict below checks this.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="ae-margin">Gross margin (%)</label>
+              <input id="ae-margin" type="number" value="80" min="1" max="100" step="1" />
+            </div>
+
+            <div class="calc-field">
+              <label for="ae-ramp">Ramp to full productivity (months)</label>
+              <input id="ae-ramp" type="number" value="4" min="1" max="18" step="1" />
+              <span class="calc-hint">With a documented playbook: 4-5 months. Without one: 6-8. Be honest.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="ae-attain">Expected steady-state attainment (%)</label>
+              <input id="ae-attain" type="number" value="85" min="1" max="150" step="5" />
+              <span class="calc-hint">Use what your team actually hits, not 100%.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="ae-hirecost">One-time hiring cost</label>
+              <div class="calc-field--prefix">
+                <span class="calc-prefix">$</span>
+                <input id="ae-hirecost" type="number" value="0" min="0" step="1000" />
+              </div>
+              <span class="calc-hint">Recruiter fee, signing bonus, equipment. Zero if you sourced them yourself.</span>
+            </div>
+          </div>
+
+          <div class="calc-results" aria-live="polite">
+            <p class="calc-results__h">The break-even math</p>
+
+            <div class="calc-stat calc-stat--hero">
+              <span class="calc-stat__label">Cumulative break-even</span>
+              <span class="calc-stat__value" id="ae-out-be">—</span>
+            </div>
+
+            <div class="calc-stat">
+              <span class="calc-stat__label">Verdict</span>
+              <span class="calc-stat__value" id="ae-out-verdict" style="font-size:1.05rem;">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Fully loaded monthly cost</span>
+              <span class="calc-stat__value" id="ae-out-cost">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Monthly margin at full productivity</span>
+              <span class="calc-stat__value" id="ae-out-margin">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Monthly net once ramped</span>
+              <span class="calc-stat__value" id="ae-out-net">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">First-year net contribution</span>
+              <span class="calc-stat__value" id="ae-out-year1">—</span>
+            </div>
+            <div class="calc-stat">
+              <span class="calc-stat__label">Quota-to-OTE ratio</span>
+              <span class="calc-stat__value" id="ae-out-ratio">—</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="calc-note"><strong>How it's computed:</strong> loaded cost is OTE × 1.25 ÷ 12. Productivity ramps linearly to 100% over your ramp months, then holds. Each month contributes quota × attainment × margin ÷ 12, scaled by that month's productivity. Break-even is the first month cumulative contribution covers cumulative cost plus the one-time hiring cost. Full walkthrough with a worked example in <a href="../../blog/first-ae-break-even-math.html">the break-even math post</a>.</p>
+
+        <div class="calc-cta">
+          <p><strong>Break-even past month 10?</strong> The fix is rarely a cheaper rep. It's usually ramp time, and ramp time is a playbook problem: reps ramp fast into a documented system and slowly into a founder's head. That's a fixable gap.</p>
+          <a href="https://calendar.app.google/x2MYasUSFXEeow459" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book a Discovery Call <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <div class="container">
+        <h2 class="related__h">Go deeper</h2>
+        <div class="related__grid">
+          <a class="related__card" href="../../blog/first-ae-break-even-math.html">
+            <p class="related__topic">Hiring</p>
+            <p class="related__title">When Does Your First AE Pay for Themselves? The Break-Even Math</p>
+          </a>
+          <a class="related__card" href="../../blog/first-ae-hire-velocity-saas.html">
+            <p class="related__topic">Hiring</p>
+            <p class="related__title">The First AE Hire: Profile, Comp, and 90-Day Ramp Plan</p>
+          </a>
+          <a class="related__card" href="../../resources/">
+            <p class="related__topic">Resources</p>
+            <p class="related__title">The First AE Hire Scorecard (free PDF)</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="../../assets/sails-logo.png" alt="SAILS Advisory" class="footer__logo" width="180" height="60" />
+        <p class="footer__tag">Put the <span class="accent">Win</span><span class="footer__d">d</span> in Your Sales.</p>
+      </div>
+      <div class="footer__meta">
+        <p><a class="link-light" href="mailto:matt@sailsadvisory.com">matt@sailsadvisory.com</a></p>
+        <p class="footer__updated">Last updated: July 2026</p>
+        <p class="footer__copy">© 2025 SAILS Advisory. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js" defer></script>
+  <script>
+    (function () {
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      let gaTimer = null;
+
+      function money(n) {
+        if (!isFinite(n)) return '—';
+        const sign = n < 0 ? '-' : '';
+        return sign + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
+      }
+
+      function calc() {
+        const ote = +$('ae-ote').value || 1;
+        const quota = +$('ae-quota').value || 0;
+        const margin = (+$('ae-margin').value || 1) / 100;
+        const ramp = Math.max(1, Math.round(+$('ae-ramp').value || 1));
+        const attain = (+$('ae-attain').value || 1) / 100;
+        const hireCost = +$('ae-hirecost').value || 0;
+
+        const monthlyCost = (ote * 1.25) / 12;
+        const fullMargin = (quota * attain * margin) / 12;
+        const netRamped = fullMargin - monthlyCost;
+        const ratio = quota / ote;
+
+        // Simulate 36 months of cumulative net
+        let cum = -hireCost;
+        let beMonth = null;
+        let year1 = null;
+        for (let m = 1; m <= 36; m++) {
+          const productivity = Math.min(1, m / ramp);
+          cum += fullMargin * productivity - monthlyCost;
+          if (beMonth === null && cum >= 0) beMonth = m;
+          if (m === 12) year1 = cum;
+        }
+
+        const beEl = $('ae-out-be');
+        if (beMonth === null) {
+          beEl.textContent = 'Not in 36 months';
+          beEl.className = 'calc-stat__value is-bad';
+        } else {
+          beEl.textContent = 'Month ' + beMonth;
+          beEl.className = 'calc-stat__value ' + (beMonth <= 6 ? 'is-good' : beMonth <= 10 ? 'is-warn' : 'is-bad');
+        }
+
+        const verdictEl = $('ae-out-verdict');
+        let verdict, cls;
+        if (netRamped <= 0) { verdict = 'Unit economics broken'; cls = 'is-bad'; }
+        else if (beMonth !== null && beMonth <= 6) { verdict = 'Strong hire math'; cls = 'is-good'; }
+        else if (beMonth !== null && beMonth <= 10) { verdict = 'Workable, watch ramp'; cls = 'is-warn'; }
+        else { verdict = 'Fix upstream first'; cls = 'is-bad'; }
+        verdictEl.textContent = verdict;
+        verdictEl.className = 'calc-stat__value ' + cls;
+        verdictEl.style.fontSize = '1.05rem';
+
+        $('ae-out-cost').textContent = money(monthlyCost) + '/mo';
+        $('ae-out-margin').textContent = money(fullMargin) + '/mo';
+
+        const netEl = $('ae-out-net');
+        netEl.textContent = money(netRamped) + '/mo';
+        netEl.className = 'calc-stat__value ' + (netRamped > 0 ? 'is-good' : 'is-bad');
+
+        const y1El = $('ae-out-year1');
+        y1El.textContent = money(year1);
+        y1El.className = 'calc-stat__value ' + (year1 > 0 ? 'is-good' : year1 > -20000 ? 'is-warn' : 'is-bad');
+
+        const ratioEl = $('ae-out-ratio');
+        ratioEl.textContent = ratio.toFixed(1) + 'x';
+        ratioEl.className = 'calc-stat__value ' + (ratio >= 4 && ratio <= 5.5 ? 'is-good' : 'is-warn');
+
+        clearTimeout(gaTimer);
+        gaTimer = setTimeout(() => {
+          if (typeof gtag === 'function') gtag('event', 'calculate', { tool: 'ae-break-even' });
+        }, 1500);
+      }
+
+      ['ae-ote', 'ae-quota', 'ae-margin', 'ae-ramp', 'ae-attain', 'ae-hirecost'].forEach((id) => $(id).addEventListener('input', calc));
+      calc();
+    })();
+  </script>
+</body>
+</html>
