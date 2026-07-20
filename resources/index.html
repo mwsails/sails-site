@@ -109,6 +109,20 @@
     <input type="text" name="resource" />
     <input type="text" name="bot-field" />
   </form>
+  <form name="qualification-rubric-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <input type="text" name="resource" />
+    <input type="text" name="bot-field" />
+  </form>
+  <form name="objection-cards-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <input type="text" name="resource" />
+    <input type="text" name="bot-field" />
+  </form>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PN2PNK63C"></script>
@@ -698,6 +712,81 @@
             </div>
           </article>
 
+          <!-- ========== RESOURCE 6c: The Velocity Qualification Rubric ========== -->
+          <article class="resource-card" data-category="guides" id="qualification-rubric">
+            <div class="resource-card__media" aria-hidden="true">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="180" height="180">
+                <defs>
+                  <linearGradient id="r12-bg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1a2a73"/>
+                    <stop offset="100%" stop-color="#0D1B4B"/>
+                  </linearGradient>
+                  <linearGradient id="r12-accent" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5a8ee0"/>
+                    <stop offset="100%" stop-color="#2B60BE"/>
+                  </linearGradient>
+                </defs>
+                <rect width="200" height="200" rx="14" fill="url(#r12-bg)"/>
+                <!-- Scorecard rows -->
+                <g transform="translate(32 34)">
+                  <rect x="0" y="0" width="14" height="14" rx="3" fill="url(#r12-accent)"/>
+                  <path d="M3 7 l3.5 3.5 L11 4" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <line x1="24" y1="7" x2="88" y2="7" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                  <rect x="0" y="24" width="14" height="14" rx="3" fill="url(#r12-accent)"/>
+                  <path d="M3 31 l3.5 3.5 L11 28" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <line x1="24" y1="31" x2="76" y2="31" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                  <rect x="0" y="48" width="14" height="14" rx="3" fill="url(#r12-accent)"/>
+                  <path d="M3 55 l3.5 3.5 L11 52" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <line x1="24" y1="55" x2="82" y2="55" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                  <rect x="0" y="72" width="14" height="14" rx="3" fill="url(#r12-accent)"/>
+                  <path d="M3 79 l3.5 3.5 L11 76" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <line x1="24" y1="79" x2="70" y2="79" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                  <rect x="0" y="96" width="14" height="14" rx="3" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+                  <line x1="24" y1="103" x2="78" y2="103" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                </g>
+                <!-- Big score -->
+                <g transform="translate(138 158)">
+                  <circle cx="0" cy="0" r="26" fill="#ffffff"/>
+                  <text x="0" y="7" text-anchor="middle" fill="#0D1B4B" font-family="Playfair Display, serif" font-size="20" font-weight="700">4/5</text>
+                </g>
+              </svg>
+            </div>
+            <div class="resource-card__body">
+              <p class="resource-card__type">PDF · 4 pages · Free</p>
+              <h2 class="resource-card__h">The Velocity Qualification Rubric</h2>
+              <p class="resource-card__desc">Five binary questions, scored in under a minute, applied to every deal with zero exceptions. What earns each point, what the score decides, and the three checkpoints where the rubric runs. The scorecard that keeps junk out of pipeline.</p>
+              <ul class="resource-card__features">
+                <li>The 5 points with the evidence standard for each</li>
+                <li>Scoring grid: what happens at 5, 4, 3, and below</li>
+                <li>The three checkpoints: discovery, pipeline entry, requalification</li>
+                <li>CRM install checklist</li>
+              </ul>
+              <form class="resource-form" id="qualification-rubric-form" data-form-name="qualification-rubric-request" data-resource="The Velocity Qualification Rubric" data-download="../assets/sails-qualification-rubric.pdf">
+                <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
+                <div class="resource-form__row">
+                  <div class="resource-form__field">
+                    <label for="qr-name">Name</label>
+                    <input id="qr-name" name="name" type="text" required autocomplete="name" />
+                  </div>
+                  <div class="resource-form__field">
+                    <label for="qr-company">Company</label>
+                    <input id="qr-company" name="company" type="text" autocomplete="organization" />
+                  </div>
+                </div>
+                <div class="resource-form__field">
+                  <label for="qr-email">Work email</label>
+                  <input id="qr-email" name="email" type="email" required autocomplete="email" />
+                </div>
+                <button type="submit" class="btn btn--primary resource-form__submit">
+                  <span class="form__submit-label">Send me the rubric <span aria-hidden="true">→</span></span>
+                  <span class="form__submit-loading" aria-hidden="true">Sending…</span>
+                </button>
+                <p class="resource-form__status" role="status" aria-live="polite"></p>
+                <p class="resource-form__note">One-time email with the PDF. No newsletter. No spam.</p>
+              </form>
+            </div>
+          </article>
+
           <!-- ========== RESOURCE 7: Sales Playbook Starter Template ========== -->
           <article class="resource-card" data-category="playbooks">
             <div class="resource-card__media" aria-hidden="true">
@@ -774,6 +863,81 @@
                 </div>
                 <button type="submit" class="btn btn--primary resource-form__submit">
                   <span class="form__submit-label">Send me the template <span aria-hidden="true">→</span></span>
+                  <span class="form__submit-loading" aria-hidden="true">Sending…</span>
+                </button>
+                <p class="resource-form__status" role="status" aria-live="polite"></p>
+                <p class="resource-form__note">One-time email with the PDF. No newsletter. No spam.</p>
+              </form>
+            </div>
+          </article>
+
+          <!-- ========== RESOURCE 7b: The Objection Response Cards ========== -->
+          <article class="resource-card" data-category="playbooks" id="objection-response-cards">
+            <div class="resource-card__media" aria-hidden="true">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="180" height="180">
+                <defs>
+                  <linearGradient id="r13-bg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1a2a73"/>
+                    <stop offset="100%" stop-color="#0D1B4B"/>
+                  </linearGradient>
+                  <linearGradient id="r13-accent" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5a8ee0"/>
+                    <stop offset="100%" stop-color="#2B60BE"/>
+                  </linearGradient>
+                </defs>
+                <rect width="200" height="200" rx="14" fill="url(#r13-bg)"/>
+                <!-- Objection bubble -->
+                <g transform="translate(28 36)">
+                  <rect x="0" y="0" width="70" height="34" rx="9" fill="#ffffff" opacity="0.95"/>
+                  <polygon points="12,34 12,45 24,34" fill="#ffffff" opacity="0.95"/>
+                  <text x="35" y="23" text-anchor="middle" fill="#0D1B4B" font-family="Playfair Display, serif" font-size="18" font-weight="700">!</text>
+                </g>
+                <!-- Response card stack -->
+                <g transform="translate(78 88)">
+                  <rect x="10" y="14" width="84" height="52" rx="7" fill="#0D1B4B" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+                  <rect x="5" y="7" width="84" height="52" rx="7" fill="#0D1B4B" stroke="#ffffff" stroke-width="1.5" opacity="0.85"/>
+                  <rect x="0" y="0" width="84" height="52" rx="7" fill="url(#r13-accent)"/>
+                  <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
+                    <line x1="12" y1="16" x2="72" y2="16"/>
+                    <line x1="12" y1="27" x2="60" y2="27"/>
+                    <line x1="12" y1="38" x2="66" y2="38"/>
+                  </g>
+                </g>
+                <!-- 12 count badge -->
+                <g transform="translate(46 160)">
+                  <circle cx="0" cy="0" r="17" fill="#ffffff"/>
+                  <text x="0" y="5.5" text-anchor="middle" fill="#2B60BE" font-family="Playfair Display, serif" font-size="15" font-weight="700">12</text>
+                </g>
+              </svg>
+            </div>
+            <div class="resource-card__body">
+              <p class="resource-card__type">PDF · 6 pages · Free</p>
+              <h2 class="resource-card__h">The Objection Response Cards</h2>
+              <p class="resource-card__desc">The twelve objections velocity reps hear most, one card each: what the objection actually means, the isolate question, and the full talk track. Price, timing, status quo, trust, and product, ready for the moment it happens.</p>
+              <ul class="resource-card__features">
+                <li>All 12 objections with full talk tracks, one card per objection</li>
+                <li>The acknowledge-isolate-respond pattern behind every response</li>
+                <li>The five objection families and each one's root cause</li>
+                <li>Built for velocity motions: every response ends in a dated next step</li>
+              </ul>
+              <form class="resource-form" id="objection-cards-form" data-form-name="objection-cards-request" data-resource="The Objection Response Cards" data-download="../assets/sails-objection-response-cards.pdf">
+                <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
+                <div class="resource-form__row">
+                  <div class="resource-form__field">
+                    <label for="oc-name">Name</label>
+                    <input id="oc-name" name="name" type="text" required autocomplete="name" />
+                  </div>
+                  <div class="resource-form__field">
+                    <label for="oc-company">Company</label>
+                    <input id="oc-company" name="company" type="text" autocomplete="organization" />
+                  </div>
+                </div>
+                <div class="resource-form__field">
+                  <label for="oc-email">Work email</label>
+                  <input id="oc-email" name="email" type="email" required autocomplete="email" />
+                </div>
+                <button type="submit" class="btn btn--primary resource-form__submit">
+                  <span class="form__submit-label">Send me the cards <span aria-hidden="true">→</span></span>
                   <span class="form__submit-loading" aria-hidden="true">Sending…</span>
                 </button>
                 <p class="resource-form__status" role="status" aria-live="polite"></p>
@@ -909,6 +1073,49 @@
                 <li>Transparent assumptions you can sanity-check</li>
               </ul>
               <a href="../tools/lead-response-cost/" class="btn btn--primary">Open the calculator <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- ========== RESOURCE 11: AE Break-Even Calculator ========== -->
+          <article class="resource-card" data-category="calculators">
+            <div class="resource-card__media" aria-hidden="true">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="180" height="180">
+                <defs>
+                  <linearGradient id="r14-bg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1a2a73"/>
+                    <stop offset="100%" stop-color="#0D1B4B"/>
+                  </linearGradient>
+                  <linearGradient id="r14-accent" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5a8ee0"/>
+                    <stop offset="100%" stop-color="#2B60BE"/>
+                  </linearGradient>
+                </defs>
+                <rect width="200" height="200" rx="14" fill="url(#r14-bg)"/>
+                <!-- Break-even chart: cumulative line crossing zero -->
+                <g transform="translate(30 40)">
+                  <line x1="0" y1="60" x2="140" y2="60" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+                  <path d="M0 92 C 30 92, 46 84, 70 60 C 94 36, 116 22, 140 14" fill="none" stroke="url(#r14-accent)" stroke-width="6" stroke-linecap="round"/>
+                  <circle cx="70" cy="60" r="9" fill="#ffffff"/>
+                  <circle cx="70" cy="60" r="4" fill="#2B60BE"/>
+                </g>
+                <!-- Dollar badge -->
+                <g transform="translate(152 152)">
+                  <circle cx="0" cy="0" r="20" fill="#ffffff"/>
+                  <text x="0" y="7" text-anchor="middle" fill="#2B60BE" font-family="Playfair Display, serif" font-size="20" font-weight="700">$</text>
+                </g>
+              </svg>
+            </div>
+            <div class="resource-card__body">
+              <p class="resource-card__type">Interactive Calculator · Free · No email required</p>
+              <h2 class="resource-card__h">AE Break-Even Calculator</h2>
+              <p class="resource-card__desc">When does your first AE pay for themselves? Enter OTE, quota, ramp time, and margin. Get the fully loaded monthly cost, the cumulative break-even month, and first-year net contribution, with a verdict on your quota-to-OTE ratio.</p>
+              <ul class="resource-card__features">
+                <li>Fully loaded cost math (OTE x 1.25, from day one)</li>
+                <li>Linear ramp curve simulation over 36 months</li>
+                <li>Verdict: strong, workable, or fix upstream first</li>
+              </ul>
+              <a href="../tools/ae-break-even/" class="btn btn--primary">Open the calculator <span aria-hidden="true">→</span></a>
             </div>
           </article>
 

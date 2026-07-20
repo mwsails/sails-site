@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Velocity Qualification Rubric · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B; --blue: #2B60BE; --ink: #0B1230; --ink-2: #3A4366;
+    --gray: #F4F5F7; --gray-2: #E5E7EE; --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 46pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.35in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+  h1.section-h { font-family: var(--serif); font-size: 26pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.25in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.4in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 14pt; font-weight: 700; color: var(--ink); margin: 0.3in 0 0.1in; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.3in; }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+  .qblock { display: flex; gap: 0.25in; margin-bottom: 0.22in; padding: 0.18in 0.2in; border-left: 4px solid var(--blue); background: var(--gray); border-radius: 0 6px 6px 0; }
+  .qblock__num { font-family: var(--serif); font-size: 22pt; font-weight: 700; color: var(--blue); min-width: 0.5in; line-height: 1; }
+  .qblock__content { flex: 1; }
+  .qblock__h { font-family: var(--sans); font-size: 11.5pt; font-weight: 700; color: var(--ink); margin: 0 0 0.06in; }
+  .qblock__body { font-size: 10pt; line-height: 1.5; color: var(--ink-2); margin: 0; }
+  .talktrack { background: var(--gray); border-left: 4px solid var(--ink); padding: 0.16in 0.2in; margin: 0.12in 0; border-radius: 0 6px 6px 0; }
+  .talktrack__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.05in; }
+  .talktrack__body { font-family: var(--serif); font-style: italic; font-size: 11pt; line-height: 1.5; color: var(--ink); margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.3in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.1in 0.14in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 0.06in 0 0.06in 0.28in; position: relative; font-size: 10.5pt; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.13in; width: 14px; height: 14px; border: 1.5px solid var(--blue); border-radius: 3px; }
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+  .compact .checklist li { padding: 0.03in 0 0.03in 0.28in; font-size: 10pt; line-height: 1.35; }
+  .compact .checklist li::before { top: 0.07in; width: 12px; height: 12px; }
+  .compact h3.h3 { margin: 0.14in 0 0.05in; font-size: 12.5pt; }
+  .compact h1.section-h { font-size: 22pt; margin-bottom: 0.12in; }
+  .compact h2.section-sub { font-size: 12pt; margin-bottom: 0.2in; }
+  .compact .cta-panel { padding: 0.26in 0.36in; margin: 0.18in 0 0; }
+  .compact .cta-panel h3 { font-size: 15pt; margin-bottom: 0.1in; }
+  .compact .cta-panel p { font-size: 10pt; margin-bottom: 0.12in; }
+  .compact .qblock { padding: 0.11in 0.16in; margin-bottom: 0.13in; gap: 0.18in; }
+  .compact .qblock__num { font-size: 17pt; min-width: 0.38in; }
+  .compact .qblock__h { font-size: 10.5pt; }
+  .compact .qblock__body { font-size: 9.5pt; line-height: 1.42; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Founders &amp; Reps</div>
+    <h1 class="cover__title">The Velocity Qualification <span class="accent">Rubric.</span></h1>
+    <p class="cover__sub">Five binary questions, scored in under a minute, applied to every deal with zero exceptions. The scorecard that keeps junk out of your pipeline and fiction out of your forecast.</p>
+    <p class="cover__meta">4 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 · The Five Points -->
+<section class="page compact">
+  <div class="page__header"><span>The Five Points</span><span>Page 2 of 4</span></div>
+  <h1 class="section-h">Five points. Score 0 or 1. Evidence only.</h1>
+  <h2 class="section-sub">Every point needs a sentence the buyer actually said. If the CRM note can't quote it, the point wasn't earned.</h2>
+
+  <div class="qblock">
+    <div class="qblock__num">1</div>
+    <div class="qblock__content">
+      <p class="qblock__h">Trigger · Why this conversation, why now?</p>
+      <p class="qblock__body"><strong>Earns the point:</strong> the buyer names a specific event (hired reps, lost a deal, missed a quarter, churned off a competitor). <strong>Scores zero:</strong> "they seemed interested," no event named. No trigger means no urgency.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">2</div>
+    <div class="qblock__content">
+      <p class="qblock__h">Fit · Are they actually your ICP?</p>
+      <p class="qblock__body"><strong>Earns the point:</strong> verifiable facts match your ICP definition (size, motion, industry, use case). <strong>Scores zero:</strong> "they could probably use it." Out-of-ICP wins churn in month four.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">3</div>
+    <div class="qblock__content">
+      <p class="qblock__h">Authority · Can this person buy?</p>
+      <p class="qblock__body"><strong>Earns the point:</strong> your contact owns the decision, or has booked the owner into the next call. <strong>Scores zero:</strong> "I'll share it with my boss." Booked beats promised, every time.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">4</div>
+    <div class="qblock__content">
+      <p class="qblock__h">Cost of status quo · What does doing nothing cost, in their words?</p>
+      <p class="qblock__body"><strong>Earns the point:</strong> the buyer states a cost ("we lose about two deals a month because nobody follows up"). <strong>Scores zero:</strong> your pitch reflected back, or no cost named. If they can't say it, they won't fight for the purchase.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">5</div>
+    <div class="qblock__content">
+      <p class="qblock__h">Path · Is there a buyer-committed next step with a date?</p>
+      <p class="qblock__body"><strong>Earns the point:</strong> a demo, decision meeting, or pilot scoping on the calendar, committed by the buyer. <strong>Scores zero:</strong> "I'll get back to you." Rep motion is not deal motion.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Qualification Rubric</span>
+  </div>
+</section>
+
+<!-- PAGE 3 · Scoring + Checkpoints -->
+<section class="page">
+  <div class="page__header"><span>Scoring &amp; Checkpoints</span><span>Page 3 of 4</span></div>
+  <h1 class="section-h">What the score decides.</h1>
+
+  <table>
+    <thead>
+      <tr><th style="width:0.9in">Score</th><th style="width:1.5in">Verdict</th><th>What to do</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>5 / 5</strong></td><td>Qualified, hot</td><td>Advance now. Demo booked before the call ends. Cycle target inside 14 days.</td></tr>
+      <tr><td><strong>4 / 5</strong></td><td>Qualified</td><td>Advance to demo. Note the missing point; close it on the demo call.</td></tr>
+      <tr><td><strong>3 / 5</strong></td><td>Develop</td><td>Exactly one targeted action against the specific gap, with a deadline. Doesn't close in one touch: it's a 2.</td></tr>
+      <tr><td><strong>0-2 / 5</strong></td><td>Not qualified</td><td>Nurture track with a revisit date, or a polite no. Does not enter pipeline. This is a win: you just saved six weeks.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="lead">The number that matters most is the 3. "Develop" is a state with a timer on it, not a parking lot. One gap-closing action, then up to a 4 or out of the pipeline.</p>
+
+  <h3 class="h3">The three checkpoints</h3>
+  <ul>
+    <li><strong>End of discovery.</strong> Score in the last two minutes of the call while the evidence is fresh. The five points map to the five discovery questions.</li>
+    <li><strong>Entry into pipeline.</strong> No deal enters the CRM as an opportunity below a 4. This one rule does more for forecast accuracy than any forecasting method.</li>
+    <li><strong>Requalification of stalled deals.</strong> When the weekly pipeline review flags a deal past its time-in-stage benchmark twice, run the rubric again on current evidence. Triggers expire. Authority changes. The rubric is how you notice.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Velocity Qualification Rubric</span>
+  </div>
+</section>
+
+<!-- PAGE 4 · Failure Modes + CTA -->
+<section class="page compact">
+  <div class="page__header"><span>Making It Stick</span><span>Page 4 of 4</span></div>
+  <h1 class="section-h">The failure modes to watch.</h1>
+
+  <ul>
+    <li><strong>Scoring hope instead of evidence.</strong> The fix is the phrase "in their words." Every point needs a quotable sentence from the buyer in the CRM note.</li>
+    <li><strong>Rubric drift.</strong> Reps under quota pressure round 3s up to 4s. The counter is public scoring: the score is said out loud in the pipeline review when the deal enters, and anyone can challenge a point.</li>
+    <li><strong>Treating nurture as failure.</strong> A 2 with a real trigger arriving next quarter is future pipeline. Move it to nurture with a revisit date and it comes back warm. Force it in now and it burns 20 rep-touches dying slowly.</li>
+  </ul>
+
+  <h3 class="h3">Install checklist</h3>
+  <ul class="checklist">
+    <li>ICP definition written and agreed (fit has to be checkable against something)</li>
+    <li>Five score fields added to the CRM opportunity record</li>
+    <li>Entry rule active: no opportunity below a 4</li>
+    <li>Score spoken aloud in the weekly pipeline review when each deal enters</li>
+    <li>Stalled deals requalified with the same rubric, not gut feel</li>
+  </ul>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>If "qualified" means something different to every rep on your team, the rubric needs calibrating to your ICP and motion. That's part of the SAILS engagement. 30 minutes, no deck: we'll score your three newest deals against the rubric, live.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>
