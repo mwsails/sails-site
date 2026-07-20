@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Pipeline Review Agenda · SAILS Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0D1B4B; --blue: #2B60BE; --ink: #0B1230; --ink-2: #3A4366;
+    --gray: #F4F5F7; --gray-2: #E5E7EE; --white: #FFFFFF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.75in; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .cover { background: var(--navy); color: var(--white); padding: 0; min-height: 11in; display: flex; flex-direction: column; page-break-after: always; }
+  .cover__top { padding: 0.75in 0.75in 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover__brand { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; font-size: 14pt; color: var(--white); margin-bottom: 0.5in; }
+  .cover__brand-sub { font-family: var(--sans); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: inline-block; margin-left: 0.25rem; }
+  .cover__eyebrow { font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4in; }
+  .cover__title { font-family: var(--serif); font-size: 46pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.3in; max-width: 6in; }
+  .cover__title .accent { color: var(--blue); }
+  .cover__sub { font-size: 13pt; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 5.5in; margin: 0 0 0.5in; }
+  .cover__meta { font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cover__bottom { padding: 0 0.75in 0.75in; }
+  .cover__bottom-row { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 0.2in; display: flex; justify-content: space-between; font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .page__header { border-bottom: 1px solid var(--gray-2); padding-bottom: 0.18in; margin-bottom: 0.35in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .page__header span:first-child { font-weight: 600; color: var(--blue); }
+  h1.section-h { font-family: var(--serif); font-size: 26pt; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.25in; }
+  h2.section-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 500; color: var(--ink-2); margin: 0 0 0.4in; line-height: 1.3; }
+  h3.h3 { font-family: var(--serif); font-size: 14pt; font-weight: 700; color: var(--ink); margin: 0.3in 0 0.1in; letter-spacing: -0.005em; }
+  p { margin: 0 0 0.12in; color: var(--ink-2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); border-left: 3px solid var(--blue); padding-left: 0.18in; margin-bottom: 0.3in; }
+  ul, ol { margin: 0 0 0.18in; padding-left: 0.25in; color: var(--ink-2); }
+  ul li, ol li { margin-bottom: 0.06in; line-height: 1.5; }
+  strong { color: var(--ink); font-weight: 600; }
+  .qblock { display: flex; gap: 0.25in; margin-bottom: 0.22in; padding: 0.18in 0.2in; border-left: 4px solid var(--blue); background: var(--gray); border-radius: 0 6px 6px 0; }
+  .qblock__num { font-family: var(--serif); font-size: 22pt; font-weight: 700; color: var(--blue); min-width: 0.5in; line-height: 1; }
+  .qblock__content { flex: 1; }
+  .qblock__h { font-family: var(--sans); font-size: 11.5pt; font-weight: 700; color: var(--ink); margin: 0 0 0.06in; }
+  .qblock__body { font-size: 10pt; line-height: 1.5; color: var(--ink-2); margin: 0; }
+  .talktrack { background: var(--gray); border-left: 4px solid var(--ink); padding: 0.16in 0.2in; margin: 0.12in 0; border-radius: 0 6px 6px 0; }
+  .talktrack__h { font-family: var(--sans); font-size: 9pt; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.05in; }
+  .talktrack__body { font-family: var(--serif); font-style: italic; font-size: 11pt; line-height: 1.5; color: var(--ink); margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.15in 0 0.3in; font-size: 10pt; }
+  th, td { text-align: left; padding: 0.1in 0.14in; border-bottom: 1px solid var(--gray-2); vertical-align: top; }
+  th { font-family: var(--sans); font-weight: 600; color: var(--ink); background: var(--gray); font-size: 9pt; letter-spacing: 0.05em; text-transform: uppercase; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 0.06in 0 0.06in 0.28in; position: relative; font-size: 10.5pt; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.13in; width: 14px; height: 14px; border: 1.5px solid var(--blue); border-radius: 3px; }
+  .page__footer { position: absolute; bottom: 0.4in; left: 0.75in; right: 0.75in; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 8pt; color: var(--ink-2); letter-spacing: 0.04em; border-top: 1px solid var(--gray-2); padding-top: 0.12in; }
+  .page__footer .brand { font-weight: 600; color: var(--blue); letter-spacing: 0.12em; }
+  .cta-panel { background: var(--navy); color: var(--white); padding: 0.4in 0.5in; border-radius: 8px; margin: 0.3in 0; }
+  .cta-panel h3 { font-family: var(--serif); font-size: 18pt; color: var(--white); margin: 0 0 0.15in; letter-spacing: -0.01em; }
+  .cta-panel p { color: rgba(255,255,255,0.78); margin: 0 0 0.2in; }
+  .cta-panel .url { color: var(--blue); font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.02em; }
+  .compact .checklist li { padding: 0.03in 0 0.03in 0.28in; font-size: 10pt; line-height: 1.35; }
+  .compact .checklist li::before { top: 0.07in; width: 12px; height: 12px; }
+  .compact h3.h3 { margin: 0.14in 0 0.05in; font-size: 12.5pt; }
+  .compact h1.section-h { font-size: 22pt; margin-bottom: 0.12in; }
+  .compact h2.section-sub { font-size: 12pt; margin-bottom: 0.2in; }
+  .compact .cta-panel { padding: 0.26in 0.36in; margin: 0.18in 0 0; }
+  .compact .cta-panel h3 { font-size: 15pt; margin-bottom: 0.1in; }
+  .compact .cta-panel p { font-size: 10pt; margin-bottom: 0.12in; }
+</style>
+</head>
+<body>
+
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__top">
+    <div class="cover__brand">SAILS <span class="cover__brand-sub">Advisory</span></div>
+    <div class="cover__eyebrow">SAILS Working Doc · For Sales Leaders &amp; Founders</div>
+    <h1 class="cover__title">The Pipeline Review <span class="accent">Agenda.</span></h1>
+    <p class="cover__sub">The 60-minute, deal-by-deal weekly review for velocity sales teams. Five questions per deal, a stalled-deal protocol, and a printable run-of-show. No forecast theater.</p>
+    <p class="cover__meta">6 pages · By Matt Weisman</p>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__bottom-row">
+      <span>Put the Wind in Your Sales.</span>
+      <span>sailsadvisory.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 · The Principle -->
+<section class="page">
+  <div class="page__header"><span>The Principle</span><span>Page 2 of 6</span></div>
+  <h1 class="section-h">A pipeline review is a working session. Not a recital.</h1>
+
+  <p class="lead">Most pipeline reviews are forecast theater: reps recite numbers, managers nod, nothing changes. A real review changes the state of the pipeline while the meeting is happening. Deals get re-staged, killed, or given a named next step, live, in the room.</p>
+
+  <h3 class="h3">What the weekly review has to accomplish</h3>
+  <ul>
+    <li><strong>Inspect every active deal against stage exit criteria.</strong> Criteria, not vibes. Half of all "stuck" deals are just mis-staged.</li>
+    <li><strong>Give every deal a named next step and a date.</strong> A deal that leaves the meeting without one is stalled by definition.</li>
+    <li><strong>Kill junk at the door.</strong> Every new deal gets checked against the qualification rubric the week it enters. Junk in pipeline is the root of every bad forecast.</li>
+    <li><strong>Run the stalled-deal protocol.</strong> Anything past its time-in-stage benchmark twice gets requalified, revived, or closed lost. In the meeting, not "next week."</li>
+  </ul>
+
+  <h3 class="h3">What it is NOT</h3>
+  <ul>
+    <li><strong>It is not coaching.</strong> The moment it becomes "let's work on your discovery questions," the other deals stop getting reviewed. Coaching gets its own session, built on recorded calls. Splitting the two is the single highest-leverage change most teams can make.</li>
+    <li><strong>It is not a forecast call.</strong> The forecast is an output of a clean pipeline, not a meeting agenda. Aggregate numbers for leadership separately.</li>
+  </ul>
+
+  <h3 class="h3">Cadence and length</h3>
+  <p><strong>Weekly, 60 minutes</strong> for a team of two to five reps. Under 15 active deals, 45 minutes is enough. Weekly is right for velocity motions because deals move in days: a biweekly review on a 21-day cycle means most deals are born and die between meetings.</p>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Pipeline Review Agenda</span>
+  </div>
+</section>
+
+<!-- PAGE 3 · The Agenda -->
+<section class="page">
+  <div class="page__header"><span>The Agenda</span><span>Page 3 of 6</span></div>
+  <h1 class="section-h">The 60-minute run of show.</h1>
+  <h2 class="section-sub">Five segments. The clock is part of the design: when a segment is over, it is over.</h2>
+
+  <table>
+    <thead>
+      <tr><th style="width:1.6in">Segment</th><th style="width:0.7in">Time</th><th>What happens</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1 · Numbers snapshot</strong></td><td>5 min</td><td>Coverage ratio, deals added and closed this week, one leading indicator that's off. No discussion. Just the state of the board.</td></tr>
+      <tr><td><strong>2 · New deals</strong></td><td>10 min</td><td>Every deal that entered pipeline this week: does it pass the qualification rubric? Kill anything that doesn't, before it pollutes coverage.</td></tr>
+      <tr><td><strong>3 · Deal-by-deal</strong></td><td>35 min</td><td>Every active deal above the dollar threshold gets the same five questions (page 4). Next step and date agreed live and logged in the CRM before moving on.</td></tr>
+      <tr><td><strong>4 · Stalled deals</strong></td><td>7 min</td><td>Anything past its time-in-stage benchmark twice runs the stalled-deal protocol (page 5): requalify, revive, or close lost.</td></tr>
+      <tr><td><strong>5 · Commitments recap</strong></td><td>3 min</td><td>Read back every next step and owner. This list opens next week's meeting.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="h3">Two rules that keep it to an hour</h3>
+  <ul>
+    <li><strong>Set a dollar threshold.</strong> Deals below it get batched into a single line ("eleven deals under $3K, aggregate $21K, anything unusual?"). If you can't get through the pipeline in an hour, the threshold is too low.</li>
+    <li><strong>Park the coaching.</strong> When a deal conversation turns into a skills conversation, the manager says "good coaching topic, parking it" and writes it down for the coaching session. Every time. The team learns the boundary in two weeks.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Pipeline Review Agenda</span>
+  </div>
+</section>
+
+<!-- PAGE 4 · The Five Questions -->
+<section class="page">
+  <div class="page__header"><span>The Five Questions</span><span>Page 4 of 6</span></div>
+  <h1 class="section-h">Five questions. Every deal. Same order.</h1>
+  <h2 class="section-sub">Reps learn to pre-answer them, so the meeting gets faster every week and the CRM gets cleaner. The questions map to fields.</h2>
+
+  <div class="qblock">
+    <div class="qblock__num">1</div>
+    <div class="qblock__content">
+      <p class="qblock__h">What stage is it in, and does it actually meet that stage's exit criteria?</p>
+      <p class="qblock__body">Half of all "stuck" deals are just mis-staged. Check the written criteria, not the vibe. If it doesn't meet them, move it back. A clean pipeline is worth more than a flattering one.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">2</div>
+    <div class="qblock__content">
+      <p class="qblock__h">What changed since last week?</p>
+      <p class="qblock__body">If the answer is "nothing" two weeks in a row, it's a stalled deal regardless of what the rep feels about it. Feelings are not deal motion.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">3</div>
+    <div class="qblock__content">
+      <p class="qblock__h">What's the buyer's next step, in their words?</p>
+      <p class="qblock__body">Not the rep's next step. If the buyer hasn't committed to doing anything, there is no deal motion, only rep motion. This is the single most predictive question of the five.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">4</div>
+    <div class="qblock__content">
+      <p class="qblock__h">What could kill this deal?</p>
+      <p class="qblock__body">The rep names the biggest risk out loud. Deals lose to unspoken risks; naming one turns it into a task. "Nothing could kill it" is itself a red flag.</p>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qblock__num">5</div>
+    <div class="qblock__content">
+      <p class="qblock__h">What is the next step, and when?</p>
+      <p class="qblock__body">Named action, named date, logged in the CRM before the meeting ends. A deal that leaves the review without one is stalled by definition.</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Pipeline Review Agenda</span>
+  </div>
+</section>
+
+<!-- PAGE 5 · Red Flags + Stalled-Deal Protocol -->
+<section class="page">
+  <div class="page__header"><span>Red Flags &amp; The Protocol</span><span>Page 5 of 6</span></div>
+  <h1 class="section-h">What you'll hear, and what to do about it.</h1>
+
+  <table>
+    <thead>
+      <tr><th style="width:1.9in">What you hear</th><th style="width:1.9in">What it usually means</th><th>What to do</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>"Feeling good about this one"</strong></td><td>No verifiable buyer action</td><td>Ask question 3. If there's no buyer-committed next step, downgrade it.</td></tr>
+      <tr><td><strong>"Just waiting to hear back"</strong></td><td>The rep has lost control of the deal</td><td>Set a revive-by date. Waiting is not a next step.</td></tr>
+      <tr><td><strong>"They said next quarter"</strong></td><td>Polite no, or no trigger</td><td>Requalify against the trigger. Move to nurture, out of active pipeline.</td></tr>
+      <tr><td><strong>Same deal, same stage, third week</strong></td><td>Stalled, carried for coverage optics</td><td>Run the stalled-deal protocol now, not next week.</td></tr>
+      <tr><td><strong>"I'll send them some info"</strong></td><td>The classic stall, rep side</td><td>Get a buyer-committed action attached to the send, or downgrade.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="h3">The stalled-deal protocol</h3>
+  <p>A deal that exceeds its stage's time benchmark <strong>twice</strong> gets exactly three options, chosen in the meeting:</p>
+  <ul>
+    <li><strong>Requalify.</strong> Run it back through the qualification rubric. If the trigger, authority, or timeline no longer holds, it was never a deal. Move it to nurture.</li>
+    <li><strong>Revive.</strong> One direct, honest touch, sent within 24 hours. Buyers respect the question; it converts stalls into answers:</li>
+  </ul>
+
+  <div class="talktrack">
+    <p class="talktrack__h">The revive touch</p>
+    <p class="talktrack__body">"It seems like this has lost momentum on your side. Should we close the file, or is there a real path here?"</p>
+  </div>
+
+  <ul>
+    <li><strong>Close lost.</strong> The cheapest outcome for a dead deal is marking it dead. Every stalled deal carried in pipeline inflates coverage and corrupts the forecast.</li>
+  </ul>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>The Pipeline Review Agenda</span>
+  </div>
+</section>
+
+<!-- PAGE 6 · Checklist + CTA -->
+<section class="page compact">
+  <div class="page__header"><span>Run of Show</span><span>Page 6 of 6</span></div>
+  <h1 class="section-h">The printable checklist.</h1>
+  <h2 class="section-sub">Pin it next to the calendar invite. If every box gets checked, the review worked.</h2>
+
+  <h3 class="h3">Before the meeting</h3>
+  <ul class="checklist">
+    <li>Every rep has pre-answered the five questions on their deals (CRM fields, not memory)</li>
+    <li>Last week's commitments list is queued as the opening slide</li>
+    <li>Deals below the dollar threshold are batched into one aggregate line</li>
+  </ul>
+
+  <h3 class="h3">During the meeting</h3>
+  <ul class="checklist">
+    <li>Numbers snapshot delivered in 5 minutes, no discussion</li>
+    <li>Every new deal checked against the qualification rubric; junk killed</li>
+    <li>Every active deal above threshold got the five questions</li>
+    <li>Every deal left with a named next step and a date, logged live</li>
+    <li>Stalled deals assigned one of: requalify, revive, close lost</li>
+    <li>Coaching topics parked and written down, not worked in the room</li>
+  </ul>
+
+  <h3 class="h3">After the meeting</h3>
+  <ul class="checklist">
+    <li>Commitments list sent to the team same day</li>
+    <li>Revive touches sent within 24 hours</li>
+    <li>Coaching session scheduled for the parked topics</li>
+  </ul>
+
+  <div class="cta-panel">
+    <h3>Book a Discovery Call</h3>
+    <p>If the review keeps collapsing into forecast theater, the problem is upstream: exit criteria and a rubric that were never written down. The SAILS engagement produces both. 30 minutes, no deck. We'll run the five questions on your three biggest deals, live.</p>
+    <p class="url">calendar.app.google/x2MYasUSFXEeow459</p>
+  </div>
+
+  <div class="page__footer">
+    <span class="brand">SAILS ADVISORY</span><span>Put the Wind in Your Sales · matt@sailsadvisory.com</span>
+  </div>
+</section>
+
+</body>
+</html>

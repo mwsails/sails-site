@@ -26,12 +26,12 @@ Pure static HTML/CSS/JS. No frameworks, no build step. Deployed on Netlify.
                       who-it's-for, about, investment, FAQ, contact form
 /diagnostic/          10-question fit qualifier (Netlify form: fit-diagnostic).
                       Success screen links Calendly + full PDF questionnaire
-/resources/           10 resources with category filter tabs (All/Templates/Guides/
-                      Playbooks/Calculators). 7 gated downloads + 3 calculator links
+/resources/           11 resources with category filter tabs (All/Templates/Guides/
+                      Playbooks/Calculators). 8 gated downloads + 3 calculator links
 /tools/reverse-funnel/        Interactive calculator (ungated)
 /tools/pipeline-coverage/     Interactive calculator (ungated)
 /tools/lead-response-cost/    Interactive calculator (ungated)
-/blog/                Index + 21 posts. Topics: frameworks, comparisons, hiring,
+/blog/                Index + 22 posts. Topics: frameworks, comparisons, hiring,
                       playbooks, metrics, coaching, objections, stage guides
 ```
 
@@ -46,17 +46,17 @@ Pure static HTML/CSS/JS. No frameworks, no build step. Deployed on Netlify.
 ## Netlify
 
 - Publish directory: `.` (repo root). Config in `netlify.toml` (security headers + asset caching).
-- **Forms (9 total), all with honeypot `bot-field`:** `contact`, `fit-diagnostic`, `kpi-tracker-request`, `first-ae-scorecard-request`, `demo-framework-request`, `outbound-sequence-request`, `comp-plan-builder-request`, `discovery-framework-request`, `playbook-starter-request`.
+- **Forms (10 total), all with honeypot `bot-field`:** `contact`, `fit-diagnostic`, `kpi-tracker-request`, `first-ae-scorecard-request`, `demo-framework-request`, `outbound-sequence-request`, `comp-plan-builder-request`, `discovery-framework-request`, `playbook-starter-request`, `pipeline-review-agenda-request`.
 - Forms pattern: a **hidden static form in `<head>`** registers each form with Netlify's build bot; the visible form submits via fetch (AJAX) so users stay on-page. `resources/resources.js` routes submissions by the form's `data-form-name` attribute and auto-triggers the file download on success.
 - Email notifications for submissions are configured in Netlify dashboard (Forms → Notifications → matt@sailsadvisory.com).
 
 ## Conventions
 
-- **Cache busting:** stylesheet is referenced as `style.css?v=N` on every page (currently `v=4`); `resources/resources.js?v=2`. If you change either file, bump the version across ALL pages (a one-line sed/python sweep — see git history).
+- **Cache busting:** stylesheet is referenced as `style.css?v=N` on every page (currently `v=5`); `resources/resources.js?v=2`. If you change either file, bump the version across ALL pages (a one-line sed/python sweep — see git history).
 - **New blog post checklist:** copy an existing post as template → update title/meta/canonical/OG/Twitter → update `BlogPosting` + `BreadcrumbList` JSON-LD → add card to `blog/index.html` grid AND its `Blog` JSON-LD `blogPost` array → add `<url>` to `sitemap.xml` → add bullet to `llms.txt` → cross-link 3 related posts in the "Keep reading" grid.
 - **New gated resource checklist:** file into `assets/` (kebab-case `sails-*.pdf/xlsx`) → hidden Netlify form in resources page `<head>` → visible card with unique SVG illustration + form (`data-form-name`, `data-resource`, `data-download`, `data-category`) → update `llms.txt`.
 - **Calculators** are ungated pages under `/tools/` with `WebApplication` schema, live client-side JS, GA4 `calculate` event (debounced), and a Calendly CTA below results.
-- **SEO/GEO:** every page has canonical, OG, Twitter cards, JSON-LD. Root has `robots.txt` (AI crawlers explicitly allowed), `llms.txt` (structured site summary — keep it updated with new content), `sitemap.xml` (28 URLs).
+- **SEO/GEO:** every page has canonical, OG, Twitter cards, JSON-LD. Root has `robots.txt` (AI crawlers explicitly allowed), `llms.txt` (structured site summary — keep it updated with new content), `sitemap.xml` (29 URLs).
 
 ## Regenerating the branded PDFs
 
