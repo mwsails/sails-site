@@ -32,7 +32,7 @@ Pure static HTML/CSS/JS. No frameworks, no build step. Deployed on Netlify.
 /tools/pipeline-coverage/     Interactive calculator (ungated)
 /tools/lead-response-cost/    Interactive calculator (ungated)
 /tools/ae-break-even/         Interactive calculator (ungated)
-/blog/                Index + 25 posts. Topics: frameworks, comparisons, hiring,
+/blog/                Index + 26 posts. Topics: frameworks, comparisons, hiring,
                       playbooks, metrics, coaching, objections, stage guides
 ```
 
