@@ -74,7 +74,7 @@ a:hover { color: var(--blue-hover); }
 a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-control);
 }
 strong { font-weight: 600; color: var(--ink); }
 em { font-style: italic; }
@@ -117,7 +117,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 1rem;
   letter-spacing: 0.005em;
   padding: 0.95rem 1.4rem;
-  border-radius: 999px;
+  border-radius: var(--r-control);
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -215,7 +215,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   height: 44px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--r-sm);
+  border-radius: var(--r-control);
   cursor: pointer;
   transition: border-color var(--t), background-color var(--t);
 }
@@ -511,7 +511,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .compare__wrap {
   overflow-x: auto;
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   background: var(--white);
 }
 .compare__table {
@@ -585,7 +585,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .tracks {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-dark);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 1.75rem;
   margin: 0 0 2rem;
 }
@@ -639,7 +639,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-dark);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 2rem 1.75rem;
   transition: border-color var(--t), background-color var(--t), transform var(--t);
 }
@@ -756,7 +756,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .fit__col {
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 2rem;
   transition: border-color var(--t), transform var(--t), box-shadow var(--t);
 }
@@ -808,7 +808,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .stat {
   background: var(--paper);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1.5rem 1.25rem;
   border: 1px solid transparent;
   transition: border-color var(--t), transform var(--t);
@@ -837,7 +837,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .callout {
   background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid var(--border-dark);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: clamp(2rem, 5vw, 3rem);
   text-align: center;
   max-width: 720px;
@@ -983,7 +983,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--white);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-dark);
-  border-radius: var(--r-md);
+  border-radius: var(--r-control);
   padding: 0.85rem 1rem;
   transition: border-color var(--t), background-color var(--t), box-shadow var(--t);
   width: 100%;
@@ -1136,7 +1136,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .post-card {
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   transition: border-color var(--t), transform var(--t), box-shadow var(--t);
 }
 .post-card:hover {
@@ -1295,7 +1295,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1.4rem 1.6rem;
   margin: 0 0 2.25rem;
 }
@@ -1362,7 +1362,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1.5rem 1.75rem;
   margin: 2.5em 0 1em;
 }
@@ -1401,7 +1401,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1.25rem 1.4rem;
   text-decoration: none;
   color: inherit;
@@ -1461,7 +1461,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 0;
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   overflow: hidden;
   box-shadow: 0 20px 50px -28px rgba(13, 27, 75, 0.2);
 }
@@ -1568,7 +1568,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink);
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-control);
   padding: 0.75rem 0.95rem;
   transition: border-color var(--t), box-shadow var(--t);
   width: 100%;
@@ -1667,7 +1667,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-2);
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: 999px;
+  border-radius: var(--r-control);
   padding: 0.55rem 1.2rem;
   cursor: pointer;
   transition: color var(--t), background-color var(--t), border-color var(--t);
@@ -1742,7 +1742,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .calc-inputs {
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 1.75rem;
 }
 .calc-inputs__h {
@@ -1778,7 +1778,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink);
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-control);
   padding: 0.7rem 0.9rem;
   width: 100%;
   transition: border-color var(--t), box-shadow var(--t);
@@ -1804,7 +1804,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Results panel */
 .calc-results {
   background: var(--navy);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 1.75rem;
   color: var(--white);
   position: sticky;
@@ -1844,7 +1844,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .calc-stat--hero {
   background: rgba(43, 96, 190, 0.18);
   border: 1px solid rgba(43, 96, 190, 0.45);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1rem 1.1rem;
   margin-bottom: 0.75rem;
 }
@@ -1864,7 +1864,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-2);
   background: var(--paper);
   border-left: 3px solid var(--blue);
-  border-radius: 0 var(--r-md) var(--r-md) 0;
+  border-radius: 0 var(--r-card) var(--r-card) 0;
   padding: 1rem 1.2rem;
   margin: 2rem 0 0;
 }
@@ -1875,7 +1875,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
-  border-radius: var(--r-md);
+  border-radius: var(--r-card);
   padding: 1.5rem 1.75rem;
 }
 .calc-cta p {
@@ -1937,7 +1937,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Field groups */
 .diag-group {
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   padding: 1.75rem 1.75rem 1.5rem;
   margin: 0;
   background: var(--white);
@@ -1985,7 +1985,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink);
   background: var(--white);
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-control);
   padding: 0.8rem 1rem;
   transition: border-color var(--t), box-shadow var(--t);
   width: 100%;
@@ -2027,7 +2027,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 0.6rem;
   padding: 0.7rem 0.95rem;
   border: 1px solid var(--gray-2);
-  border-radius: var(--r-md);
+  border-radius: var(--r-control);
   margin-bottom: 0.4rem;
   background: var(--white);
   cursor: pointer;
