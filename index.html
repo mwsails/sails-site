@@ -301,6 +301,34 @@
           </div>
         </div>
 
+        <div class="ask reveal" id="askCro">
+          <span class="ask__badge">Try It</span>
+          <h3 class="ask__h">Ask the CRO Agent</h3>
+          <p class="ask__sub">Type a problem, or pick one below. This is a preview of how the CRO agent talks: real answers use your actual funnel data.</p>
+
+          <div class="ask__chips">
+            <button type="button" class="ask__chip">Leads sit cold before we follow up</button>
+            <button type="button" class="ask__chip">Two reps hit quota, two don't</button>
+            <button type="button" class="ask__chip">Deals stall in the pipeline for weeks</button>
+            <button type="button" class="ask__chip">We keep losing deals on price</button>
+            <button type="button" class="ask__chip">New reps take forever to ramp up</button>
+            <button type="button" class="ask__chip">Nothing is documented, it's all in my head</button>
+          </div>
+
+          <div class="ask__row">
+            <input type="text" class="ask__input" id="askInput" placeholder="e.g. Our demo-to-close rate is all over the place" autocomplete="off" aria-label="Describe a sales problem" />
+            <button type="button" class="btn btn--primary ask__submit" id="askSubmit">Ask <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="ask__reply" id="askReply" hidden>
+            <div class="ask__reply-head">
+              <span class="demo__agent-dot" id="askReplyDot" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="ask__reply-label">CRO Agent</span>
+            </div>
+            <p class="ask__reply-text" id="askReplyText"></p>
+          </div>
+        </div>
+
         <div class="formwrap formwrap--onlight reveal">
           <p class="formwrap__kicker">Want Early Access?</p>
           <p class="formwrap__intro">SAILS is in build. Get on the list and I'll reach out directly when a spot opens.</p>
@@ -506,7 +534,7 @@
     </section>
 
     <!-- ============== WHAT SAILS REPLACES ============== -->
-    <section class="section section--dark section--photo" id="investment">
+    <section class="section section--dark section--glow" id="investment">
       <div class="section__bg" aria-hidden="true"></div>
       <div class="container">
         <div class="reveal">
