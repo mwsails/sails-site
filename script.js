@@ -77,11 +77,9 @@
       'VP of Sales is building your playbook',
       'Enablement Lead is drafting your outbound sequence',
     ];
-    const STEP_MS = 4200;
     const AGENT_STEP_MS = 1150;
 
     let stepIndex = 0;
-    let advanceTimer = null;
     let agentTimer = null;
 
     function runAgentSequence() {
@@ -130,23 +128,91 @@
       else clearInterval(agentTimer);
     }
 
-    function restartAutoAdvance() {
-      clearInterval(advanceTimer);
-      if (prefersReducedMotion) return;
-      advanceTimer = setInterval(() => {
-        showStep((stepIndex + 1) % steps.length);
-      }, STEP_MS);
-    }
-
     steps.forEach((btn, idx) => {
       btn.addEventListener('click', () => {
         showStep(idx);
-        restartAutoAdvance();
       });
     });
 
     showStep(0);
-    restartAutoAdvance();
+  }
+
+  /* ---------- Ask the CRO Agent (homepage, keyword-matched preview) ---------- */
+  const ask = document.getElementById('askCro');
+  if (ask) {
+    const input = document.getElementById('askInput');
+    const submitBtn = document.getElementById('askSubmit');
+    const chips = Array.from(ask.querySelectorAll('.ask__chip'));
+    const reply = document.getElementById('askReply');
+    const replyDot = document.getElementById('askReplyDot');
+    const replyText = document.getElementById('askReplyText');
+
+    const BUCKETS = [
+      {
+        keys: ['slow', 'respond', 'follow up', 'cold', 'wait'],
+        text: "Leads sitting more than five minutes lose half their conversion odds, and most teams take hours, not minutes. The CRO agent pulls your actual response times first: that's usually the single biggest leak before anything else gets fixed.",
+      },
+      {
+        keys: ['quota', 'uneven', 'inconsistent', 'two reps', 'top rep'],
+        text: "When some reps hit quota and others don't on the same leads, it's rarely a talent gap, it's a documentation gap. The CRO agent pulls win rates by rep to find where the top performer's approach diverges from everyone else's.",
+      },
+      {
+        keys: ['pipeline', 'forecast', 'stall', 'stuck'],
+        text: "Deals stalling in the same stage usually means the exit criteria for that stage were never defined. The CRO agent maps your pipeline stages against actual deal velocity to find where the bottleneck really sits.",
+      },
+      {
+        keys: ['objection', 'price', 'competitor', 'losing'],
+        text: "If the same objection keeps closing deals, that's a scripting problem, not a market problem. The CRO agent tags lost deals by objection type to see which one is actually costing the most revenue.",
+      },
+      {
+        keys: ['hire', 'hiring', 'onboard', 'ramp'],
+        text: "New reps ramping slowly almost always means there's no documented playbook to hand them, so they're rebuilding the founder's instincts from scratch. The CRO agent sizes how much that ramp time is costing before recommending a fix.",
+      },
+      {
+        keys: ['playbook', 'document', 'system', 'process'],
+        text: "What works usually lives in one person's head, not in a system the team can run. The CRO agent starts by documenting the exact motion that already closes deals, then hands it to the VP of Sales agent to teach it.",
+      },
+    ];
+    const FALLBACK = "That's exactly the kind of gap the CRO agent is built to find. Run the Fit Diagnostic and it'll size where revenue is actually leaking in your funnel, not a generic framework.";
+
+    function matchReply(value) {
+      const q = value.toLowerCase();
+      const bucket = BUCKETS.find((b) => b.keys.some((k) => q.includes(k)));
+      return bucket ? bucket.text : FALLBACK;
+    }
+
+    function respond(value) {
+      if (!value || !value.trim()) return;
+      reply.hidden = false;
+      replyText.textContent = '';
+      if (replyDot) replyDot.style.display = '';
+
+      const finish = () => {
+        if (replyDot) replyDot.style.display = 'none';
+        replyText.textContent = matchReply(value);
+      };
+
+      if (prefersReducedMotion) finish();
+      else setTimeout(finish, 650);
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        input.value = chip.textContent.trim();
+        respond(input.value);
+        input.focus();
+      });
+    });
+
+    if (submitBtn) submitBtn.addEventListener('click', () => respond(input.value));
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          respond(input.value);
+        }
+      });
+    }
   }
 
   /* ---------- Contact + waitlist forms (Netlify Forms AJAX) ---------- */
