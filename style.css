@@ -496,6 +496,86 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .prose__definition strong { color: var(--ink); }
 
+/* ---------- Old Way vs New Way ---------- */
+.oldnew {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 860px) {
+  .oldnew { grid-template-columns: 1fr auto 1fr; gap: 2rem; }
+}
+.oldnew__col {
+  border-radius: var(--r-card);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+.oldnew__col--old {
+  background: var(--paper);
+  border: 1px solid var(--gray-2);
+}
+.oldnew__col--new {
+  background: var(--grad-beacon);
+  color: var(--white);
+}
+.oldnew__label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+.oldnew__col--old .oldnew__label { color: var(--ink-2); }
+.oldnew__col--new .oldnew__label { color: rgba(255, 255, 255, 0.85); }
+.oldnew__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.oldnew__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms ease, transform 500ms cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible .oldnew__list li { opacity: 1; transform: translateY(0); }
+.oldnew__list li:nth-child(1) { transition-delay: 60ms; }
+.oldnew__list li:nth-child(2) { transition-delay: 160ms; }
+.oldnew__list li:nth-child(3) { transition-delay: 260ms; }
+.oldnew__list li:nth-child(4) { transition-delay: 360ms; }
+@media (prefers-reduced-motion: reduce) {
+  .oldnew__list li { transition-delay: 0ms !important; }
+}
+.oldnew__col--old .oldnew__list li { color: var(--ink-2); }
+.oldnew__col--new .oldnew__list li { color: var(--white); font-weight: 500; }
+.oldnew__icon { flex: none; margin-top: 0.15em; }
+.oldnew__col--old .oldnew__icon { color: var(--ink-2); opacity: 0.55; }
+.oldnew__col--new .oldnew__icon { color: var(--white); }
+.oldnew__arrow {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+@media (min-width: 860px) {
+  .oldnew__arrow { display: flex; }
+}
+.oldnew__note {
+  max-width: 60ch;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
 /* Comparison table */
 .compare {
   margin-top: clamp(2.5rem, 5vw, 4rem);
