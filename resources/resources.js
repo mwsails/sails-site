@@ -1,5 +1,5 @@
 /* ============================================================
-   SAILS Advisory — resources.js
+   SAILS · resources.js
    Gated download form: submits to Netlify Forms via fetch,
    shows inline success state, auto-triggers file download.
    ============================================================ */
@@ -36,7 +36,7 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Honeypot — silently bail if filled
+      // Honeypot: silently bail if filled
       const hp = form.querySelector('[name="bot-field"]');
       if (hp && hp.value) return;
 
@@ -100,7 +100,7 @@
       </div>
       <h3 class="resource-success__h">On its way.</h3>
       <p class="resource-success__msg">The download should start automatically. If it doesn't, <a href="${downloadPath}" download>click here to grab it</a>.</p>
-      <p class="resource-success__sub">Want a hand reading your numbers once you've filled it in? <a href="https://calendar.app.google/x2MYasUSFXEeow459" target="_blank" rel="noopener noreferrer">Book a 30-minute discovery call.</a></p>
+      <p class="resource-success__sub">Want a system built around your numbers? <a href="../diagnostic/">Run the Fit Diagnostic.</a></p>
     `;
 
     form.replaceWith(success);
