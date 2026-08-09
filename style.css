@@ -1,7 +1,7 @@
 /* ============================================================
-   SAILS — sailsadvisory.com
+   SAILS · sailsadvisory.com
    Mobile-first. Pure CSS. No frameworks.
-   Palette (SAILS Brand Guide v4 — Deep Water to Open Sky):
+   Palette (SAILS Brand Guide v4 · Deep Water to Open Sky):
      --navy:  #0D1B4B  (Deep Navy, primary)
      --blue:  #2B60BE  (Royal Blue, action)
      --cyan:  #35C8E8  (Beacon Cyan, AI layer only)
@@ -20,16 +20,16 @@
   --navy-2: #14246a;        /* slightly lighter for hero gradient */
   --blue: #2B60BE;
   --blue-hover: #1f4ea3;
-  --cyan: #35C8E8;           /* Beacon Cyan — AI surfaces/live signals only */
-  --sky: #5A8EE0;            /* Sky — support/secondary */
-  --mist: #A8C0EA;           /* Mist — muted tint */
+  --cyan: #35C8E8;           /* Beacon Cyan: AI surfaces/live signals only */
+  --sky: #5A8EE0;            /* Sky: support/secondary */
+  --mist: #A8C0EA;           /* Mist: muted tint */
   --white: #FFFFFF;
   --ink: #0B1230;           /* near-black for body text */
   --ink-2: #3A4366;         /* muted body */
-  --paper: #F7F5EF;         /* Paper — ground (replaces old --gray) */
+  --paper: #F7F5EF;         /* Paper: ground (replaces old --gray) */
   --gray-2: #E5E7EE;        /* hairline borders on light bg */
-  --red: #B3261E;            /* Signal Red — errors only */
-  --ember: #E4572E;          /* Ember — wins/positive deltas only */
+  --red: #B3261E;            /* Signal Red: errors only */
+  --ember: #E4572E;          /* Ember: wins/positive deltas only */
   --border-dark: rgba(255, 255, 255, 0.12);
 
   --grad-deep-water: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
@@ -126,12 +126,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .btn:focus-visible { outline-offset: 4px; }
 .btn--primary {
-  background: var(--blue);
+  background: var(--grad-following-wind);
   color: var(--white);
   box-shadow: 0 6px 18px -8px rgba(43, 96, 190, 0.7);
 }
 .btn--primary:hover {
-  background: var(--blue-hover);
+  filter: brightness(0.94);
   color: var(--white);
   transform: translateY(-1px);
   box-shadow: 0 10px 22px -8px rgba(43, 96, 190, 0.85);
@@ -268,14 +268,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  background: var(--navy);
+  background: var(--grad-deep-water);
   color: var(--white);
   overflow: hidden;
 }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: var(--navy);
+  background: var(--grad-deep-water);
   pointer-events: none;
   overflow: hidden;
 }
@@ -387,7 +387,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section--light { background: var(--white); }
 .section--light + .section--light { padding-top: 0; }
 .section--gray { background: var(--paper); }
-.section--dark { background: var(--navy); color: var(--white); }
+.section--dark { background: var(--grad-deep-water); color: var(--white); }
 
 .kicker {
   font-family: var(--sans);
@@ -557,7 +557,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section__bg {
   position: absolute;
   inset: 0;
-  background: var(--navy);
+  background: var(--grad-deep-water);
   pointer-events: none;
   overflow: hidden;
 }
@@ -624,6 +624,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
+}
+
+/* AI-layer variant: reserved for the three-agent-voice cards only.
+   Beacon Cyan/gradient never appears on anything non-AI. */
+.tracks--agents {
+  background: var(--grad-beacon);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.tracks--agents .tracks__eyebrow { color: rgba(255, 255, 255, 0.75); }
+.tracks--agents .track { border-left-color: rgba(255, 255, 255, 0.55); }
+.tracks--agents .track__desc { color: rgba(255, 255, 255, 0.85); }
+@media (min-width: 940px) {
+  .tracks--agents .tracks__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ---------- Cards (Engagement) ---------- */
@@ -744,6 +757,208 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .engagement__note strong { color: var(--white); }
 
+/* ---------- How It Works demo (homepage) ---------- */
+.demo { margin: 2.5rem 0 3rem; }
+
+.demo__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 720px) {
+  .demo__steps { flex-direction: row; gap: 1rem; }
+}
+.demo__step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--sans);
+  text-align: left;
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--r-card);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  transition: border-color var(--t), box-shadow var(--t);
+}
+@media (min-width: 720px) { .demo__step { flex: 1; } }
+.demo__step:hover { border-color: var(--blue); }
+.demo__step.is-active {
+  border-color: var(--blue);
+  box-shadow: 0 8px 20px -12px rgba(43, 96, 190, 0.45);
+}
+.demo__step-num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-full);
+  background: var(--gray-2);
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background var(--t), color var(--t);
+}
+.demo__step.is-active .demo__step-num {
+  background: var(--grad-following-wind);
+  color: var(--white);
+}
+.demo__step-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.demo__step.is-active .demo__step-label { color: var(--ink); }
+
+.demo__stage { position: relative; }
+.demo__panel { animation: demo-fade-in 320ms var(--t) both; }
+@keyframes demo-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo__panel { animation: none; }
+}
+
+.demo__mock {
+  min-height: 220px;
+  border-radius: var(--r-card);
+  border: 1px solid var(--gray-2);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.demo__mock--form,
+.demo__mock--output {
+  background: var(--grad-paper);
+}
+.demo__mock-title {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 0.25rem;
+}
+.demo__mock-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--gray-2);
+}
+.demo__mock-row:last-child { border-bottom: none; padding-bottom: 0; }
+.demo__mock-label {
+  font-size: 0.78rem;
+  color: var(--ink-2);
+}
+.demo__mock-value {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+/* Agent-working mock: AI layer, Beacon gradient reserved for this surface only */
+.demo__mock--agent {
+  background: var(--grad-beacon);
+  border-color: transparent;
+  color: var(--white);
+}
+.demo__agent-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.demo__agent-dot {
+  flex: none;
+  display: inline-flex;
+  gap: 4px;
+}
+.demo__agent-dot span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--white);
+  opacity: 0.35;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .demo__agent-dot span { animation: demo-dot 1.2s ease-in-out infinite; }
+  .demo__agent-dot span:nth-child(2) { animation-delay: 0.15s; }
+  .demo__agent-dot span:nth-child(3) { animation-delay: 0.3s; }
+}
+@keyframes demo-dot {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.demo__agent-text {
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+.demo__progress {
+  height: 6px;
+  border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+.demo__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--white);
+  border-radius: var(--r-full);
+  transition: width 900ms var(--t);
+}
+.demo__agent-note {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.demo__output-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+.demo__output-row svg { flex: none; color: var(--ember); }
+
+/* Waitlist form on a light section needs its own field styling;
+   .form/.form__field default to the dark (contact-form) treatment. */
+.formwrap--onlight {
+  border-top-color: var(--gray-2);
+}
+.formwrap__kicker {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 0.5rem;
+}
+.formwrap--onlight .formwrap__intro { color: var(--ink-2); }
+.form--onlight .form__field label { color: var(--ink-2); }
+.form--onlight .form__field input,
+.form--onlight .form__field textarea {
+  color: var(--ink);
+  background: var(--white);
+  border-color: var(--gray-2);
+}
+.form--onlight .form__field input:hover,
+.form--onlight .form__field textarea:hover {
+  border-color: var(--mist);
+}
+.form--onlight .form__status { color: var(--ink-2); }
+.form--onlight .form__status.is-success { color: var(--blue); }
+.form--onlight .form__status.is-error { color: var(--red); }
+
 /* ---------- Who It's For ---------- */
 .fit {
   display: grid;
@@ -765,7 +980,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   transform: translateY(-2px);
   box-shadow: 0 12px 30px -18px rgba(13, 27, 75, 0.25);
 }
-.fit__col--yes { background: linear-gradient(180deg, var(--white) 0%, var(--mist) 100%); }
+.fit__col--yes { background: var(--grad-paper); }
 .fit__h {
   display: flex;
   align-items: center;
@@ -807,11 +1022,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   .stats { grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
 }
 .stat {
+  position: relative;
   background: var(--paper);
   border-radius: var(--r-card);
   padding: 1.5rem 1.25rem;
   border: 1px solid transparent;
+  overflow: hidden;
   transition: border-color var(--t), transform var(--t);
+}
+.stat::before {
+  /* Sunset accent: wins/milestones only, used sparingly per brand guide */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-sunset);
 }
 .stat:hover {
   border-color: var(--gray-2);
@@ -1852,7 +2077,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 1.9rem;
   color: var(--white);
 }
-/* Light-on-navy tints (--calc-results sits on --navy) — see the same note
+/* Light-on-navy tints (--calc-results sits on --navy): see the same note
    on .form__status above. */
 .calc-stat__value.is-good { color: #7be3a9; }
 .calc-stat__value.is-warn { color: #ffd479; }
