@@ -1,11 +1,18 @@
 /* ============================================================
-   SAILS Advisory — sailsadvisory.com
+   SAILS — sailsadvisory.com
    Mobile-first. Pure CSS. No frameworks.
-   Palette:
-     --navy:  #0D1B4B  (primary background, nav, footer)
-     --blue:  #2B60BE  (CTAs, accent, "WIND")
+   Palette (SAILS Brand Guide v4 — Deep Water to Open Sky):
+     --navy:  #0D1B4B  (Deep Navy, primary)
+     --blue:  #2B60BE  (Royal Blue, action)
+     --cyan:  #35C8E8  (Beacon Cyan, AI layer only)
+     --sky:   #5A8EE0  (Sky, support)
+     --mist:  #A8C0EA  (Mist, muted)
+     --paper: #F7F5EF  (Paper, ground)
+     --red:   #B3261E  (Signal Red, errors only)
+     --ember: #E4572E  (Ember, wins only)
      --white: #FFFFFF
-     --gray:  #F4F5F7  (light section break)
+   Usage ratios: 60% paper/white space, 30% navy gradient, 8% royal blue
+   (CTAs/rules only), 2% mist (tags/rules).
    ============================================================ */
 
 :root {
@@ -13,15 +20,26 @@
   --navy-2: #14246a;        /* slightly lighter for hero gradient */
   --blue: #2B60BE;
   --blue-hover: #1f4ea3;
+  --cyan: #35C8E8;           /* Beacon Cyan — AI surfaces/live signals only */
+  --sky: #5A8EE0;            /* Sky — support/secondary */
+  --mist: #A8C0EA;           /* Mist — muted tint */
   --white: #FFFFFF;
   --ink: #0B1230;           /* near-black for body text */
   --ink-2: #3A4366;         /* muted body */
-  --gray: #F4F5F7;
+  --paper: #F7F5EF;         /* Paper — ground (replaces old --gray) */
   --gray-2: #E5E7EE;        /* hairline borders on light bg */
+  --red: #B3261E;            /* Signal Red — errors only */
+  --ember: #E4572E;          /* Ember — wins/positive deltas only */
   --border-dark: rgba(255, 255, 255, 0.12);
 
+  --grad-deep-water: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  --grad-following-wind: linear-gradient(90deg, var(--blue) 0%, var(--sky) 100%);
+  --grad-beacon: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+  --grad-sunset: linear-gradient(135deg, var(--ember) 0%, #F5A65A 100%);
+  --grad-paper: linear-gradient(160deg, #FFFFFF 0%, var(--mist) 100%);
+
   --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sans:  'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --maxw: 1120px;
   --pad: clamp(1.25rem, 4vw, 2rem);
@@ -29,6 +47,10 @@
   --r-sm: 6px;
   --r-md: 12px;
   --r-lg: 20px;
+  --r-control: 10px;
+  --r-card: 14px;
+  --r-glass: 18px;
+  --r-full: 9999px;
 
   --t: 200ms cubic-bezier(.4, 0, .2, 1);
 }
@@ -364,7 +386,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .section--light { background: var(--white); }
 .section--light + .section--light { padding-top: 0; }
-.section--gray { background: var(--gray); }
+.section--gray { background: var(--paper); }
 .section--dark { background: var(--navy); color: var(--white); }
 
 .kicker {
@@ -499,7 +521,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.97rem;
 }
 .compare__table thead {
-  background: var(--gray);
+  background: var(--paper);
 }
 .compare__table th,
 .compare__table td {
@@ -635,7 +657,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0D1B4B;
+  background: var(--navy);
   box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   transition: transform var(--t), box-shadow var(--t);
 }
@@ -739,11 +761,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: border-color var(--t), transform var(--t), box-shadow var(--t);
 }
 .fit__col:hover {
-  border-color: #cdd3e0;
+  border-color: var(--mist);
   transform: translateY(-2px);
   box-shadow: 0 12px 30px -18px rgba(13, 27, 75, 0.25);
 }
-.fit__col--yes { background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%); }
+.fit__col--yes { background: linear-gradient(180deg, var(--white) 0%, var(--mist) 100%); }
 .fit__h {
   display: flex;
   align-items: center;
@@ -785,7 +807,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .stats { grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
 }
 .stat {
-  background: var(--gray);
+  background: var(--paper);
   border-radius: var(--r-md);
   padding: 1.5rem 1.25rem;
   border: 1px solid transparent;
@@ -990,6 +1012,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: rgba(255, 255, 255, 0.75);
   min-height: 1.2em;
 }
+/* Light-on-navy tints, not brand-guide Signal Red/Ember (both too dark to
+   read on --navy). Brand guide's semantic colors have no dark-surface
+   variant defined (that's product/dark-mode scope). */
 .form__status.is-success { color: #7be3a9; }
 .form__status.is-error   { color: #ff9b9b; }
 
@@ -1267,7 +1292,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Key takeaways box (answer-first GEO pattern) */
 .takeaways {
-  background: linear-gradient(180deg, #f7f9ff 0%, var(--gray) 100%);
+  background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
   border-radius: var(--r-md);
@@ -1334,7 +1359,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Inline CTA inside a post */
 .post-cta-inline {
-  background: linear-gradient(180deg, #f7f9ff 0%, var(--gray) 100%);
+  background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
   border-radius: var(--r-md);
@@ -1352,7 +1377,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Related posts ---------- */
 .related {
-  background: var(--gray);
+  background: var(--paper);
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   border-top: 1px solid var(--gray-2);
 }
@@ -1548,7 +1573,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: border-color var(--t), box-shadow var(--t);
   width: 100%;
 }
-.resource-form__field input:hover { border-color: #b9c1d3; }
+.resource-form__field input:hover { border-color: var(--mist); }
 .resource-form__field input:focus {
   outline: none;
   border-color: var(--blue);
@@ -1568,7 +1593,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-2);
   min-height: 1.2em;
 }
-.resource-form__status.is-error { color: #c8434c; }
+.resource-form__status.is-error { color: var(--red); }
 .resource-form__note {
   font-size: 0.82rem;
   color: var(--ink-2);
@@ -1827,6 +1852,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 1.9rem;
   color: var(--white);
 }
+/* Light-on-navy tints (--calc-results sits on --navy) — see the same note
+   on .form__status above. */
 .calc-stat__value.is-good { color: #7be3a9; }
 .calc-stat__value.is-warn { color: #ffd479; }
 .calc-stat__value.is-bad { color: #ff9b9b; }
@@ -1835,7 +1862,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.85rem;
   line-height: 1.55;
   color: var(--ink-2);
-  background: var(--gray);
+  background: var(--paper);
   border-left: 3px solid var(--blue);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   padding: 1rem 1.2rem;
@@ -1845,7 +1872,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .calc-cta {
   margin-top: 2.5rem;
-  background: linear-gradient(180deg, #f7f9ff 0%, var(--gray) 100%);
+  background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
   border: 1px solid var(--gray-2);
   border-left: 4px solid var(--blue);
   border-radius: var(--r-md);
@@ -1964,7 +1991,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 100%;
 }
 .diag-field input:hover,
-.diag-field textarea:hover { border-color: #b9c1d3; }
+.diag-field textarea:hover { border-color: var(--mist); }
 .diag-field input:focus,
 .diag-field textarea:focus {
   outline: none;
@@ -2006,7 +2033,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   cursor: pointer;
   transition: border-color var(--t), background-color var(--t);
 }
-.diag-radio:hover { border-color: #b9c1d3; background: #f9faff; }
+.diag-radio:hover { border-color: var(--mist); background: var(--paper); }
 .diag-radio input[type="radio"] {
   accent-color: var(--blue);
   width: 18px;
@@ -2050,7 +2077,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-2);
   min-height: 1.2em;
 }
-.diag-status.is-error { color: #c8434c; }
+.diag-status.is-error { color: var(--red); }
 
 /* Success state */
 .diag-success {
