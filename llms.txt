@@ -1,21 +1,23 @@
-# SAILS Advisory
+# SAILS
 
-> B2B sales consulting for SaaS founders running velocity sales motions. Founded by Matt Weisman, former VP of Sales at a high-growth B2B SaaS company who managed a team of 30+ reps across BDR, AE, and account management.
+> An AI go-to-market team for B2B SaaS founders and sales leaders running velocity sales motions. Three agents, a CRO, a VP of Sales, and an Enablement Lead, diagnose where revenue is leaking, teach the framework, and build the assets a team runs on. Founded by Matt Weisman, former VP of Sales at a high-growth B2B SaaS company who managed a team of 30+ reps across BDR, AE, and account management.
 
-## What we do
+## What SAILS does
 
-SAILS Advisory delivers an 8-week fixed-price sales consulting engagement with two tracks:
+SAILS turns what a founder or sales leader already knows about their business into a sales system their team can actually run, through three AI agents that never do each other's job:
 
-- **Build track** is for founder-led teams with wins but no system. We extract the founder's playbook, document it, and make it teachable before the first AE hire.
-- **Scale track** is for teams with reps in seat but uneven results. We diagnose the funnel, rep performance distribution, and coaching cadence, then rebuild what isn't working.
+- **CRO (diagnosis):** finds where revenue is leaking and sizes the opportunity. Blunt and numeric, e.g. "your opp rate is 11 percent, segment median is 24, that gap is worth $340K."
+- **VP of Sales (teaching):** teaches the framework and reviews the work, the same way a real VP of Sales runs a pipeline review.
+- **Enablement Lead (building):** builds the decks, one-pagers, and sequences a team runs on, matched to the company's brand.
 
-The engagement runs in three phases:
+The platform runs continuously as **Assess, Build, Coach**: Assess is the CRO diagnosing the opportunity, Build is the VP of Sales and Enablement Lead producing the playbook, Coach is ongoing. Not fixed phases of a project, the platform's operating loop.
 
-- **Assess (weeks 1-2):** track-specific diagnostic. Build track gets a GTM Foundations Brief (ICP, positioning, motion fit). Scale track gets an Audit Report with 3 to 5 prioritized quick wins.
-- **Build (weeks 3-6):** universal. Produces a 20-30 page Sales Playbook covering ICP, messaging, pipeline stages, discovery and demo frameworks, outbound sequence design, meeting cadence, KPIs, hiring profile, and org structure. Plus an Outbound Sequence Framework, KPI Tracking Template, Org Structure Recommendation, and Meeting Structure Recommendation.
-- **Coach (weeks 5-8):** universal. 4 bi-weekly working sessions with sales leader or founder, implementation support, async support between sessions.
+Two tracks:
 
-The engagement is async-first. Most of the work happens between meetings.
+- **Build track** is for founder-led teams with wins but no system. SAILS extracts the founder's playbook and turns it into something the first hire can run.
+- **Scale track** is for teams with reps in seat but uneven results. SAILS diagnoses the funnel, rep performance distribution, and coaching cadence, then rebuilds what isn't working.
+
+The underlying framework ran at scale as a fixed-price consulting engagement before it was ever software.
 
 ## What is velocity sales?
 
@@ -38,13 +40,11 @@ Velocity sales is a B2B sales motion built around short cycles, transactional bu
 
 ## Pricing
 
-- 8-week engagement: fixed-price, scope-bound. Investment shared during the discovery conversation, scaled to the right track. Founding cohort rates available for the first few clients.
-- Payment: 50% at signing, 50% at Coach phase start.
-- Optional coaching retainer post-engagement: $2,000/month.
+Not yet public. The pricing model is still being finalized; SAILS is in a pre-launch waitlist stage as of this writing. What SAILS replaces, for comparison: guessing (free, and the most expensive of the three), a consultant ($15,000-$25,000 and eight weeks), or hiring a VP of Sales too early ($200,000+, and most fail without a system to run).
 
 ## Founder
 
-Matt Weisman. 8+ years scaling sales at a high-growth B2B SaaS company. Joined as an early sales hire and grew into VP of Sales, managing a team of 30+ reps across BDR, AE, and account management. Built the outbound SMB motion from scratch. Scaled AE demos from ~100/year in 2018 to 10,000+/year by 2023. Grew ARR 6x over five years. Authored the AE Playbook used across segments. Launched a new financial institution vertical from zero and engineered a 5x increase in average deal size in under 24 months.
+Matt Weisman. 8+ years scaling sales at a high-growth B2B SaaS company. Joined as an early sales hire and grew into VP of Sales, managing a team of 30+ reps across BDR, AE, and account management. Built the outbound SMB motion from scratch. Scaled AE demos from ~100/year in 2018 to 10,000+/year by 2023. Grew ARR 6x over five years. Authored the AE Playbook used across segments. Launched a new financial institution vertical from zero and engineered a 5x increase in average deal size in under 24 months. Ran that playbook at scale as a fixed-price consulting engagement for other B2B SaaS teams before building it into SAILS.
 
 ## Blog (Field Notes)
 
@@ -97,6 +97,11 @@ Interactive tools, no email required. All compute live in the browser.
 - [Pipeline Coverage Calculator](https://sailsadvisory.com/tools/pipeline-coverage/) · Enter quarterly quota, qualified pipeline, and win rate. Returns coverage ratio with a healthy/thin/at-risk verdict (healthy is 3x-4x), projected attainment, and the dollar gap to 3x and 4x coverage.
 - [Lead Response Time Cost Calculator](https://sailsadvisory.com/tools/lead-response-cost/) · Estimates monthly and annual revenue lost to slow inbound lead follow-up versus a 5-minute response, based on inbound volume, ACV, close rate, and current response speed.
 - [AE Break-Even Calculator](https://sailsadvisory.com/tools/ae-break-even/) · Enter OTE, annual quota, gross margin, ramp months, attainment, and one-time hiring cost. Returns fully loaded monthly cost (OTE x 1.25 / 12), monthly margin at full productivity, cumulative break-even month, first-year net contribution, and a quota-to-OTE ratio check.
+
+## Get Started
+
+- [Fit Diagnostic](https://sailsadvisory.com/diagnostic/) · A 3-minute, 10-question form. Answers go straight to Matt, who responds within one business day, fit or not.
+- Waitlist: join from the homepage hero. SAILS is in build; the pricing model isn't public yet.
 
 ## Contact
 
