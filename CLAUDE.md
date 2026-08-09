@@ -47,7 +47,7 @@ Pure static HTML/CSS/JS. No frameworks, no build step. Deployed on Netlify.
 ## Netlify
 
 - Publish directory: `.` (repo root). Config in `netlify.toml` (security headers + asset caching).
-- **Forms (12 total), all with honeypot `bot-field`:** `contact`, `fit-diagnostic`, `kpi-tracker-request`, `first-ae-scorecard-request`, `demo-framework-request`, `outbound-sequence-request`, `comp-plan-builder-request`, `discovery-framework-request`, `playbook-starter-request`, `pipeline-review-agenda-request`, `qualification-rubric-request`, `objection-cards-request`.
+- **Forms (13 total), all with honeypot `bot-field`:** `contact`, `waitlist`, `fit-diagnostic`, `kpi-tracker-request`, `first-ae-scorecard-request`, `demo-framework-request`, `outbound-sequence-request`, `comp-plan-builder-request`, `discovery-framework-request`, `playbook-starter-request`, `pipeline-review-agenda-request`, `qualification-rubric-request`, `objection-cards-request`. `waitlist` (homepage, `#waitlist`) shares the `contact` form's pattern (real form in the page body, AJAX handled directly in `script.js`), not the resources-page hidden-form-in-head pattern below.
 - Forms pattern: a **hidden static form in `<head>`** registers each form with Netlify's build bot; the visible form submits via fetch (AJAX) so users stay on-page. `resources/resources.js` routes submissions by the form's `data-form-name` attribute and auto-triggers the file download on success.
 - Email notifications for submissions are configured in Netlify dashboard (Forms → Notifications → matt@sailsadvisory.com).
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   SAILS Advisory — script.js
+   SAILS · script.js
    - Mobile nav toggle
    - Smooth scroll close on link click
    - IntersectionObserver reveal animations
@@ -64,13 +64,18 @@
     revealEls.forEach((el) => io.observe(el));
   }
 
-  /* ---------- Contact form (Netlify Forms AJAX) ---------- */
-  const form = document.querySelector('form[name="contact"]');
-  if (form) {
+  /* ---------- Contact + waitlist forms (Netlify Forms AJAX) ---------- */
+  const ajaxForms = [
+    { form: document.querySelector('form[name="contact"]'), success: "Got it. I'll get back to you within one business day." },
+    { form: document.querySelector('form[name="waitlist"]'), success: "You're on the list. I'll be in touch when access opens." },
+  ];
+
+  ajaxForms.forEach(({ form, success }) => {
+    if (!form) return;
     const status = form.querySelector('.form__status');
 
     form.addEventListener('submit', async (e) => {
-      // Honeypot — silently bail if filled
+      // Honeypot: silently bail if filled
       const hp = form.querySelector('[name="bot-field"]');
       if (hp && hp.value) {
         e.preventDefault();
@@ -98,7 +103,7 @@
 
         form.reset();
         if (status) {
-          status.textContent = "Got it. I'll get back to you within one business day.";
+          status.textContent = success;
           status.classList.add('is-success');
         }
       } catch (err) {
@@ -110,5 +115,5 @@
         form.classList.remove('is-submitting');
       }
     });
-  }
+  });
 })();
