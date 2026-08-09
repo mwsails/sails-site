@@ -64,6 +64,91 @@
     revealEls.forEach((el) => io.observe(el));
   }
 
+  /* ---------- How It Works demo (homepage) ---------- */
+  const demo = document.getElementById('howItWorks');
+  if (demo) {
+    const steps = Array.from(demo.querySelectorAll('.demo__step'));
+    const panels = Array.from(demo.querySelectorAll('.demo__panel'));
+    const agentText = document.getElementById('agentStatusText');
+    const agentNote = document.getElementById('agentStepNote');
+    const progressBar = document.getElementById('agentProgressBar');
+    const agentMessages = [
+      'CRO is reviewing your funnel',
+      'VP of Sales is building your playbook',
+      'Enablement Lead is drafting your outbound sequence',
+    ];
+    const STEP_MS = 4200;
+    const AGENT_STEP_MS = 1150;
+
+    let stepIndex = 0;
+    let advanceTimer = null;
+    let agentTimer = null;
+
+    function runAgentSequence() {
+      let sub = 0;
+      const total = agentMessages.length;
+      const setSub = (i) => {
+        if (agentText) agentText.textContent = agentMessages[i];
+        if (agentNote) agentNote.textContent = 'Step ' + (i + 1) + ' of ' + total;
+        if (progressBar) progressBar.style.width = Math.round(((i + 1) / total) * 100) + '%';
+      };
+
+      clearInterval(agentTimer);
+      if (progressBar) progressBar.style.width = '0%';
+
+      if (prefersReducedMotion) {
+        setSub(total - 1);
+        return;
+      }
+
+      setSub(0);
+      agentTimer = setInterval(() => {
+        sub++;
+        if (sub >= total) {
+          clearInterval(agentTimer);
+          return;
+        }
+        setSub(sub);
+      }, AGENT_STEP_MS);
+    }
+
+    function showStep(i) {
+      stepIndex = i;
+      steps.forEach((btn, idx) => {
+        const active = idx === i;
+        btn.classList.toggle('is-active', active);
+        if (active) btn.setAttribute('aria-current', 'step');
+        else btn.removeAttribute('aria-current');
+      });
+      panels.forEach((panel, idx) => {
+        const active = idx === i;
+        panel.classList.toggle('is-active', active);
+        if (active) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+      if (i === 1) runAgentSequence();
+      else clearInterval(agentTimer);
+    }
+
+    function restartAutoAdvance() {
+      clearInterval(advanceTimer);
+      if (prefersReducedMotion) return;
+      advanceTimer = setInterval(() => {
+        showStep((stepIndex + 1) % steps.length);
+      }, STEP_MS);
+    }
+
+    steps.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        showStep(idx);
+        restartAutoAdvance();
+      });
+    });
+
+    showStep(0);
+    restartAutoAdvance();
+  }
+
   /* ---------- Contact + waitlist forms (Netlify Forms AJAX) ---------- */
   const ajaxForms = [
     { form: document.querySelector('form[name="contact"]'), success: "Got it. I'll get back to you within one business day." },

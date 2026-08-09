@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 
   <!-- Structured data: Organization, Person, Service, FAQPage -->
   <script type="application/ld+json">
@@ -184,17 +184,88 @@
         </p>
         <div class="hero__cta">
           <a href="diagnostic/" class="btn btn--primary">Run the Fit Diagnostic <span aria-hidden="true">→</span></a>
-          <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+          <a href="#waitlist" class="btn btn--ghost">See How It Works</a>
         </div>
       </div>
     </section>
 
-    <!-- ============== WAITLIST ============== -->
+    <!-- ============== HOW SAILS WORKS + WAITLIST ============== -->
     <section class="section section--light" id="waitlist">
       <div class="container">
-        <div class="formwrap reveal">
+        <div class="reveal">
           <p class="kicker">Early Access</p>
-          <h2 class="section__h">Join the Waitlist</h2>
+          <h2 class="section__h">See How It Works</h2>
+          <p class="section__lede">Three steps. No demo call required.</p>
+        </div>
+
+        <div class="demo reveal" id="howItWorks">
+          <div class="demo__steps" aria-label="How SAILS works, 3 steps">
+            <button type="button" class="demo__step is-active" data-step="0" aria-current="step">
+              <span class="demo__step-num">1</span>
+              <span class="demo__step-label">You provide info</span>
+            </button>
+            <button type="button" class="demo__step" data-step="1">
+              <span class="demo__step-num">2</span>
+              <span class="demo__step-label">Agents go to work</span>
+            </button>
+            <button type="button" class="demo__step" data-step="2">
+              <span class="demo__step-num">3</span>
+              <span class="demo__step-label">You get a system</span>
+            </button>
+          </div>
+
+          <div class="demo__stage">
+            <div class="demo__panel is-active" data-panel="0">
+              <div class="demo__mock demo__mock--form">
+                <p class="demo__mock-title">Fit Diagnostic</p>
+                <div class="demo__mock-row">
+                  <span class="demo__mock-label">What does your company do?</span>
+                  <span class="demo__mock-value">We sell expense software to SMB finance teams.</span>
+                </div>
+                <div class="demo__mock-row">
+                  <span class="demo__mock-label">Typical ACV</span>
+                  <span class="demo__mock-value">$2K to $24K</span>
+                </div>
+                <div class="demo__mock-row">
+                  <span class="demo__mock-label">Sales motion</span>
+                  <span class="demo__mock-value">Founder-led, no system yet</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo__panel" data-panel="1" hidden>
+              <div class="demo__mock demo__mock--agent">
+                <div class="demo__agent-row">
+                  <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
+                  <span class="demo__agent-text" id="agentStatusText">CRO is reviewing your funnel</span>
+                </div>
+                <div class="demo__progress"><div class="demo__progress-bar" id="agentProgressBar"></div></div>
+                <p class="demo__agent-note" id="agentStepNote">Step 1 of 3</p>
+              </div>
+            </div>
+
+            <div class="demo__panel" data-panel="2" hidden>
+              <div class="demo__mock demo__mock--output">
+                <p class="demo__mock-title">Your Sales Playbook</p>
+                <div class="demo__output-row">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  ICP and qualification rubric
+                </div>
+                <div class="demo__output-row">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Discovery and demo framework
+                </div>
+                <div class="demo__output-row">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Outbound sequence, drafted
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="formwrap formwrap--onlight reveal">
+          <p class="formwrap__kicker">Want Early Access?</p>
           <p class="formwrap__intro">SAILS is in build. Get on the list and I'll reach out directly when a spot opens.</p>
           <!-- Netlify Forms: uses native handling, no backend needed -->
           <form
@@ -202,7 +273,7 @@
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            class="form"
+            class="form form--onlight"
           >
             <input type="hidden" name="form-name" value="waitlist" />
             <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -280,7 +351,7 @@
           <p class="section__lede">Three agents, each with one job. They diagnose, teach, and build, in that order, every time.</p>
         </div>
 
-        <div class="tracks reveal">
+        <div class="tracks tracks--agents reveal">
           <p class="tracks__eyebrow">Three agents · One system</p>
           <div class="tracks__grid">
             <div class="track">
