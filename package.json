@@ -1,0 +1,10 @@
+{
+  "name": "sails-advisory",
+  "private": true,
+  "type": "module",
+  "description": "SAILS marketing site. Static HTML/CSS/JS, no build step, published as-is. This package.json exists only so Netlify can install and bundle the netlify/functions/cro-agent.js backend.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@netlify/blobs": "^8.1.0"
+  }
+}
