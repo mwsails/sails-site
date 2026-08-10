@@ -151,6 +151,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-color: rgba(255, 255, 255, 0.7);
   color: var(--white);
 }
+/* .btn--ghost defaults to white-on-dark; needs a light variant wherever
+   it appears on a section--light background (e.g. the "Pricing Coming
+   Soon" chip now living in the Problem section). */
+.section--light .btn--ghost,
+.section--gray .btn--ghost {
+  color: var(--ink-2);
+  border-color: var(--gray-2);
+}
+.section--light .btn--ghost:hover,
+.section--gray .btn--ghost:hover {
+  background: rgba(43, 96, 190, 0.06);
+  border-color: var(--blue);
+  color: var(--ink);
+}
 .btn--pill { padding: 0.55rem 1.1rem; font-size: 0.92rem; }
 .btn--lg { padding: 1.1rem 1.75rem; font-size: 1.05rem; }
 
@@ -715,6 +729,102 @@ ul { margin: 0; padding: 0; list-style: none; }
   .tracks--agents .tracks__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* ---------- Agent cards (clickable, jump to the live #agent experience) ---------- */
+.agentcards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 720px) {
+  .agentcards { grid-template-columns: repeat(3, 1fr); }
+}
+.agentcard {
+  display: block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--r-card);
+  padding: 1.75rem;
+  color: var(--white);
+  transition: border-color var(--t), background-color var(--t), transform var(--t), box-shadow var(--t);
+}
+.agentcard:hover,
+.agentcard:focus-visible {
+  border-color: var(--cyan);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -14px rgba(53, 200, 232, 0.35);
+}
+.agentcard__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 0 1.25rem;
+  border-radius: var(--r-control);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grad-beacon);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
+  transition: transform var(--t);
+}
+.agentcard:hover .agentcard__icon,
+.agentcard:focus-visible .agentcard__icon {
+  transform: scale(1.08);
+}
+.agentcard__icon img { width: 22px; height: 22px; display: block; }
+.agentcard__tag {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0 0 0.4rem;
+}
+.agentcard__label {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.005em;
+}
+.agentcard__desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 1.25rem;
+}
+.agentcard__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.agentcard__cta span { transition: transform var(--t); display: inline-block; }
+.agentcard:hover .agentcard__cta span,
+.agentcard:focus-visible .agentcard__cta span {
+  transform: translateX(3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .agentcard,
+  .agentcard__icon,
+  .agentcard__cta span {
+    transition: none;
+  }
+  .agentcard:hover,
+  .agentcard:focus-visible {
+    transform: none;
+  }
+  .agentcard:hover .agentcard__icon,
+  .agentcard:focus-visible .agentcard__icon {
+    transform: none;
+  }
+}
+
 /* ---------- Cards (Engagement) ---------- */
 .cards {
   display: grid;
@@ -1183,15 +1293,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.005em;
 }
 .callout__cta { display: inline-flex; }
-
-.investment__note {
-  max-width: 60ch;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 0.97rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-.investment__note strong { color: var(--white); }
 
 /* ---------- FAQ ---------- */
 .faq {
