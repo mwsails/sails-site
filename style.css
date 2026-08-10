@@ -240,10 +240,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
   .nav {
-    background: rgba(255, 255, 255, 0.75);
-    border-bottom-color: rgba(255, 255, 255, 0.62);
-    -webkit-backdrop-filter: saturate(140%) blur(var(--glass-blur-light));
-    backdrop-filter: saturate(140%) blur(var(--glass-blur-light));
+    /* More translucent, iOS-style frosted glass: content behind should
+       read through as soft blurred color, not just a faint tint. */
+    background: rgba(255, 255, 255, 0.55);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: saturate(180%) blur(28px);
+    backdrop-filter: saturate(180%) blur(28px);
   }
 }
 .nav__inner {
@@ -387,9 +389,84 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
   padding-top: clamp(3rem, 8vw, 5rem);
   padding-bottom: clamp(4rem, 10vw, 7rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero__inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}
+.hero__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
+}
+
+/* ---------- Hero flow diagram: Learn -> Build -> Arm ---------- */
+.hero__flow {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+}
+@media (min-width: 960px) {
+  .hero__flow { display: flex; }
+}
+.hero__flow-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 2.25rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 550ms ease, transform 550ms cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible .hero__flow-step { opacity: 1; transform: translateY(0); }
+.hero__flow-step:nth-child(1) { transition-delay: 120ms; }
+.hero__flow-step:nth-child(2) { transition-delay: 320ms; }
+.hero__flow-step:nth-child(3) { transition-delay: 520ms; }
+.hero__flow-step:last-child { padding-bottom: 0; }
+.hero__flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 48px;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__flow-step {
+    transition-delay: 0ms !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero__flow-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-control);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grad-beacon);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.5);
+}
+.hero__flow-text { display: flex; flex-direction: column; gap: 0.2rem; padding-top: 0.5rem; }
+.hero__flow-label {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.hero__flow-desc {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 26ch;
 }
 
 .hero__mark {
@@ -742,6 +819,47 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ---------- Agent cards (clickable, jump to the live #agent experience) ---------- */
+/* Conveyor belt: connects the three cards below, aligned to their
+   centers at 1/6, 1/2, 5/6 width. Draws in once on reveal, no loop,
+   per the brand guide's motion rules. Desktop only, matches the
+   breakpoint where .agentcards actually goes three-wide. */
+.agentbelt { display: none; }
+@media (min-width: 720px) {
+  .agentbelt {
+    display: block;
+    width: 100%;
+    height: 24px;
+    margin-bottom: 0.5rem;
+    overflow: visible;
+  }
+}
+.agentbelt__line {
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 700ms cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible .agentbelt__line { stroke-dashoffset: 0; }
+.agentbelt__line--2 { transition-delay: 400ms; }
+.agentbelt__node {
+  fill: var(--cyan);
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  transform: scale(0);
+  transition: opacity 350ms ease, transform 350ms cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible .agentbelt__node { opacity: 1; transform: scale(1); }
+.agentbelt__node--2 { transition-delay: 700ms; }
+.agentbelt__node--3 { transition-delay: 1100ms; }
+@media (prefers-reduced-motion: reduce) {
+  .agentbelt__line,
+  .agentbelt__node {
+    transition-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}
 .agentcards {
   display: grid;
   grid-template-columns: 1fr;
@@ -1237,14 +1355,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid transparent;
   overflow: hidden;
   transition: border-color var(--t), transform var(--t);
-}
-.stat::before {
-  /* Sunset accent: wins/milestones only, used sparingly per brand guide */
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--grad-sunset);
 }
 .stat:hover {
   border-color: var(--gray-2);

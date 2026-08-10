@@ -171,17 +171,64 @@
     <section class="hero">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <img src="assets/sails-mark.svg" alt="SAILS" class="hero__mark" width="320" height="240" />
-        <p class="hero__eyebrow">AI Go-To-Market Team · B2B SaaS</p>
-        <h1 class="hero__headline">
-          Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
-        </h1>
-        <p class="hero__intro">
-          SAILS turns what you already know about your business into a sales system your team can actually run.
-        </p>
-        <div class="hero__cta">
-          <a href="#agent" class="btn btn--primary">Get Your Diagnosis <span aria-hidden="true">→</span></a>
-          <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+        <div class="hero__content">
+          <img src="assets/sails-mark-white.svg" alt="SAILS" class="hero__mark" width="320" height="240" />
+          <p class="hero__eyebrow">AI Go-To-Market Team · B2B SaaS</p>
+          <h1 class="hero__headline">
+            Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
+          </h1>
+          <p class="hero__intro">
+            SAILS turns what you already know about your business into a sales system your team can actually run.
+          </p>
+          <div class="hero__cta">
+            <a href="#agent" class="btn btn--primary">Get Your Diagnosis <span aria-hidden="true">→</span></a>
+            <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+          </div>
+        </div>
+
+        <div class="hero__flow reveal" aria-hidden="true">
+          <div class="hero__flow-step">
+            <span class="hero__flow-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                <circle cx="7" cy="8" r="2" fill="#ffffff"/>
+                <circle cx="16" cy="6" r="2" fill="#ffffff"/>
+                <circle cx="12" cy="14" r="2" fill="#ffffff"/>
+                <circle cx="18" cy="16" r="2" fill="#ffffff" opacity="0.6"/>
+                <circle cx="6" cy="17" r="2" fill="#ffffff" opacity="0.6"/>
+              </svg>
+            </span>
+            <span class="hero__flow-text">
+              <span class="hero__flow-label">Learn</span>
+              <span class="hero__flow-desc">Reads your business, raw and unstructured</span>
+            </span>
+          </div>
+          <div class="hero__flow-step">
+            <span class="hero__flow-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+                <rect x="5" y="4" width="14" height="16"/>
+                <line x1="8" y1="9" x2="16" y2="9"/>
+                <line x1="8" y1="13" x2="16" y2="13"/>
+                <line x1="8" y1="17" x2="13" y2="17"/>
+              </svg>
+            </span>
+            <span class="hero__flow-text">
+              <span class="hero__flow-label">Build</span>
+              <span class="hero__flow-desc">Turns it into one documented playbook</span>
+            </span>
+          </div>
+          <div class="hero__flow-step">
+            <span class="hero__flow-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+                <rect x="4" y="10" width="13" height="9" opacity="0.5"/>
+                <rect x="6.5" y="6.5" width="13" height="9" opacity="0.75"/>
+                <rect x="9" y="3" width="13" height="9"/>
+              </svg>
+            </span>
+            <span class="hero__flow-text">
+              <span class="hero__flow-label">Arm</span>
+              <span class="hero__flow-desc">Builds the decks and sequences the team runs on</span>
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -230,10 +277,18 @@
           <p class="section__lede">Learn. Build. Arm. Three agents, one job each, always in that order.</p>
         </div>
 
+        <svg class="agentbelt reveal" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true">
+          <line class="agentbelt__line" x1="50" y1="12" x2="150" y2="12" />
+          <line class="agentbelt__line agentbelt__line--2" x1="150" y1="12" x2="250" y2="12" />
+          <circle class="agentbelt__node" cx="50" cy="12" r="4" />
+          <circle class="agentbelt__node agentbelt__node--2" cx="150" cy="12" r="4" />
+          <circle class="agentbelt__node agentbelt__node--3" cx="250" cy="12" r="4" />
+        </svg>
+
         <div class="agentcards reveal">
           <a class="agentcard" href="#agent">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-assess.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
             </span>
             <p class="agentcard__tag">It Learns</p>
             <h3 class="agentcard__label">CRO</h3>
@@ -242,7 +297,7 @@
           </a>
           <a class="agentcard" href="#agent">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-build.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
             </span>
             <p class="agentcard__tag">It Builds</p>
             <h3 class="agentcard__label">VP of Sales</h3>
@@ -251,7 +306,7 @@
           </a>
           <a class="agentcard" href="#agent">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-arms.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
             </span>
             <p class="agentcard__tag">It Arms</p>
             <h3 class="agentcard__label">Enablement Lead</h3>
@@ -352,36 +407,6 @@
           </div>
         </div>
 
-        <div class="fit">
-          <div class="fit__col fit__col--yes reveal">
-            <h3 class="fit__h">
-              <span class="fit__icon fit__icon--yes" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              Right Fit
-            </h3>
-            <ul class="fit__list">
-              <li>B2B SaaS companies</li>
-              <li>Founder-led sales that needs a system</li>
-              <li>Team in place, mixed results, no clear diagnosis</li>
-              <li>Ready to document what's already working</li>
-            </ul>
-          </div>
-
-          <div class="fit__col fit__col--no reveal">
-            <h3 class="fit__h">
-              <span class="fit__icon fit__icon--no" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              Not a Fit
-            </h3>
-            <ul class="fit__list">
-              <li>Complex enterprise sales with long, committee-driven cycles</li>
-              <li>Pre-product or pre-any-revenue stage</li>
-              <li>Looking for a fractional VP to manage the team day-to-day</li>
-            </ul>
-          </div>
-        </div>
         <p class="reveal"><a href="who-its-for/">More on Build Track vs Scale Track, and fit across SMB, mid-market, and enterprise <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
