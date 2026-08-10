@@ -19,6 +19,12 @@ Two tracks:
 
 The underlying framework ran at scale as a fixed-price consulting engagement before it was ever software.
 
+## Deep-dive pages
+
+- [How SAILS Works](https://sailsadvisory.com/how-it-works/) · The three agents in depth, and how the Assess/Build/Coach loop compounds across changes to a company's ICP and positioning.
+- [Who SAILS Is Built For](https://sailsadvisory.com/who-its-for/) · Build track vs Scale track, fit across SMB/mid-market/enterprise, and who it's not for.
+- [Compare](https://sailsadvisory.com/compare/) · What guessing, a consultant, and an early VP of Sales hire actually cost, and where SAILS fits.
+
 ## What is velocity sales?
 
 Velocity sales is a B2B sales motion built around short cycles, transactional buyers, and high-volume rep activity. ACVs typically run $2,000 to $24,000. Deal cycles close inside 90 days, often under 14. Reps work as BDR/AE pairs or full-cycle inside sales. The opposite of enterprise sales, where six-figure ACVs and 12-month cycles reward MEDDIC, multi-threading, and committee navigation.
