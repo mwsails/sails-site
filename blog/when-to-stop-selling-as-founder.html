@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../style.css?v=11" />
+  <link rel="stylesheet" href="../style.css?v=12" />
 
   <script type="application/ld+json">
   {
@@ -96,13 +96,12 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="nav__menu" id="navMenu" aria-label="Primary">
-        <a href="../#engagement">How It Works</a>
-        <a href="../#fit">Who It's For</a>
-        <a href="../#about">About</a>
-        <a href="../#investment">Compare</a>
-        <a href="./">Blog</a>
+        <a href="../how-it-works/">How It Works</a>
+        <a href="../who-its-for/">Who It's For</a>
+        <a href="../compare/">Compare</a>
+        <a href="./" aria-current="page">Blog</a>
         <a href="../resources/">Resources</a>
-        <a href="../diagnostic/" class="btn btn--primary btn--pill nav__cta">Run the Fit Diagnostic</a>
+        <a href="../#waitlist" class="btn btn--primary btn--pill nav__cta">Join the Waitlist</a>
       </nav>
     </div>
   </header>
@@ -123,7 +122,7 @@
           <h1 class="post__h">When to Stop Selling as Founder: 3 Signals You're Ready to Hand Off</h1>
           <p class="post__dek">Founder-led sales works until it doesn't. The question isn't whether you should stop selling as founder. The question is when.</p>
           <div class="post__meta">
-            <span>By <a href="../#about" class="post__author" rel="author">Matt Weisman</a></span>
+            <span>By Matt Weisman</span>
             <span aria-hidden="true">·</span>
             <time datetime="2026-05-19">May 19, 2026</time>
             <span aria-hidden="true">·</span>
@@ -220,8 +219,8 @@
           <p>SAILS's Build track is designed specifically for founders at this transition point. No fixed timeline: guided exercises you run at your own pace. You end with a documented playbook, a hiring profile, and a coaching cadence ready to deploy when the rep starts.</p>
 
           <div class="post-cta-inline">
-            <p><strong>Want to see if SAILS fits your stage?</strong> Run the free Fit Diagnostic. Three minutes, no call required.</p>
-            <a href="../diagnostic/" class="btn btn--primary">Run the Fit Diagnostic <span aria-hidden="true">→</span></a>
+            <p><strong>Want early access when SAILS opens up?</strong> Join the waitlist and I'll reach out directly.</p>
+            <a href="../#waitlist" class="btn btn--primary">Join the Waitlist <span aria-hidden="true">→</span></a>
           </div>
 
         </div>
@@ -264,31 +263,44 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=2" defer></script>
+  <script src="../script.js?v=3" defer></script>
 
   <!-- ============== FLOATING AGENT BUBBLE ============== -->
   <div class="agentbubble" id="agentBubble">
     <div class="agentbubble__panel" id="agentBubblePanel" hidden>
       <div class="agentbubble__header">
         <span class="agentbubble__header-icon" aria-hidden="true"><img src="/assets/product-mark-white.svg" alt="" width="18" height="18" /></span>
-        <p class="agentbubble__title">CRO Agent &middot; Free Diagnosis</p>
+        <p class="agentbubble__title">Ask the SAILS Agents</p>
         <button type="button" class="agentbubble__close" id="agentBubbleClose" aria-label="Close chat">&#x2715;</button>
       </div>
       <div class="agentbubble__body">
-        <p class="agentbubble__intro">Drop in a URL or tell me what you sell. I'll tell you what's costing you deals, free, no email required.</p>
+        <p class="agentbubble__intro">Ask about your GTM, your positioning, or what to build next. I'll bring in the right agent, free, no email required.</p>
         <div class="agentbubble__messages" id="agentBubbleMessages" aria-live="polite"></div>
         <div class="agentbubble__working" id="agentBubbleWorking" hidden>
           <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
           <span id="agentBubbleWorkingText">Reading your positioning</span>
         </div>
+        <div class="agentbubble__handoff" id="agentBubbleHandoff" hidden>
+          <p class="agentbubble__handoff-label">Also worth bringing in</p>
+          <div class="agentbubble__handoff-card" id="agentBubbleVpCard" hidden>
+            <p class="agentbubble__handoff-name">VP of Sales</p>
+            <p class="agentbubble__handoff-preview" id="agentBubbleVpPreview"></p>
+            <a href="/#waitlist" class="agentbubble__handoff-cta">Join the waitlist for early access</a>
+          </div>
+          <div class="agentbubble__handoff-card" id="agentBubbleEnablementCard" hidden>
+            <p class="agentbubble__handoff-name">Enablement Lead</p>
+            <p class="agentbubble__handoff-preview" id="agentBubbleEnablementPreview"></p>
+            <a href="/#waitlist" class="agentbubble__handoff-cta">Join the waitlist for early access</a>
+          </div>
+        </div>
       </div>
       <p class="hp" aria-hidden="true"><label>Leave this blank: <input type="text" id="agentBubbleHp" tabindex="-1" autocomplete="off" /></label></p>
       <div class="agentbubble__inputrow">
-        <input type="text" id="agentBubbleInput" placeholder="yourcompany.com or what you sell" autocomplete="off" />
+        <input type="text" id="agentBubbleInput" placeholder="Ask about your GTM..." autocomplete="off" />
         <button type="button" id="agentBubbleSubmit" aria-label="Send">&#x2192;</button>
       </div>
     </div>
-    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-expanded="false" aria-controls="agentBubblePanel" aria-label="Chat with the CRO agent">
+    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-expanded="false" aria-controls="agentBubblePanel" aria-label="Chat with the SAILS agents">
       <img src="/assets/product-mark-white.svg" alt="" width="24" height="24" />
     </button>
   </div>

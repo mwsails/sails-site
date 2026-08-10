@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=12" />
 
   <!-- Structured data: Organization, Person, Service, FAQPage -->
   <script type="application/ld+json">
@@ -99,7 +99,7 @@
             "name": "Is this a fit for my stage?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Get Your Diagnosis for an honest read."
+              "text": "Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Ask the CRO agent for an honest read."
             }
           },
           {
@@ -156,11 +156,10 @@
       <nav class="nav__menu" id="navMenu" aria-label="Primary">
         <a href="how-it-works/">How It Works</a>
         <a href="who-its-for/">Who It's For</a>
-        <a href="#about">About</a>
         <a href="compare/">Compare</a>
         <a href="blog/">Blog</a>
         <a href="resources/">Resources</a>
-        <a href="#agent" class="btn btn--primary btn--pill nav__cta">Get Your Diagnosis</a>
+        <a href="#waitlist" class="btn btn--primary btn--pill nav__cta">Join the Waitlist</a>
       </nav>
     </div>
   </header>
@@ -181,8 +180,7 @@
             SAILS turns what you already know about your business into a sales system your team can actually run.
           </p>
           <div class="hero__cta">
-            <a href="#agent" class="btn btn--primary">Get Your Diagnosis <span aria-hidden="true">→</span></a>
-            <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+            <a href="#waitlist" class="btn btn--primary">Join the Waitlist <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -273,7 +271,7 @@
 
         <div class="prose prose--narrow">
           <p class="reveal"><strong>SAILS turns what you already know into a system your team can actually run.</strong> Not generic frameworks. Not theory borrowed from a motion that doesn't match yours, the exact way you already sell, documented, taught, and built out by three AI agents.</p>
-          <p class="reveal"><span class="btn btn--ghost btn--pill" aria-disabled="true" role="note">Pricing Coming Soon</span> Real pricing lands once the model is set. <a href="#waitlist">Join the waitlist</a> and you'll be the first to know.</p>
+          <p class="reveal">Real pricing lands once the model is set. <a href="#waitlist">Join the waitlist</a> and you'll be the first to know.</p>
         </div>
       </div>
     </section>
@@ -352,7 +350,7 @@
             <div class="agentdetail__copy">
               <h3 class="agentdetail__h">CRO: reads your business, sizes what it's costing you</h3>
               <p class="agentdetail__p">Drop in a URL. It reads your positioning the way a buyer would, benchmarks you against segment norms, and puts a number on the gap, free, no email required.</p>
-              <a href="#agent" class="btn btn--primary agentdetail__link">Try it live <span aria-hidden="true">→</span></a>
+              <button type="button" class="btn btn--primary agentdetail__link" data-open-agent-bubble>Try it live <span aria-hidden="true">→</span></button>
             </div>
           </div>
 
@@ -409,69 +407,6 @@
       </div>
     </section>
 
-    <!-- ============== LIVE AGENT ============== -->
-    <section class="section section--light" id="agent">
-      <div class="container">
-        <div class="reveal">
-          <h2 class="section__h">Get a Real Diagnosis. No Email Required.</h2>
-          <p class="section__lede">Drop in your URL. The CRO agent reads your positioning the way a buyer would, and tells you what's costing you deals, free.</p>
-        </div>
-
-        <noscript>
-          <p class="agent__noscript">This works best with JavaScript enabled. Meanwhile, here's a real example of what the CRO agent found below, and you can still <a href="#waitlist">join the waitlist</a>.</p>
-        </noscript>
-
-        <div class="agent reveal" id="agentApp">
-          <div class="agent__panel">
-            <label for="agentInput" class="agent__label">Your company</label>
-            <div class="agent__row">
-              <input type="text" id="agentInput" class="agent__input" placeholder="yourcompany.com or tell me what you sell" autocomplete="off" />
-              <button type="button" class="btn btn--primary agent__submit" id="agentSubmit">Get Your Diagnosis <span aria-hidden="true">→</span></button>
-            </div>
-            <p class="hp" aria-hidden="true"><label>Leave this blank: <input type="text" id="agentHp" tabindex="-1" autocomplete="off" /></label></p>
-
-            <div class="agent__chat">
-              <div class="agent__message agent__message--assistant agent__message--example" id="agentExample">
-                <p class="agent__message-label">CRO Agent · Example</p>
-                <p class="agent__message-text">Your homepage doesn't name who this is for. That ambiguity costs you demos: visitors who'd convert bounce because they can't tell in ten seconds if you're built for them. Fix: name the ICP in your first sentence, then let the rest of the page prove it.</p>
-              </div>
-
-              <div class="agent__messages" id="agentMessages" aria-live="polite" hidden></div>
-
-              <div class="agent__working" id="agentWorking" hidden>
-                <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="agent__working-text" id="agentWorkingText">Reading your positioning</span>
-              </div>
-            </div>
-
-            <div class="agent__row agent__followup-row" id="agentFollowupRow" hidden>
-              <input type="text" id="agentFollowupInput" class="agent__input" placeholder="Ask a follow-up" autocomplete="off" />
-              <button type="button" class="btn btn--ghost agent__submit" id="agentFollowupSubmit">Send</button>
-            </div>
-          </div>
-
-          <div class="agent__locked">
-            <div class="agent__locked-card">
-              <span class="agent__locked-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="5" y="11" width="14" height="9"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
-              </span>
-              <p class="agent__locked-label">VP of Sales</p>
-              <p class="agent__locked-preview" id="agentVpPreview">I'd start by mapping your ICP and messaging before anything else.</p>
-              <a href="#waitlist" class="agent__locked-cta">Join the waitlist for early access</a>
-            </div>
-            <div class="agent__locked-card">
-              <span class="agent__locked-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="5" y="11" width="14" height="9"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
-              </span>
-              <p class="agent__locked-label">Enablement Lead</p>
-              <p class="agent__locked-preview" id="agentEnablementPreview">First artifact: a one-pager and outbound sequence in your brand.</p>
-              <a href="#waitlist" class="agent__locked-cta">Join the waitlist for early access</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============== WHO IT'S FOR ============== -->
     <section class="section section--light" id="fit">
       <div class="container">
@@ -495,45 +430,6 @@
         </div>
 
         <p class="reveal"><a href="who-its-for/">More on Build Track vs Scale Track, and fit across SMB, mid-market, and enterprise <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
-    <!-- ============== PROOF ============== -->
-    <section class="section section--light" id="about">
-      <div class="container">
-        <div class="reveal">
-          <h2 class="section__h">Proof It Already Worked</h2>
-          <h3 class="about__h">Built by an operator, then built into software.</h3>
-        </div>
-
-        <div class="prose prose--narrow">
-          <p class="reveal">I spent 8+ years scaling sales at a high-growth B2B SaaS company. Joined as an early sales hire and grew into <strong>VP of Sales, managing a team of 30+ reps</strong> across BDR, AE, and account management. I built the outbound SMB motion from scratch, scaled AE demos from ~100/year in 2018 to 10,000+/year by 2023, and helped grow ARR 6x over five years.</p>
-          <p class="reveal">I authored the AE Playbook, the framework that standardized how the team discovered, demoed, and closed across segments, and ran it at scale as a fixed-price consulting engagement for other B2B SaaS teams before it was ever software.</p>
-          <p class="reveal"><strong>SAILS is that system, built into software.</strong> Not a rebrand of a chatbot: the exact playbook that already worked, run by three AI agents instead of one operator's calendar.</p>
-        </div>
-
-        <div class="stats">
-          <div class="stat reveal">
-            <p class="stat__num">8+</p>
-            <p class="stat__label">years scaling B2B SaaS sales</p>
-          </div>
-          <div class="stat reveal">
-            <p class="stat__num">30+</p>
-            <p class="stat__label">reps managed as VP of Sales</p>
-          </div>
-          <div class="stat stat--standout reveal">
-            <p class="stat__num">6×</p>
-            <p class="stat__label">ARR growth in 5 years</p>
-          </div>
-          <div class="stat reveal">
-            <p class="stat__num">100 → 10K+</p>
-            <p class="stat__label">AE demos per year</p>
-          </div>
-          <div class="stat reveal">
-            <p class="stat__num">5×</p>
-            <p class="stat__label">avg deal size in 24 months</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -572,7 +468,7 @@
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </summary>
-            <div class="faq__a"><p>Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Get Your Diagnosis for an honest read.</p></div>
+            <div class="faq__a"><p>Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Ask the CRO agent (bottom right) for an honest read.</p></div>
           </details>
 
           <details class="faq__item reveal">
@@ -719,11 +615,44 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2" defer></script>
+  <script src="script.js?v=3" defer></script>
 
   <!-- ============== FLOATING AGENT BUBBLE ============== -->
   <div class="agentbubble" id="agentBubble">
-    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-label="Jump to the CRO agent">
+    <div class="agentbubble__panel" id="agentBubblePanel" hidden>
+      <div class="agentbubble__header">
+        <span class="agentbubble__header-icon" aria-hidden="true"><img src="/assets/product-mark-white.svg" alt="" width="18" height="18" /></span>
+        <p class="agentbubble__title">Ask the SAILS Agents</p>
+        <button type="button" class="agentbubble__close" id="agentBubbleClose" aria-label="Close chat">&#x2715;</button>
+      </div>
+      <div class="agentbubble__body">
+        <p class="agentbubble__intro">Ask about your GTM, your positioning, or what to build next. I'll bring in the right agent, free, no email required.</p>
+        <div class="agentbubble__messages" id="agentBubbleMessages" aria-live="polite"></div>
+        <div class="agentbubble__working" id="agentBubbleWorking" hidden>
+          <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span id="agentBubbleWorkingText">Reading your positioning</span>
+        </div>
+        <div class="agentbubble__handoff" id="agentBubbleHandoff" hidden>
+          <p class="agentbubble__handoff-label">Also worth bringing in</p>
+          <div class="agentbubble__handoff-card" id="agentBubbleVpCard" hidden>
+            <p class="agentbubble__handoff-name">VP of Sales</p>
+            <p class="agentbubble__handoff-preview" id="agentBubbleVpPreview"></p>
+            <a href="/#waitlist" class="agentbubble__handoff-cta">Join the waitlist for early access</a>
+          </div>
+          <div class="agentbubble__handoff-card" id="agentBubbleEnablementCard" hidden>
+            <p class="agentbubble__handoff-name">Enablement Lead</p>
+            <p class="agentbubble__handoff-preview" id="agentBubbleEnablementPreview"></p>
+            <a href="/#waitlist" class="agentbubble__handoff-cta">Join the waitlist for early access</a>
+          </div>
+        </div>
+      </div>
+      <p class="hp" aria-hidden="true"><label>Leave this blank: <input type="text" id="agentBubbleHp" tabindex="-1" autocomplete="off" /></label></p>
+      <div class="agentbubble__inputrow">
+        <input type="text" id="agentBubbleInput" placeholder="Ask about your GTM..." autocomplete="off" />
+        <button type="button" id="agentBubbleSubmit" aria-label="Send">&#x2192;</button>
+      </div>
+    </div>
+    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-expanded="false" aria-controls="agentBubblePanel" aria-label="Chat with the SAILS agents">
       <img src="/assets/product-mark-white.svg" alt="" width="24" height="24" />
     </button>
   </div>

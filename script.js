@@ -281,10 +281,17 @@
         if (metaRaw) {
           try {
             const parsed = JSON.parse(metaRaw);
-            if (parsed.vpPreview && els.vpPreviewEl) els.vpPreviewEl.textContent = parsed.vpPreview;
-            if (parsed.enablementPreview && els.enablementPreviewEl) els.enablementPreviewEl.textContent = parsed.enablementPreview;
+            if (parsed.vpPreview && els.vpPreviewEl) {
+              els.vpPreviewEl.textContent = parsed.vpPreview;
+              if (els.vpCard) els.vpCard.hidden = false;
+            }
+            if (parsed.enablementPreview && els.enablementPreviewEl) {
+              els.enablementPreviewEl.textContent = parsed.enablementPreview;
+              if (els.enablementCard) els.enablementCard.hidden = false;
+            }
+            if (els.handoff && (parsed.vpPreview || parsed.enablementPreview)) els.handoff.hidden = false;
           } catch (e) {
-            // Locked-card previews are a nice-to-have; the diagnosis above already shipped.
+            // Handoff previews are a nice-to-have; the diagnosis above already shipped.
           }
         }
       } catch (err) {
@@ -321,48 +328,26 @@
     return { sendMessage };
   }
 
-  /* ---------- Homepage #agent panel ---------- */
-  const agentApp = document.getElementById('agentApp');
-  if (agentApp) {
-    createAgentChat({
-      input: document.getElementById('agentInput'),
-      submitBtn: document.getElementById('agentSubmit'),
-      hp: document.getElementById('agentHp'),
-      example: document.getElementById('agentExample'),
-      messagesEl: document.getElementById('agentMessages'),
-      working: document.getElementById('agentWorking'),
-      workingText: document.getElementById('agentWorkingText'),
-      followupRow: document.getElementById('agentFollowupRow'),
-      followupInput: document.getElementById('agentFollowupInput'),
-      followupSubmit: document.getElementById('agentFollowupSubmit'),
-      vpPreviewEl: document.getElementById('agentVpPreview'),
-      enablementPreviewEl: document.getElementById('agentEnablementPreview'),
-    });
-  }
-
-  /* ---------- Floating agent bubble (every page) ---------- */
+  /* ---------- Floating agent bubble (every page, including homepage) ---------- */
   const agentBubble = document.getElementById('agentBubble');
   if (agentBubble) {
     const launcher = document.getElementById('agentBubbleLauncher');
     const panel = document.getElementById('agentBubblePanel');
     const closeBtn = document.getElementById('agentBubbleClose');
-    const homeAgentSection = document.getElementById('agent');
 
-    if (homeAgentSection) {
-      // Already on the homepage: the full #agent experience exists below,
-      // the bubble just gets you there instead of duplicating it.
-      agentBubble.classList.add('agentbubble--scroll-only');
-      launcher.addEventListener('click', () => {
-        homeAgentSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-      });
-    } else if (panel) {
-      const chat = createAgentChat({
+    if (panel) {
+      createAgentChat({
         input: document.getElementById('agentBubbleInput'),
         submitBtn: document.getElementById('agentBubbleSubmit'),
         hp: document.getElementById('agentBubbleHp'),
         messagesEl: document.getElementById('agentBubbleMessages'),
         working: document.getElementById('agentBubbleWorking'),
         workingText: document.getElementById('agentBubbleWorkingText'),
+        vpPreviewEl: document.getElementById('agentBubbleVpPreview'),
+        enablementPreviewEl: document.getElementById('agentBubbleEnablementPreview'),
+        vpCard: document.getElementById('agentBubbleVpCard'),
+        enablementCard: document.getElementById('agentBubbleEnablementCard'),
+        handoff: document.getElementById('agentBubbleHandoff'),
       });
 
       const openPanel = () => {
@@ -386,8 +371,13 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !panel.hidden) closePanel();
       });
-      // Keep a reference so no-op lint tools don't flag an unused var.
-      void chat;
+
+      // Any other trigger on the page (e.g. the CRO agent card's "Try it
+      // live" button) can just open the same bubble instead of duplicating
+      // the chat experience.
+      document.querySelectorAll('[data-open-agent-bubble]').forEach((btn) => {
+        btn.addEventListener('click', openPanel);
+      });
     }
   }
 
