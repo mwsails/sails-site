@@ -499,6 +499,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .section__lede strong { color: var(--white); font-weight: 700; font-style: normal; }
 
+/* .section__lede defaults to white-on-dark; light sections need dark
+   ink instead, this was invisible (white on white) before this fix. */
+.section--light .section__lede,
+.section--gray .section__lede {
+  color: var(--ink-2);
+}
+.section--light .section__lede em,
+.section--gray .section__lede em {
+  color: var(--ink-2);
+  opacity: 0.75;
+}
+.section--light .section__lede strong,
+.section--gray .section__lede strong {
+  color: var(--ink);
+}
+
 .prose p { color: var(--ink-2); margin: 0 0 1.25em; line-height: 1.7; font-size: 1.075rem; }
 .prose p strong { color: var(--ink); }
 .prose--narrow { max-width: 65ch; }
@@ -880,123 +896,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .engagement__note strong { color: var(--white); }
 
 /* ---------- How It Works demo (homepage) ---------- */
-.demo { margin: 2.5rem 0 3rem; }
-
-.demo__steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-@media (min-width: 720px) {
-  .demo__steps { flex-direction: row; gap: 1rem; }
-}
-.demo__step {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--sans);
-  text-align: left;
-  background: var(--white);
-  border: 1px solid var(--gray-2);
-  border-radius: var(--r-card);
-  padding: 0.9rem 1.1rem;
-  cursor: pointer;
-  transition: border-color var(--t), box-shadow var(--t);
-}
-@media (min-width: 720px) { .demo__step { flex: 1; } }
-.demo__step:hover { border-color: var(--blue); }
-.demo__step.is-active {
-  border-color: var(--blue);
-  box-shadow: 0 8px 20px -12px rgba(43, 96, 190, 0.45);
-}
-.demo__step-num {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: var(--r-full);
-  background: var(--gray-2);
-  color: var(--ink-2);
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: background var(--t), color var(--t);
-}
-.demo__step.is-active .demo__step-num {
-  background: var(--grad-following-wind);
-  color: var(--white);
-}
-.demo__step-label {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--ink-2);
-}
-.demo__step.is-active .demo__step-label { color: var(--ink); }
-
-.demo__stage { position: relative; }
-.demo__panel { animation: demo-fade-in 320ms var(--t) both; }
-@keyframes demo-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .demo__panel { animation: none; }
-}
-
-.demo__mock {
-  min-height: 220px;
-  border-radius: var(--r-card);
-  border: 1px solid var(--gray-2);
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-}
-.demo__mock--form,
-.demo__mock--output {
-  background: var(--grad-paper);
-}
-.demo__mock-title {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin: 0 0 0.25rem;
-}
-.demo__mock-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--gray-2);
-}
-.demo__mock-row:last-child { border-bottom: none; padding-bottom: 0; }
-.demo__mock-label {
-  font-size: 0.78rem;
-  color: var(--ink-2);
-}
-.demo__mock-value {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--ink);
-}
-
-/* Agent-working mock: AI layer, Beacon gradient reserved for this surface only */
-.demo__mock--agent {
-  background: var(--grad-beacon);
-  border-color: transparent;
-  color: var(--white);
-}
-.demo__agent-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+/* Shared "agent working" dot pattern (v4 Brand Guide: the only sanctioned
+   ambient animation in the product). Reused verbatim by the live #agent
+   experience below. */
 .demo__agent-dot {
   flex: none;
   display: inline-flex;
@@ -1006,7 +908,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 6px;
   height: 6px;
   border-radius: var(--r-full);
-  background: var(--white);
+  background: currentColor;
   opacity: 0.35;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -1018,142 +920,160 @@ ul { margin: 0; padding: 0; list-style: none; }
   0%, 100% { opacity: 0.35; }
   50% { opacity: 1; }
 }
-.demo__agent-text {
-  font-family: var(--sans);
-  font-size: 0.98rem;
-  font-weight: 600;
-}
-.demo__progress {
-  height: 6px;
-  border-radius: var(--r-full);
-  background: rgba(255, 255, 255, 0.25);
-  overflow: hidden;
-}
-.demo__progress-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--white);
-  border-radius: var(--r-full);
-  transition: width 900ms var(--t);
-}
-.demo__agent-note {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0;
+@keyframes demo-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.demo__output-row {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.98rem;
-  color: var(--ink);
-}
-.demo__output-row svg { flex: none; color: var(--ember); }
-
-/* ---------- Ask the CRO Agent (interactive, keyword-matched preview) ---------- */
-.ask {
-  margin: 2.5rem 0 3rem;
-  background: var(--grad-paper);
-  border-radius: var(--r-glass);
-  padding: clamp(1.75rem, 4vw, 2.5rem);
-}
-.ask__badge {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--grad-beacon);
-  border-radius: var(--r-full);
-  padding: 0.3rem 0.85rem;
-  margin: 0 0 0.85rem;
-}
-.ask__h {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  margin: 0 0 0.5rem;
-  color: var(--ink);
-}
-.ask__sub {
+/* ---------- Live CRO Agent (#agent) ----------
+   The one place on the site the AI layer exists, per the brand guide:
+   Glass Beacon (Phase 2) is only ever used here. Human input stays
+   navy-bordered, agent-authored content gets the cyan rule. */
+.agent { margin: 2.5rem 0 3rem; }
+.agent__noscript {
   color: var(--ink-2);
-  font-size: 0.97rem;
-  max-width: 54ch;
-  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+  max-width: 60ch;
 }
-.ask__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0 0 1.25rem;
+.agent__panel {
+  /* Solid --grad-beacon, not the translucent .glass--beacon: this panel
+     sits on a light page section, and the glass version's ~14% opacity
+     cyan wash is too pale for white text to read against a light backdrop.
+     Glass Beacon is for floating overlay contexts; matches the existing
+     .tracks--agents / .demo__mock--agent pattern used elsewhere. */
+  background: var(--grad-beacon);
+  border-radius: var(--r-glass);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  color: var(--white);
 }
-.ask__chip {
+.agent__label {
+  display: block;
   font-family: var(--sans);
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--ink-2);
-  background: var(--white);
-  border: 1px solid var(--gray-2);
-  border-radius: var(--r-full);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: border-color var(--t), color var(--t);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 0.5rem;
 }
-.ask__chip:hover { border-color: var(--blue); color: var(--blue); }
-.ask__row {
+.agent__row {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
-.ask__input {
-  flex: 1 1 260px;
+.agent__input {
+  flex: 1 1 280px;
+  height: 56px;
   font-family: var(--sans);
   font-size: 1rem;
-  color: var(--ink);
-  background: var(--white);
-  border: 1px solid var(--gray-2);
+  color: var(--white);
+  background: rgba(13, 27, 75, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: var(--r-control);
-  padding: 0.85rem 1rem;
+  padding: 0 1.1rem;
   transition: border-color var(--t), box-shadow var(--t);
 }
-.ask__input:hover { border-color: var(--mist); }
-.ask__input:focus {
+.agent__input::placeholder { color: rgba(255, 255, 255, 0.6); }
+.agent__input:hover { border-color: rgba(255, 255, 255, 0.55); }
+.agent__input:focus {
   outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(43, 96, 190, 0.18);
+  border-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
-.ask__submit { flex: none; }
-.ask__reply {
-  margin-top: 1.5rem;
-  background: var(--grad-beacon);
-  border-radius: var(--r-card);
-  padding: 1.5rem 1.75rem;
-  color: var(--white);
-  animation: demo-fade-in 320ms var(--t) both;
+.agent__input:disabled { opacity: 0.6; }
+.agent__submit { flex: none; height: 56px; }
+
+.agent__chat { margin-top: 1.5rem; }
+.agent__message {
+  border-left: 3px solid var(--navy);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 var(--r-control) var(--r-control) 0;
+  background: rgba(13, 27, 75, 0.25);
 }
-@media (prefers-reduced-motion: reduce) {
-  .ask__reply { animation: none; }
+.agent__message--assistant {
+  border-left-color: var(--cyan);
+  background: rgba(255, 255, 255, 0.10);
 }
-.ask__reply-head {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 0 0 0.85rem;
-}
-.ask__reply-label {
+.agent__message-label {
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 0.35rem;
 }
-.ask__reply-text {
-  font-size: 1.02rem;
+.agent__message-text {
+  font-size: 1rem;
   line-height: 1.55;
+  color: var(--white);
   margin: 0;
+  white-space: pre-wrap;
 }
+.agent__message--example { opacity: 0.92; }
+
+.agent__working {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  color: var(--white);
+}
+.agent__working-text {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.agent__followup-row { margin-top: 0.5rem; }
+
+.agent__locked {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 720px) {
+  .agent__locked { grid-template-columns: 1fr 1fr; }
+}
+.agent__locked-card {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--r-card);
+  padding: 1.5rem;
+}
+.agent__locked-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-control);
+  background: var(--grad-beacon);
+  color: var(--white);
+  margin: 0 0 0.85rem;
+}
+.agent__locked-label {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+.agent__locked-preview {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 1rem;
+}
+.agent__locked-cta {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+.agent__locked-cta:hover { color: var(--blue-hover); }
 
 /* Waitlist form on a light section needs its own field styling;
    .form/.form__field default to the dark (contact-form) treatment. */
