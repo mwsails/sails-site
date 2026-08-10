@@ -937,6 +937,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   max-width: 60ch;
 }
 .agent__panel {
+  /* Solid --grad-beacon, not the translucent .glass--beacon: this panel
+     sits on a light page section, and the glass version's ~14% opacity
+     cyan wash is too pale for white text to read against a light backdrop.
+     Glass Beacon is for floating overlay contexts; matches the existing
+     .tracks--agents / .demo__mock--agent pattern used elsewhere. */
+  background: var(--grad-beacon);
+  border-radius: var(--r-glass);
   padding: clamp(1.5rem, 4vw, 2.25rem);
   color: var(--white);
 }
