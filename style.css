@@ -53,6 +53,11 @@
   --r-full: 9999px;
 
   --t: 200ms cubic-bezier(.4, 0, .2, 1);
+
+  /* Glass surfaces (v4 Brand Guide §08 "Glass Surfaces"): shared blur values,
+     no component defines its own blur inline. */
+  --glass-blur: 28px;
+  --glass-blur-light: 24px;
 }
 
 /* ---------- Reset / base ---------- */
@@ -148,6 +153,65 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .btn--pill { padding: 0.55rem 1.1rem; font-size: 0.92rem; }
 .btn--lg { padding: 1.1rem 1.75rem; font-size: 1.05rem; }
+
+/* ---------- Glass Surfaces (v4 Brand Guide §08) ----------
+   Chrome floats, content doesn't: use these only for floating UI
+   (headers, panels, overlays), never for a card that contains body
+   copy, a paragraph, or a data table (readability first, ship the
+   solid version instead). Never stack two glass surfaces on top of
+   each other. Solid fallback is the default rule below; the
+   translucent + blurred version only applies where backdrop-filter
+   is actually supported.
+
+   Per the brand guide's "Two Shells, One Brand" page: the marketing
+   SITE (this repo) uses Glass Light for its header, even where it
+   floats over the dark gradient hero. Glass Dark is the product
+   APP's pattern (sails-platform, not this repo) and is included here
+   for completeness / any future floating-over-navy chrome, not
+   because the marketing nav uses it. Glass Beacon is reserved for
+   the live agent surface only, per the cyan-is-AI-only rule. */
+
+.glass--dark {
+  background: var(--navy-2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--r-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 20px 50px rgba(4, 12, 40, 0.35);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass--dark {
+    background: rgba(255, 255, 255, 0.10);
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+  }
+}
+
+.glass--light {
+  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: var(--r-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), 0 16px 40px rgba(13, 27, 75, 0.18);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass--light {
+    background: rgba(255, 255, 255, 0.70);
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    backdrop-filter: blur(var(--glass-blur-light));
+  }
+}
+
+.glass--beacon {
+  background: var(--grad-beacon);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--r-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 20px 50px rgba(11, 40, 80, 0.35);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass--beacon {
+    background: rgba(53, 200, 232, 0.14);
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+  }
+}
 
 /* ---------- Nav ---------- */
 .nav {
