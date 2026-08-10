@@ -64,155 +64,213 @@
     revealEls.forEach((el) => io.observe(el));
   }
 
-  /* ---------- How It Works demo (homepage) ---------- */
-  const demo = document.getElementById('howItWorks');
-  if (demo) {
-    const steps = Array.from(demo.querySelectorAll('.demo__step'));
-    const panels = Array.from(demo.querySelectorAll('.demo__panel'));
-    const agentText = document.getElementById('agentStatusText');
-    const agentNote = document.getElementById('agentStepNote');
-    const progressBar = document.getElementById('agentProgressBar');
-    const agentMessages = [
-      'CRO is reviewing your funnel',
-      'VP of Sales is building your playbook',
-      'Enablement Lead is drafting your outbound sequence',
-    ];
-    const AGENT_STEP_MS = 1150;
+  /* ---------- Live CRO agent (homepage #agent) ---------- */
+  const agentApp = document.getElementById('agentApp');
+  if (agentApp) {
+    const input = document.getElementById('agentInput');
+    const submitBtn = document.getElementById('agentSubmit');
+    const hp = document.getElementById('agentHp');
+    const example = document.getElementById('agentExample');
+    const messagesEl = document.getElementById('agentMessages');
+    const working = document.getElementById('agentWorking');
+    const workingText = document.getElementById('agentWorkingText');
+    const followupRow = document.getElementById('agentFollowupRow');
+    const followupInput = document.getElementById('agentFollowupInput');
+    const followupSubmit = document.getElementById('agentFollowupSubmit');
+    const vpPreviewEl = document.getElementById('agentVpPreview');
+    const enablementPreviewEl = document.getElementById('agentEnablementPreview');
 
-    let stepIndex = 0;
-    let agentTimer = null;
+    const MESSAGE_LIMIT = 12;
+    const WORKING_STEPS = ['Reading your positioning', 'Scoring your ICP clarity', 'Sizing the gap'];
+    const META_DELIMITER = '<<<SAILS_META_JSON>>>';
 
-    function runAgentSequence() {
-      let sub = 0;
-      const total = agentMessages.length;
-      const setSub = (i) => {
-        if (agentText) agentText.textContent = agentMessages[i];
-        if (agentNote) agentNote.textContent = 'Step ' + (i + 1) + ' of ' + total;
-        if (progressBar) progressBar.style.width = Math.round(((i + 1) / total) * 100) + '%';
-      };
-
-      clearInterval(agentTimer);
-      if (progressBar) progressBar.style.width = '0%';
-
-      if (prefersReducedMotion) {
-        setSub(total - 1);
-        return;
+    let transcript = [];
+    let visitorId = null;
+    try {
+      visitorId = window.localStorage.getItem('sailsVisitorId');
+      if (!visitorId) {
+        visitorId = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+        window.localStorage.setItem('sailsVisitorId', visitorId);
       }
-
-      setSub(0);
-      agentTimer = setInterval(() => {
-        sub++;
-        if (sub >= total) {
-          clearInterval(agentTimer);
-          return;
-        }
-        setSub(sub);
-      }, AGENT_STEP_MS);
+    } catch (e) {
+      // localStorage unavailable (private browsing, etc.), visitorId just stays null
     }
 
-    function showStep(i) {
-      stepIndex = i;
-      steps.forEach((btn, idx) => {
-        const active = idx === i;
-        btn.classList.toggle('is-active', active);
-        if (active) btn.setAttribute('aria-current', 'step');
-        else btn.removeAttribute('aria-current');
-      });
-      panels.forEach((panel, idx) => {
-        const active = idx === i;
-        panel.classList.toggle('is-active', active);
-        if (active) panel.removeAttribute('hidden');
-        else panel.setAttribute('hidden', '');
-      });
-      if (i === 1) runAgentSequence();
-      else clearInterval(agentTimer);
+    function appendMessage(role, text) {
+      const row = document.createElement('div');
+      row.className = 'agent__message agent__message--' + role;
+      if (role === 'assistant') {
+        const label = document.createElement('p');
+        label.className = 'agent__message-label';
+        label.textContent = 'CRO Agent';
+        row.appendChild(label);
+      }
+      const p = document.createElement('p');
+      p.className = 'agent__message-text';
+      p.textContent = text;
+      row.appendChild(p);
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return p;
     }
 
-    steps.forEach((btn, idx) => {
-      btn.addEventListener('click', () => {
-        showStep(idx);
-      });
-    });
-
-    showStep(0);
-  }
-
-  /* ---------- Ask the CRO Agent (homepage, keyword-matched preview) ---------- */
-  const ask = document.getElementById('askCro');
-  if (ask) {
-    const input = document.getElementById('askInput');
-    const submitBtn = document.getElementById('askSubmit');
-    const chips = Array.from(ask.querySelectorAll('.ask__chip'));
-    const reply = document.getElementById('askReply');
-    const replyDot = document.getElementById('askReplyDot');
-    const replyText = document.getElementById('askReplyText');
-
-    const BUCKETS = [
-      {
-        keys: ['slow', 'respond', 'follow up', 'cold', 'wait'],
-        text: "Leads sitting more than five minutes lose half their conversion odds, and most teams take hours, not minutes. The CRO agent pulls your actual response times first: that's usually the single biggest leak before anything else gets fixed.",
-      },
-      {
-        keys: ['quota', 'uneven', 'inconsistent', 'two reps', 'top rep'],
-        text: "When some reps hit quota and others don't on the same leads, it's rarely a talent gap, it's a documentation gap. The CRO agent pulls win rates by rep to find where the top performer's approach diverges from everyone else's.",
-      },
-      {
-        keys: ['pipeline', 'forecast', 'stall', 'stuck'],
-        text: "Deals stalling in the same stage usually means the exit criteria for that stage were never defined. The CRO agent maps your pipeline stages against actual deal velocity to find where the bottleneck really sits.",
-      },
-      {
-        keys: ['objection', 'price', 'competitor', 'losing'],
-        text: "If the same objection keeps closing deals, that's a scripting problem, not a market problem. The CRO agent tags lost deals by objection type to see which one is actually costing the most revenue.",
-      },
-      {
-        keys: ['hire', 'hiring', 'onboard', 'ramp'],
-        text: "New reps ramping slowly almost always means there's no documented playbook to hand them, so they're rebuilding the founder's instincts from scratch. The CRO agent sizes how much that ramp time is costing before recommending a fix.",
-      },
-      {
-        keys: ['playbook', 'document', 'system', 'process'],
-        text: "What works usually lives in one person's head, not in a system the team can run. The CRO agent starts by documenting the exact motion that already closes deals, then hands it to the VP of Sales agent to teach it.",
-      },
-    ];
-    const FALLBACK = "That's exactly the kind of gap the CRO agent is built to find. Run the Fit Diagnostic and it'll size where revenue is actually leaking in your funnel, not a generic framework.";
-
-    function matchReply(value) {
-      const q = value.toLowerCase();
-      const bucket = BUCKETS.find((b) => b.keys.some((k) => q.includes(k)));
-      return bucket ? bucket.text : FALLBACK;
-    }
-
-    function respond(value) {
-      if (!value || !value.trim()) return;
-      reply.hidden = false;
-      replyText.textContent = '';
-      if (replyDot) replyDot.style.display = '';
-
-      const finish = () => {
-        if (replyDot) replyDot.style.display = 'none';
-        replyText.textContent = matchReply(value);
+    function startWorking() {
+      working.hidden = false;
+      if (prefersReducedMotion) {
+        workingText.textContent = WORKING_STEPS[WORKING_STEPS.length - 1];
+        return () => { working.hidden = true; };
+      }
+      let i = 0;
+      workingText.textContent = WORKING_STEPS[0];
+      const timer = setInterval(() => {
+        i = (i + 1) % WORKING_STEPS.length;
+        workingText.textContent = WORKING_STEPS[i];
+      }, 1400);
+      return () => {
+        clearInterval(timer);
+        working.hidden = true;
       };
-
-      if (prefersReducedMotion) finish();
-      else setTimeout(finish, 650);
     }
 
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        input.value = chip.textContent.trim();
-        respond(input.value);
-        input.focus();
-      });
-    });
+    // Streaming parser: holds back up to (delimiter.length - 1) trailing
+    // characters each call, in case the delimiter is split across chunks.
+    function makeStreamSplitter(delimiter) {
+      let mode = 'text';
+      let pending = '';
+      let metaText = '';
+      return {
+        push(chunk) {
+          if (mode === 'meta') {
+            metaText += chunk;
+            return '';
+          }
+          pending += chunk;
+          const idx = pending.indexOf(delimiter);
+          if (idx !== -1) {
+            const visible = pending.slice(0, idx);
+            metaText += pending.slice(idx + delimiter.length);
+            mode = 'meta';
+            pending = '';
+            return visible;
+          }
+          const safeLen = Math.max(0, pending.length - (delimiter.length - 1));
+          const toEmit = pending.slice(0, safeLen);
+          pending = pending.slice(safeLen);
+          return toEmit;
+        },
+        finish() {
+          const rest = pending;
+          pending = '';
+          return rest;
+        },
+        getMeta() {
+          return metaText;
+        },
+      };
+    }
 
-    if (submitBtn) submitBtn.addEventListener('click', () => respond(input.value));
-    if (input) {
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          respond(input.value);
+    async function sendMessage(text) {
+      const trimmed = (text || '').trim();
+      if (!trimmed || transcript.length >= MESSAGE_LIMIT) return;
+
+      if (example) example.hidden = true;
+      messagesEl.hidden = false;
+
+      transcript.push({ role: 'user', content: trimmed });
+      appendMessage('user', trimmed);
+
+      input.value = '';
+      followupInput.value = '';
+      input.disabled = true;
+      submitBtn.disabled = true;
+      followupInput.disabled = true;
+      followupSubmit.disabled = true;
+
+      const stopWorking = startWorking();
+      const splitter = makeStreamSplitter(META_DELIMITER);
+      let replyEl = null;
+      let fullText = '';
+
+      try {
+        const res = await fetch('/.netlify/functions/cro-agent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: transcript, visitorId, hp: hp ? hp.value : '' }),
+        });
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          const visible = splitter.push(chunk);
+          if (visible) {
+            if (!replyEl) {
+              stopWorking();
+              replyEl = appendMessage('assistant', '');
+            }
+            fullText += visible;
+            replyEl.textContent = fullText;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+          }
         }
-      });
+
+        const trailing = splitter.finish();
+        if (trailing) {
+          if (!replyEl) {
+            stopWorking();
+            replyEl = appendMessage('assistant', '');
+          }
+          fullText += trailing;
+          replyEl.textContent = fullText;
+        }
+
+        if (!replyEl) stopWorking();
+
+        transcript.push({ role: 'assistant', content: fullText });
+
+        const metaRaw = splitter.getMeta();
+        if (metaRaw) {
+          try {
+            const parsed = JSON.parse(metaRaw);
+            if (parsed.vpPreview && vpPreviewEl) vpPreviewEl.textContent = parsed.vpPreview;
+            if (parsed.enablementPreview && enablementPreviewEl) enablementPreviewEl.textContent = parsed.enablementPreview;
+          } catch (e) {
+            // Locked-card previews are a nice-to-have; the diagnosis above already shipped.
+          }
+        }
+      } catch (err) {
+        stopWorking();
+        appendMessage('assistant', "I hit a snag on my end. Join the waitlist and I'll follow up directly.");
+      } finally {
+        input.disabled = false;
+        submitBtn.disabled = false;
+        followupInput.disabled = false;
+        followupSubmit.disabled = false;
+        if (transcript.length > 0 && transcript.length < MESSAGE_LIMIT) {
+          followupRow.hidden = false;
+        } else {
+          followupRow.hidden = true;
+        }
+      }
     }
+
+    submitBtn.addEventListener('click', () => sendMessage(input.value));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage(input.value);
+      }
+    });
+    followupSubmit.addEventListener('click', () => sendMessage(followupInput.value));
+    followupInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage(followupInput.value);
+      }
+    });
   }
 
   /* ---------- Contact + waitlist forms (Netlify Forms AJAX) ---------- */
