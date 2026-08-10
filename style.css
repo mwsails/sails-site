@@ -1716,7 +1716,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Blog hero (blog index) ---------- */
 .blog-hero {
-  background: var(--navy);
+  background: var(--grad-deep-water);
   color: var(--white);
   padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(3rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--border-dark);
@@ -1762,7 +1762,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .post-card {
-  background: var(--white);
+  background: var(--grad-paper);
   border: 1px solid var(--gray-2);
   border-radius: var(--r-card);
   transition: border-color var(--t), transform var(--t), box-shadow var(--t);
@@ -1832,7 +1832,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Individual post header ---------- */
 .post-header {
-  background: var(--navy);
+  background: var(--grad-deep-water);
   color: var(--white);
   padding: clamp(4rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--border-dark);
@@ -2088,7 +2088,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  background: var(--white);
+  background: var(--grad-paper);
   border: 1px solid var(--gray-2);
   border-radius: var(--r-card);
   overflow: hidden;
@@ -2319,7 +2319,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 
 .calc-hero {
-  background: var(--navy);
+  background: var(--grad-deep-water);
   color: var(--white);
   padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem);
   border-bottom: 1px solid var(--border-dark);
@@ -2432,7 +2432,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Results panel */
 .calc-results {
-  background: var(--navy);
+  background: var(--grad-deep-water);
   border-radius: var(--r-card);
   padding: 1.75rem;
   color: var(--white);
@@ -2520,7 +2520,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 
 .diag-hero {
-  background: var(--navy);
+  background: var(--grad-deep-water);
   color: var(--white);
   padding: clamp(4rem, 9vw, 6.5rem) 0 clamp(3rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--border-dark);
