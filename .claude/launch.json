@@ -4,7 +4,7 @@
     {
       "name": "sails",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/harness/sails-advisory"],
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/mweisman/sails-advisory"],
       "port": 8765
     }
   ]

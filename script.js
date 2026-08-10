@@ -64,6 +64,62 @@
     revealEls.forEach((el) => io.observe(el));
   }
 
+  /* ---------- Agent card expand (homepage #engagement) ---------- */
+  const agentDetail = document.getElementById('agentDetail');
+  const agentCards = document.querySelectorAll('.agentcard[data-agent]');
+
+  if (agentDetail && agentCards.length) {
+    const panels = agentDetail.querySelectorAll('.agentdetail__panel[data-panel]');
+    let openAgent = null;
+
+    const closeAll = () => {
+      agentCards.forEach((c) => {
+        c.setAttribute('aria-expanded', 'false');
+        c.classList.remove('is-active');
+      });
+      panels.forEach((p) => {
+        p.classList.remove('is-animate');
+        p.hidden = true;
+      });
+      agentDetail.hidden = true;
+      openAgent = null;
+    };
+
+    const openAgentPanel = (name, card) => {
+      panels.forEach((p) => {
+        const match = p.dataset.panel === name;
+        p.hidden = !match;
+        p.classList.remove('is-animate');
+      });
+      agentCards.forEach((c) => {
+        const match = c.dataset.agent === name;
+        c.setAttribute('aria-expanded', String(match));
+        c.classList.toggle('is-active', match);
+      });
+      agentDetail.hidden = false;
+      openAgent = name;
+      // Force layout, then add the animate class on the next frame so the
+      // reveal transitions replay from their closed state every time.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const activePanel = agentDetail.querySelector(`.agentdetail__panel[data-panel="${name}"]`);
+          if (activePanel) activePanel.classList.add('is-animate');
+        });
+      });
+    };
+
+    agentCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const name = card.dataset.agent;
+        if (openAgent === name) {
+          closeAll();
+        } else {
+          openAgentPanel(name, card);
+        }
+      });
+    });
+  }
+
   /* ---------- Live CRO agent (homepage #agent) ---------- */
   const agentApp = document.getElementById('agentApp');
   if (agentApp) {

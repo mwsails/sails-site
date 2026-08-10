@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 
   <!-- Structured data: Organization, Person, Service, FAQPage -->
   <script type="application/ld+json">
@@ -172,7 +172,7 @@
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__content">
-          <img src="assets/sails-mark-white.svg" alt="SAILS" class="hero__mark" width="320" height="240" />
+          <img src="assets/sails-lockup-white.png" alt="SAILS" class="hero__mark" width="280" height="210" />
           <p class="hero__eyebrow">AI Go-To-Market Team · B2B SaaS</p>
           <h1 class="hero__headline">
             Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
@@ -187,47 +187,56 @@
         </div>
 
         <div class="hero__flow reveal" aria-hidden="true">
-          <div class="hero__flow-step">
-            <span class="hero__flow-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
-                <circle cx="7" cy="8" r="2" fill="#ffffff"/>
-                <circle cx="16" cy="6" r="2" fill="#ffffff"/>
-                <circle cx="12" cy="14" r="2" fill="#ffffff"/>
-                <circle cx="18" cy="16" r="2" fill="#ffffff" opacity="0.6"/>
-                <circle cx="6" cy="17" r="2" fill="#ffffff" opacity="0.6"/>
-              </svg>
+          <div class="hero__flow-card glass glass--dark">
+            <span class="hero__flow-kicker">
+              <img src="assets/product-mark-white.svg" alt="" width="16" height="16" />
+              How SAILS works
             </span>
-            <span class="hero__flow-text">
-              <span class="hero__flow-label">Learn</span>
-              <span class="hero__flow-desc">Reads your business, raw and unstructured</span>
-            </span>
-          </div>
-          <div class="hero__flow-step">
-            <span class="hero__flow-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" aria-hidden="true">
-                <rect x="5" y="4" width="14" height="16"/>
-                <line x1="8" y1="9" x2="16" y2="9"/>
-                <line x1="8" y1="13" x2="16" y2="13"/>
-                <line x1="8" y1="17" x2="13" y2="17"/>
-              </svg>
-            </span>
-            <span class="hero__flow-text">
-              <span class="hero__flow-label">Build</span>
-              <span class="hero__flow-desc">Turns it into one documented playbook</span>
-            </span>
-          </div>
-          <div class="hero__flow-step">
-            <span class="hero__flow-icon">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" aria-hidden="true">
-                <rect x="4" y="10" width="13" height="9" opacity="0.5"/>
-                <rect x="6.5" y="6.5" width="13" height="9" opacity="0.75"/>
-                <rect x="9" y="3" width="13" height="9"/>
-              </svg>
-            </span>
-            <span class="hero__flow-text">
-              <span class="hero__flow-label">Arm</span>
-              <span class="hero__flow-desc">Builds the decks and sequences the team runs on</span>
-            </span>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--learn" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <circle class="hf-dot" style="--dx:-8px; --dy:-6px;" cx="12" cy="12" r="3" fill="#ffffff"/>
+                  <circle class="hf-dot" style="--dx:9px; --dy:-9px;" cx="28" cy="10" r="3" fill="#ffffff"/>
+                  <circle class="hf-dot" style="--dx:-4px; --dy:9px;" cx="18" cy="26" r="3" fill="#ffffff" opacity="0.75"/>
+                  <circle class="hf-dot" style="--dx:10px; --dy:7px;" cx="30" cy="28" r="3" fill="#ffffff" opacity="0.55"/>
+                  <circle class="hf-dot" style="--dx:-9px; --dy:6px;" cx="9" cy="29" r="3" fill="#ffffff" opacity="0.55"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Learn</span>
+                <span class="hero__flow-desc">Reads your business, raw and unstructured</span>
+              </span>
+            </div>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--build" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <rect class="hf-doc" x="8" y="5" width="24" height="30" rx="2.5" stroke="#ffffff" stroke-width="2"/>
+                  <line class="hf-line hf-line--1" x1="13" y1="14" x2="27" y2="14" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                  <line class="hf-line hf-line--2" x1="13" y1="20" x2="27" y2="20" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                  <line class="hf-line hf-line--3" x1="13" y1="26" x2="22" y2="26" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Build</span>
+                <span class="hero__flow-desc">Turns it into one documented playbook</span>
+              </span>
+            </div>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--arm" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <rect class="hf-card hf-card--1" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff" opacity="0.4"/>
+                  <rect class="hf-card hf-card--2" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff" opacity="0.7"/>
+                  <rect class="hf-card hf-card--3" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Arm</span>
+                <span class="hero__flow-desc">Builds the decks and sequences the team runs on</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -286,33 +295,111 @@
         </svg>
 
         <div class="agentcards reveal">
-          <a class="agentcard" href="#agent">
+          <button type="button" class="agentcard" data-agent="cro" aria-expanded="false" aria-controls="agentDetail">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
             </span>
             <p class="agentcard__tag">It Learns</p>
             <h3 class="agentcard__label">CRO</h3>
             <p class="agentcard__desc">Finds where revenue is leaking and sizes the opportunity. Blunt, numeric, never consoling: your opp rate is 11 percent, segment median is 24, that gap is worth $340K.</p>
-            <span class="agentcard__cta">Try it live <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="agentcard" href="#agent">
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+          <button type="button" class="agentcard" data-agent="vp" aria-expanded="false" aria-controls="agentDetail">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
             </span>
             <p class="agentcard__tag">It Builds</p>
             <h3 class="agentcard__label">VP of Sales</h3>
             <p class="agentcard__desc">Teaches the framework and reviews the work. Patient but exacting, the same way a real VP of Sales runs a pipeline review.</p>
-            <span class="agentcard__cta">See the preview <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="agentcard" href="#agent">
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+          <button type="button" class="agentcard" data-agent="enablement" aria-expanded="false" aria-controls="agentDetail">
             <span class="agentcard__icon" aria-hidden="true">
-              <img src="assets/icon-sail.svg" alt="" loading="lazy" width="26" height="26" />
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
             </span>
             <p class="agentcard__tag">It Arms</p>
             <h3 class="agentcard__label">Enablement Lead</h3>
             <p class="agentcard__desc">Builds the decks, one-pagers, and sequences, matched to your brand. Practical, fast, on-format.</p>
-            <span class="agentcard__cta">See the preview <span aria-hidden="true">→</span></span>
-          </a>
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+        </div>
+
+        <div class="agentdetail" id="agentDetail" hidden>
+          <div class="agentdetail__panel glass glass--dark" data-panel="cro" hidden>
+            <div class="agentdetail__stage">
+              <div class="agentdetail__working">
+                <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span>Analyzing your GTM data</span>
+              </div>
+              <div class="agentdetail__cro-stats">
+                <div class="agentdetail__stat">
+                  <span class="agentdetail__stat-row">
+                    <span class="agentdetail__stat-label">Your opp rate</span>
+                    <span class="agentdetail__stat-value">11%</span>
+                  </span>
+                  <span class="agentdetail__bar"><span class="agentdetail__bar-fill agentdetail__bar-fill--dim" style="--pct:11%"></span></span>
+                </div>
+                <div class="agentdetail__stat">
+                  <span class="agentdetail__stat-row">
+                    <span class="agentdetail__stat-label">Segment median</span>
+                    <span class="agentdetail__stat-value">24%</span>
+                  </span>
+                  <span class="agentdetail__bar"><span class="agentdetail__bar-fill" style="--pct:24%"></span></span>
+                </div>
+                <p class="agentdetail__cro-callout">That gap is worth <strong>$340K</strong> a year.</p>
+              </div>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">CRO: reads your business, sizes what it's costing you</h3>
+              <p class="agentdetail__p">Drop in a URL. It reads your positioning the way a buyer would, benchmarks you against segment norms, and puts a number on the gap, free, no email required.</p>
+              <a href="#agent" class="btn btn--primary agentdetail__link">Try it live <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="agentdetail__panel glass glass--dark" data-panel="vp" hidden>
+            <div class="agentdetail__stage">
+              <svg class="agentdetail__doc" viewBox="0 0 220 160" fill="none" aria-hidden="true">
+                <rect x="4" y="4" width="212" height="152" rx="8" class="ad-doc-frame" stroke="#ffffff" stroke-width="2"/>
+                <line x1="20" y1="26" x2="90" y2="26" class="ad-doc-title" stroke="#ffffff" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="52" x2="200" y2="52" class="ad-doc-line ad-doc-line--1" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="66" x2="170" y2="66" class="ad-doc-line ad-doc-line--2" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="90" x2="200" y2="90" class="ad-doc-line ad-doc-line--3" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="104" x2="150" y2="104" class="ad-doc-line ad-doc-line--4" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="128" x2="200" y2="128" class="ad-doc-line ad-doc-line--5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="142" x2="120" y2="142" class="ad-doc-line ad-doc-line--6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              </svg>
+              <div class="agentdetail__tags">
+                <span class="agentdetail__tag-chip">Discovery script</span>
+                <span class="agentdetail__tag-chip">Demo flow</span>
+                <span class="agentdetail__tag-chip">Objection handling</span>
+              </div>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">VP of Sales: turns the diagnosis into a playbook</h3>
+              <p class="agentdetail__p">Section by section, it documents the exact way you sell, the qualifying questions, the demo flow, the objections and how you kill them, then reviews your team's work against it like a real pipeline review.</p>
+              <a href="#waitlist" class="btn btn--ghost agentdetail__link">Join the waitlist for early access</a>
+            </div>
+          </div>
+
+          <div class="agentdetail__panel glass glass--dark" data-panel="enablement" hidden>
+            <div class="agentdetail__stage">
+              <svg class="agentdetail__cards" viewBox="0 0 140 100" fill="none" aria-hidden="true">
+                <rect class="ad-card ad-card--1" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff" opacity="0.4"/>
+                <rect class="ad-card ad-card--2" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff" opacity="0.7"/>
+                <rect class="ad-card ad-card--3" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff"/>
+              </svg>
+              <ul class="agentdetail__list">
+                <li class="agentdetail__list-item agentdetail__list-item--1"><span class="agentdetail__check" aria-hidden="true">✓</span> One-pager</li>
+                <li class="agentdetail__list-item agentdetail__list-item--2"><span class="agentdetail__check" aria-hidden="true">✓</span> Outbound sequence</li>
+                <li class="agentdetail__list-item agentdetail__list-item--3"><span class="agentdetail__check" aria-hidden="true">✓</span> Sales deck</li>
+              </ul>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">Enablement Lead: builds the assets your team runs on</h3>
+              <p class="agentdetail__p">Matched to your brand and the playbook above it, not generic templates: a one-pager, an outbound sequence, and a deck, ready to send.</p>
+              <a href="#waitlist" class="btn btn--ghost agentdetail__link">Join the waitlist for early access</a>
+            </div>
+          </div>
         </div>
 
         <p class="engagement__note reveal">
@@ -632,6 +719,6 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=1" defer></script>
 </body>
 </html>
