@@ -762,6 +762,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0;
 }
 
+/* .tracks defaults to white-on-dark (built for section--dark); needs a
+   light variant now that #fit reuses it on a section--light background. */
+.section--light .tracks,
+.section--gray .tracks {
+  background: var(--paper);
+  border-color: var(--gray-2);
+}
+.section--light .tracks__eyebrow,
+.section--gray .tracks__eyebrow {
+  color: var(--ink-2);
+}
+.section--light .track__label,
+.section--gray .track__label {
+  color: var(--ink);
+}
+.section--light .track__desc,
+.section--gray .track__desc {
+  color: var(--ink-2);
+}
+
 /* AI-layer variant: reserved for the three-agent-voice cards only.
    Beacon Cyan/gradient never appears on anything non-AI. */
 .tracks--agents {
