@@ -1,8 +1,15 @@
 # Netlify configuration for sailsadvisory.com
-# Static site — no build step required.
+# Static site, no build step required. One Netlify Function
+# (netlify/functions/cro-agent.js) backs the live homepage agent;
+# Netlify installs its package.json deps and bundles it automatically,
+# the static site's publish/build settings below are unaffected.
 
 [build]
   publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[headers]]
   for = "/*"
