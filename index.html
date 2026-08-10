@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=11" />
 
   <!-- Structured data: Organization, Person, Service, FAQPage -->
   <script type="application/ld+json">
@@ -88,10 +88,10 @@
           },
           {
             "@type": "Question",
-            "name": "How do the three agents work together?",
+            "name": "What happens to what I share with the CRO agent?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Always in the same order. The CRO diagnoses where revenue is leaking and sizes the opportunity. The VP of Sales teaches the framework and reviews the work. The Enablement Lead builds the decks, one-pagers, and sequences in your brand. Each agent does one job, never another's."
+              "text": "Nothing is saved beyond your session unless you join the waitlist. If you give a URL, it's read live to generate that one diagnosis, not stored. The conversation itself is never gated or sold, you get the full diagnosis whether or not you sign up for anything."
             }
           },
           {
@@ -99,7 +99,7 @@
             "name": "Is this a fit for my stage?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Run the Fit Diagnostic for an honest read."
+              "text": "Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Get Your Diagnosis for an honest read."
             }
           },
           {
@@ -171,59 +171,241 @@
     <section class="hero">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <img src="assets/sails-mark.svg" alt="SAILS" class="hero__mark" width="320" height="240" />
-        <p class="hero__eyebrow">AI Go-To-Market Team · B2B SaaS</p>
-        <h1 class="hero__headline">
-          Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
-        </h1>
-        <p class="hero__intro">
-          SAILS turns what you already know about your business into a sales system your team can actually run.
-        </p>
-        <p class="hero__sub">
-          Founders don't have a knowledge problem. They have a system problem. SAILS is three AI agents, not a copilot, that diagnose where revenue is leaking, teach you the playbook, and build the assets your team runs on.
-        </p>
-        <div class="hero__cta">
-          <a href="#agent" class="btn btn--primary">Get Your Diagnosis <span aria-hidden="true">→</span></a>
-          <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+        <div class="hero__content">
+          <img src="assets/sails-lockup-white.png" alt="SAILS" class="hero__mark" width="280" height="210" />
+          <p class="hero__eyebrow">AI Go-To-Market Team · B2B SaaS</p>
+          <h1 class="hero__headline">
+            Put the <span class="accent">Win</span><span class="hero__d">d</span> in Your Sales.
+          </h1>
+          <p class="hero__intro">
+            SAILS turns what you already know about your business into a sales system your team can actually run.
+          </p>
+          <div class="hero__cta">
+            <a href="#agent" class="btn btn--primary">Get Your Diagnosis <span aria-hidden="true">→</span></a>
+            <a href="#waitlist" class="btn btn--ghost">Join the Waitlist</a>
+          </div>
+        </div>
+
+        <div class="hero__flow reveal" aria-hidden="true">
+          <div class="hero__flow-card glass glass--dark">
+            <span class="hero__flow-kicker">
+              <img src="assets/product-mark-white.svg" alt="" width="16" height="16" />
+              How SAILS works
+            </span>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--learn" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <circle class="hf-dot" style="--dx:-8px; --dy:-6px;" cx="12" cy="12" r="3" fill="#ffffff"/>
+                  <circle class="hf-dot" style="--dx:9px; --dy:-9px;" cx="28" cy="10" r="3" fill="#ffffff"/>
+                  <circle class="hf-dot" style="--dx:-4px; --dy:9px;" cx="18" cy="26" r="3" fill="#ffffff" opacity="0.75"/>
+                  <circle class="hf-dot" style="--dx:10px; --dy:7px;" cx="30" cy="28" r="3" fill="#ffffff" opacity="0.55"/>
+                  <circle class="hf-dot" style="--dx:-9px; --dy:6px;" cx="9" cy="29" r="3" fill="#ffffff" opacity="0.55"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Learn</span>
+                <span class="hero__flow-desc">Reads your business, raw and unstructured</span>
+              </span>
+            </div>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--build" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <rect class="hf-doc" x="8" y="5" width="24" height="30" rx="2.5" stroke="#ffffff" stroke-width="2"/>
+                  <line class="hf-line hf-line--1" x1="13" y1="14" x2="27" y2="14" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                  <line class="hf-line hf-line--2" x1="13" y1="20" x2="27" y2="20" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                  <line class="hf-line hf-line--3" x1="13" y1="26" x2="22" y2="26" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Build</span>
+                <span class="hero__flow-desc">Turns it into one documented playbook</span>
+              </span>
+            </div>
+
+            <div class="hero__flow-step">
+              <span class="hero__flow-icon">
+                <svg class="hero__flow-anim hero__flow-anim--arm" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <rect class="hf-card hf-card--1" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff" opacity="0.4"/>
+                  <rect class="hf-card hf-card--2" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff" opacity="0.7"/>
+                  <rect class="hf-card hf-card--3" x="10" y="14" width="20" height="14" rx="2" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="hero__flow-text">
+                <span class="hero__flow-label">Arm</span>
+                <span class="hero__flow-desc">Builds the decks and sequences the team runs on</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============== OLD WAY VS NEW WAY ============== -->
+    <!-- ============== THE REFRAME ============== -->
     <section class="section section--light" id="problem">
       <div class="container">
         <div class="reveal">
-          <h2 class="section__h">You Already Know What Works. It's Just Not Written Down.</h2>
-          <p class="section__lede">Every founder-led sales team runs on the same broken pattern.</p>
+          <h2 class="section__h">Founders Don't Have a Knowledge Problem. They Have a System Problem.</h2>
         </div>
 
-        <div class="oldnew reveal">
-          <div class="oldnew__col oldnew__col--old">
-            <p class="oldnew__label">The Old Way</p>
-            <ul class="oldnew__list">
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> The founder is still the best rep</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Two reps hit quota, two don't, and nobody knows why</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> What works lives in one person's head</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Every new hire starts from scratch</li>
-            </ul>
+        <div class="prose prose--narrow">
+          <p class="reveal prose__definition">You've closed ten deals. Then twenty. Then fifty. You know exactly what works: the question that qualifies a prospect, the objection that kills a deal, the moment in a demo where they lean in.</p>
+          <p class="reveal">None of that lives anywhere but your head. Your first hire fails trying to reverse-engineer it from watching you close. Six months later, you're still in every deal, because nobody else can run what only you know how to do.</p>
+        </div>
+
+        <p class="tracks__eyebrow reveal">Three ways founders solve this today</p>
+        <div class="compare reveal">
+          <div class="compare__wrap">
+            <table class="compare__table">
+              <thead>
+                <tr><th scope="col">Option</th><th scope="col">Cost</th><th scope="col">The catch</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Guessing</th><td>Free</td><td>The most expensive of the three</td></tr>
+                <tr><th scope="row">A consultant</th><td>$15K to $25K</td><td>Eight weeks, then they leave</td></tr>
+                <tr><th scope="row">Hiring a VP of Sales too early</th><td>$200K+</td><td>Most fail without a system to run</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="reveal"><a href="compare/">See the full breakdown of what each option costs <span aria-hidden="true">→</span></a></p>
+
+        <div class="prose prose--narrow">
+          <p class="reveal"><strong>SAILS turns what you already know into a system your team can actually run.</strong> Not generic frameworks. Not theory borrowed from a motion that doesn't match yours, the exact way you already sell, documented, taught, and built out by three AI agents.</p>
+          <p class="reveal"><span class="btn btn--ghost btn--pill" aria-disabled="true" role="note">Pricing Coming Soon</span> Real pricing lands once the model is set. <a href="#waitlist">Join the waitlist</a> and you'll be the first to know.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== HOW SAILS WORKS ============== -->
+    <section class="section section--dark" id="engagement">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section__h section__h--light">An AI Go-To-Market Team.<br /><span class="section__h-sub accent">Not a Copilot.</span></h2>
+          <p class="section__lede">Learn. Build. Arm. Three agents, one job each, always in that order.</p>
+        </div>
+
+        <svg class="agentbelt reveal" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true">
+          <line class="agentbelt__line" x1="50" y1="12" x2="150" y2="12" />
+          <line class="agentbelt__line agentbelt__line--2" x1="150" y1="12" x2="250" y2="12" />
+          <circle class="agentbelt__node" cx="50" cy="12" r="4" />
+          <circle class="agentbelt__node agentbelt__node--2" cx="150" cy="12" r="4" />
+          <circle class="agentbelt__node agentbelt__node--3" cx="250" cy="12" r="4" />
+        </svg>
+
+        <div class="agentcards reveal">
+          <button type="button" class="agentcard" data-agent="cro" aria-expanded="false" aria-controls="agentDetail">
+            <span class="agentcard__icon" aria-hidden="true">
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
+            </span>
+            <p class="agentcard__tag">It Learns</p>
+            <h3 class="agentcard__label">CRO</h3>
+            <p class="agentcard__desc">Finds where revenue is leaking and sizes the opportunity. Blunt, numeric, never consoling: your opp rate is 11 percent, segment median is 24, that gap is worth $340K.</p>
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+          <button type="button" class="agentcard" data-agent="vp" aria-expanded="false" aria-controls="agentDetail">
+            <span class="agentcard__icon" aria-hidden="true">
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
+            </span>
+            <p class="agentcard__tag">It Builds</p>
+            <h3 class="agentcard__label">VP of Sales</h3>
+            <p class="agentcard__desc">Teaches the framework and reviews the work. Patient but exacting, the same way a real VP of Sales runs a pipeline review.</p>
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+          <button type="button" class="agentcard" data-agent="enablement" aria-expanded="false" aria-controls="agentDetail">
+            <span class="agentcard__icon" aria-hidden="true">
+              <img src="assets/product-mark-white.svg" alt="" loading="lazy" width="24" height="24" />
+            </span>
+            <p class="agentcard__tag">It Arms</p>
+            <h3 class="agentcard__label">Enablement Lead</h3>
+            <p class="agentcard__desc">Builds the decks, one-pagers, and sequences, matched to your brand. Practical, fast, on-format.</p>
+            <span class="agentcard__cta"><span class="agentcard__cta-open">See how it thinks</span><span class="agentcard__cta-close">Close</span> <span class="agentcard__cta-arrow" aria-hidden="true">→</span></span>
+          </button>
+        </div>
+
+        <div class="agentdetail" id="agentDetail" hidden>
+          <div class="agentdetail__panel glass glass--dark" data-panel="cro" hidden>
+            <div class="agentdetail__stage">
+              <div class="agentdetail__working">
+                <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span>Analyzing your GTM data</span>
+              </div>
+              <div class="agentdetail__cro-stats">
+                <div class="agentdetail__stat">
+                  <span class="agentdetail__stat-row">
+                    <span class="agentdetail__stat-label">Your opp rate</span>
+                    <span class="agentdetail__stat-value">11%</span>
+                  </span>
+                  <span class="agentdetail__bar"><span class="agentdetail__bar-fill agentdetail__bar-fill--dim" style="--pct:11%"></span></span>
+                </div>
+                <div class="agentdetail__stat">
+                  <span class="agentdetail__stat-row">
+                    <span class="agentdetail__stat-label">Segment median</span>
+                    <span class="agentdetail__stat-value">24%</span>
+                  </span>
+                  <span class="agentdetail__bar"><span class="agentdetail__bar-fill" style="--pct:24%"></span></span>
+                </div>
+                <p class="agentdetail__cro-callout">That gap is worth <strong>$340K</strong> a year.</p>
+              </div>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">CRO: reads your business, sizes what it's costing you</h3>
+              <p class="agentdetail__p">Drop in a URL. It reads your positioning the way a buyer would, benchmarks you against segment norms, and puts a number on the gap, free, no email required.</p>
+              <a href="#agent" class="btn btn--primary agentdetail__link">Try it live <span aria-hidden="true">→</span></a>
+            </div>
           </div>
 
-          <div class="oldnew__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <div class="agentdetail__panel glass glass--dark" data-panel="vp" hidden>
+            <div class="agentdetail__stage">
+              <svg class="agentdetail__doc" viewBox="0 0 220 160" fill="none" aria-hidden="true">
+                <rect x="4" y="4" width="212" height="152" rx="8" class="ad-doc-frame" stroke="#ffffff" stroke-width="2"/>
+                <line x1="20" y1="26" x2="90" y2="26" class="ad-doc-title" stroke="#ffffff" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="52" x2="200" y2="52" class="ad-doc-line ad-doc-line--1" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="66" x2="170" y2="66" class="ad-doc-line ad-doc-line--2" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="90" x2="200" y2="90" class="ad-doc-line ad-doc-line--3" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="104" x2="150" y2="104" class="ad-doc-line ad-doc-line--4" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="128" x2="200" y2="128" class="ad-doc-line ad-doc-line--5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                <line x1="20" y1="142" x2="120" y2="142" class="ad-doc-line ad-doc-line--6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              </svg>
+              <div class="agentdetail__tags">
+                <span class="agentdetail__tag-chip">Discovery script</span>
+                <span class="agentdetail__tag-chip">Demo flow</span>
+                <span class="agentdetail__tag-chip">Objection handling</span>
+              </div>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">VP of Sales: turns the diagnosis into a playbook</h3>
+              <p class="agentdetail__p">Section by section, it documents the exact way you sell, the qualifying questions, the demo flow, the objections and how you kill them, then reviews your team's work against it like a real pipeline review.</p>
+              <a href="#waitlist" class="btn btn--ghost agentdetail__link">Join the waitlist for early access</a>
+            </div>
           </div>
 
-          <div class="oldnew__col oldnew__col--new">
-            <p class="oldnew__label">The SAILS Way</p>
-            <ul class="oldnew__list">
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> The CRO agent diagnoses where revenue is leaking</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> The VP of Sales agent teaches the framework</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> The Enablement Lead builds the decks and sequences</li>
-              <li><svg class="oldnew__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Every rep runs the same documented system</li>
-            </ul>
+          <div class="agentdetail__panel glass glass--dark" data-panel="enablement" hidden>
+            <div class="agentdetail__stage">
+              <svg class="agentdetail__cards" viewBox="0 0 140 100" fill="none" aria-hidden="true">
+                <rect class="ad-card ad-card--1" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff" opacity="0.4"/>
+                <rect class="ad-card ad-card--2" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff" opacity="0.7"/>
+                <rect class="ad-card ad-card--3" x="30" y="24" width="80" height="56" rx="4" fill="#ffffff"/>
+              </svg>
+              <ul class="agentdetail__list">
+                <li class="agentdetail__list-item agentdetail__list-item--1"><span class="agentdetail__check" aria-hidden="true">✓</span> One-pager</li>
+                <li class="agentdetail__list-item agentdetail__list-item--2"><span class="agentdetail__check" aria-hidden="true">✓</span> Outbound sequence</li>
+                <li class="agentdetail__list-item agentdetail__list-item--3"><span class="agentdetail__check" aria-hidden="true">✓</span> Sales deck</li>
+              </ul>
+            </div>
+            <div class="agentdetail__copy">
+              <h3 class="agentdetail__h">Enablement Lead: builds the assets your team runs on</h3>
+              <p class="agentdetail__p">Matched to your brand and the playbook above it, not generic templates: a one-pager, an outbound sequence, and a deck, ready to send.</p>
+              <a href="#waitlist" class="btn btn--ghost agentdetail__link">Join the waitlist for early access</a>
+            </div>
           </div>
         </div>
 
-        <p class="oldnew__note reveal"><strong>SAILS turns what you already know into a system your team can actually run.</strong> Not generic frameworks. Not theory borrowed from a motion that doesn't match yours.</p>
+        <p class="engagement__note reveal">
+          SAILS runs continuously, not on a clock. Change your ICP in month one, and messaging, discovery, sequences, everything downstream already knows. The agents are locked to your context, so they compound instead of repeating.
+        </p>
+        <p class="reveal"><a class="link-light" href="how-it-works/">See the full breakdown of how the three agents work together <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
@@ -290,133 +472,28 @@
       </div>
     </section>
 
-    <!-- ============== HOW SAILS WORKS ============== -->
-    <section class="section section--dark" id="engagement">
-      <div class="container">
-        <div class="reveal">
-          <h2 class="section__h section__h--light">An AI Go-To-Market Team.<br /><span class="section__h-sub accent">Not a Copilot.</span></h2>
-          <p class="section__lede">Three agents, each with one job. They diagnose, teach, and build, in that order, every time.</p>
-        </div>
-
-        <div class="tracks tracks--agents reveal">
-          <p class="tracks__eyebrow">Three agents · One system</p>
-          <div class="tracks__grid">
-            <div class="track">
-              <p class="track__label">CRO</p>
-              <p class="track__desc">Finds where revenue is leaking and sizes the opportunity. Blunt, numeric, never consoling: your opp rate is 11 percent, segment median is 24, that gap is worth $340K.</p>
-            </div>
-            <div class="track">
-              <p class="track__label">VP of Sales</p>
-              <p class="track__desc">Teaches the framework and reviews the work. Patient but exacting, the same way a real VP of Sales runs a pipeline review.</p>
-            </div>
-            <div class="track">
-              <p class="track__label">Enablement Lead</p>
-              <p class="track__desc">Builds the decks, one-pagers, and sequences, matched to your brand. Practical, fast, on-format.</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="tracks__eyebrow reveal">The engine · Assess. Build. Coach.</p>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <img src="assets/icon-assess.svg" alt="" loading="lazy" width="96" height="96" />
-            </div>
-            <p class="card__phase"><span class="card__phase-letter">A</span>ssess</p>
-            <p class="card__weeks">CRO</p>
-            <h3 class="card__h">Diagnosis before prescription.</h3>
-            <p class="card__body">The CRO agent reads your business, sizes where revenue is leaking, and finds the opportunity worth fixing first. No generic frameworks applied before it knows what's actually broken.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <img src="assets/icon-build.svg" alt="" loading="lazy" width="96" height="96" />
-            </div>
-            <p class="card__phase"><span class="card__phase-letter">B</span>uild</p>
-            <p class="card__weeks">VP of Sales + Enablement Lead</p>
-            <h3 class="card__h">The complete sales engine.</h3>
-            <p class="card__body">Guided exercises produce your ICP, messaging, pipeline stages, discovery and demo frameworks, and outbound sequences. Each answer feeds the next, and it gets asked twice:</p>
-            <ul class="card__list">
-              <li>ICP definition and qualification rubric</li>
-              <li>Messaging framework and positioning</li>
-              <li>Pipeline stages with exit criteria</li>
-              <li>Discovery and demo frameworks</li>
-              <li>Outbound sequence design</li>
-              <li>Meeting cadence and KPI tracker</li>
-              <li>Hiring profile and org structure</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <img src="assets/icon-coach.svg" alt="" loading="lazy" width="96" height="96" />
-            </div>
-            <p class="card__phase"><span class="card__phase-letter">C</span>oach</p>
-            <p class="card__weeks">Ongoing</p>
-            <h3 class="card__h">Implementation that doesn't sit in a doc.</h3>
-            <p class="card__body">Playbooks reps actually run, and the assets they need day one, in your brand. Coach never stops: the system updates as your business does.</p>
-          </article>
-        </div>
-
-        <div class="tracks reveal">
-          <p class="tracks__eyebrow">Two tracks · One platform</p>
-          <div class="tracks__grid">
-            <div class="track">
-              <p class="track__label">Build Track</p>
-              <p class="track__desc">Founder-led teams with no system yet. SAILS extracts what you already know and turns it into a playbook your first hire can run.</p>
-            </div>
-            <div class="track">
-              <p class="track__label">Scale Track</p>
-              <p class="track__desc">Teams with reps in seat but uneven results. SAILS diagnoses the gap and rebuilds what isn't working.</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="engagement__note reveal">
-          SAILS runs continuously, not on a clock. Assess, Build, and Coach aren't phases you finish, they're the loop the platform runs every time your business changes.
-        </p>
-        <p class="reveal"><a class="link-light" href="how-it-works/">See the full breakdown of how the three agents work together <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
     <!-- ============== WHO IT'S FOR ============== -->
     <section class="section section--light" id="fit">
       <div class="container">
         <div class="reveal">
           <h2 class="section__h">Who SAILS Is Built For</h2>
+          <p class="section__lede">Two starting points. Same three agents.</p>
         </div>
 
-        <div class="fit">
-          <div class="fit__col fit__col--yes reveal">
-            <h3 class="fit__h">
-              <span class="fit__icon fit__icon--yes" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              Right Fit
-            </h3>
-            <ul class="fit__list">
-              <li>B2B SaaS companies</li>
-              <li>Founder-led sales that needs a system</li>
-              <li>Team in place, mixed results, no clear diagnosis</li>
-              <li>Ready to document what's already working</li>
-            </ul>
-          </div>
-
-          <div class="fit__col fit__col--no reveal">
-            <h3 class="fit__h">
-              <span class="fit__icon fit__icon--no" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
-              Not a Fit
-            </h3>
-            <ul class="fit__list">
-              <li>Complex enterprise sales with long, committee-driven cycles</li>
-              <li>Pre-product or pre-any-revenue stage</li>
-              <li>Looking for a fractional VP to manage the team day-to-day</li>
-            </ul>
+        <div class="tracks reveal">
+          <p class="tracks__eyebrow">Build Track or Scale Track</p>
+          <div class="tracks__grid">
+            <div class="track">
+              <p class="track__label">Build Track</p>
+              <p class="track__desc">Founder-led, no system yet. SAILS extracts what you already know and turns it into a playbook your first hire can run.</p>
+            </div>
+            <div class="track">
+              <p class="track__label">Scale Track</p>
+              <p class="track__desc">Reps in seat, uneven results. SAILS diagnoses the gap between your best rep and the rest, then rebuilds what isn't working.</p>
+            </div>
           </div>
         </div>
+
         <p class="reveal"><a href="who-its-for/">More on Build Track vs Scale Track, and fit across SMB, mid-market, and enterprise <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
@@ -425,7 +502,7 @@
     <section class="section section--light" id="about">
       <div class="container">
         <div class="reveal">
-          <h2 class="section__h">Built, Then Sold</h2>
+          <h2 class="section__h">Proof It Already Worked</h2>
           <h3 class="about__h">Built by an operator, then built into software.</h3>
         </div>
 
@@ -444,7 +521,7 @@
             <p class="stat__num">30+</p>
             <p class="stat__label">reps managed as VP of Sales</p>
           </div>
-          <div class="stat reveal">
+          <div class="stat stat--standout reveal">
             <p class="stat__num">6×</p>
             <p class="stat__label">ARR growth in 5 years</p>
           </div>
@@ -457,37 +534,6 @@
             <p class="stat__label">avg deal size in 24 months</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============== WHAT SAILS REPLACES ============== -->
-    <section class="section section--dark section--glow" id="investment">
-      <div class="section__bg" aria-hidden="true"></div>
-      <div class="container">
-        <div class="reveal">
-          <h2 class="section__h section__h--light">Three Ways Founders Solve This Today</h2>
-        </div>
-
-        <div class="compare reveal">
-          <div class="compare__wrap">
-            <table class="compare__table">
-              <thead>
-                <tr><th scope="col">Option</th><th scope="col">Cost</th><th scope="col">The catch</th></tr>
-              </thead>
-              <tbody>
-                <tr><th scope="row">Guessing</th><td>Free</td><td>The most expensive of the three</td></tr>
-                <tr><th scope="row">A consultant</th><td>$15K to $25K</td><td>Eight weeks, then they leave</td></tr>
-                <tr><th scope="row">Hiring a VP of Sales too early</th><td>$200K+</td><td>Most fail without a system to run</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <p class="investment__note reveal">
-          <span class="btn btn--ghost" aria-disabled="true" role="note">Pricing Coming Soon</span><br />
-          Real pricing lands once the model is set. <a class="link-light" href="#waitlist">Join the waitlist</a> and you'll be the first to know.
-        </p>
-        <p class="reveal"><a class="link-light" href="compare/">See the full breakdown of what each option costs <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
@@ -511,12 +557,12 @@
 
           <details class="faq__item reveal">
             <summary class="faq__q">
-              <span>How do the three agents work together?</span>
+              <span>What happens to what I share with the CRO agent?</span>
               <span class="faq__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </summary>
-            <div class="faq__a"><p>Always in the same order. The CRO diagnoses where revenue is leaking and sizes the opportunity. The VP of Sales teaches the framework and reviews the work. The Enablement Lead builds the decks, one-pagers, and sequences in your brand. Each agent does one job, never another's.</p></div>
+            <div class="faq__a"><p>Nothing is saved beyond your session unless you join the waitlist. If you give a URL, it's read live to generate that one diagnosis, not stored. The conversation itself is never gated or sold, you get the full diagnosis whether or not you sign up for anything.</p></div>
           </details>
 
           <details class="faq__item reveal">
@@ -526,7 +572,7 @@
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </summary>
-            <div class="faq__a"><p>Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Run the Fit Diagnostic for an honest read.</p></div>
+            <div class="faq__a"><p>Built for B2B SaaS sales teams, whether you are founder-led with no system yet or have a team in place with uneven results. Get Your Diagnosis for an honest read.</p></div>
           </details>
 
           <details class="faq__item reveal">
@@ -673,6 +719,14 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=2" defer></script>
+
+  <!-- ============== FLOATING AGENT BUBBLE ============== -->
+  <div class="agentbubble" id="agentBubble">
+    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-label="Jump to the CRO agent">
+      <img src="/assets/product-mark-white.svg" alt="" width="24" height="24" />
+    </button>
+  </div>
+
 </body>
 </html>

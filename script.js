@@ -64,37 +64,120 @@
     revealEls.forEach((el) => io.observe(el));
   }
 
-  /* ---------- Live CRO agent (homepage #agent) ---------- */
-  const agentApp = document.getElementById('agentApp');
-  if (agentApp) {
-    const input = document.getElementById('agentInput');
-    const submitBtn = document.getElementById('agentSubmit');
-    const hp = document.getElementById('agentHp');
-    const example = document.getElementById('agentExample');
-    const messagesEl = document.getElementById('agentMessages');
-    const working = document.getElementById('agentWorking');
-    const workingText = document.getElementById('agentWorkingText');
-    const followupRow = document.getElementById('agentFollowupRow');
-    const followupInput = document.getElementById('agentFollowupInput');
-    const followupSubmit = document.getElementById('agentFollowupSubmit');
-    const vpPreviewEl = document.getElementById('agentVpPreview');
-    const enablementPreviewEl = document.getElementById('agentEnablementPreview');
+  /* ---------- Agent card expand (homepage #engagement) ---------- */
+  const agentDetail = document.getElementById('agentDetail');
+  const agentCards = document.querySelectorAll('.agentcard[data-agent]');
 
-    const MESSAGE_LIMIT = 12;
-    const WORKING_STEPS = ['Reading your positioning', 'Scoring your ICP clarity', 'Sizing the gap'];
-    const META_DELIMITER = '<<<SAILS_META_JSON>>>';
+  if (agentDetail && agentCards.length) {
+    const panels = agentDetail.querySelectorAll('.agentdetail__panel[data-panel]');
+    let openAgent = null;
 
-    let transcript = [];
-    let visitorId = null;
-    try {
-      visitorId = window.localStorage.getItem('sailsVisitorId');
-      if (!visitorId) {
-        visitorId = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
-        window.localStorage.setItem('sailsVisitorId', visitorId);
-      }
-    } catch (e) {
-      // localStorage unavailable (private browsing, etc.), visitorId just stays null
+    const closeAll = () => {
+      agentCards.forEach((c) => {
+        c.setAttribute('aria-expanded', 'false');
+        c.classList.remove('is-active');
+      });
+      panels.forEach((p) => {
+        p.classList.remove('is-animate');
+        p.hidden = true;
+      });
+      agentDetail.hidden = true;
+      openAgent = null;
+    };
+
+    const openAgentPanel = (name, card) => {
+      panels.forEach((p) => {
+        const match = p.dataset.panel === name;
+        p.hidden = !match;
+        p.classList.remove('is-animate');
+      });
+      agentCards.forEach((c) => {
+        const match = c.dataset.agent === name;
+        c.setAttribute('aria-expanded', String(match));
+        c.classList.toggle('is-active', match);
+      });
+      agentDetail.hidden = false;
+      openAgent = name;
+      // Force layout, then add the animate class on the next frame so the
+      // reveal transitions replay from their closed state every time.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const activePanel = agentDetail.querySelector(`.agentdetail__panel[data-panel="${name}"]`);
+          if (activePanel) activePanel.classList.add('is-animate');
+        });
+      });
+    };
+
+    agentCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const name = card.dataset.agent;
+        if (openAgent === name) {
+          closeAll();
+        } else {
+          openAgentPanel(name, card);
+        }
+      });
+    });
+  }
+
+  /* ---------- Live CRO agent controller (shared by #agent and the floating bubble) ---------- */
+  const MESSAGE_LIMIT = 12;
+  const WORKING_STEPS = ['Reading your positioning', 'Scoring your ICP clarity', 'Sizing the gap'];
+  const META_DELIMITER = '<<<SAILS_META_JSON>>>';
+
+  let sharedVisitorId = null;
+  try {
+    sharedVisitorId = window.localStorage.getItem('sailsVisitorId');
+    if (!sharedVisitorId) {
+      sharedVisitorId = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      window.localStorage.setItem('sailsVisitorId', sharedVisitorId);
     }
+  } catch (e) {
+    // localStorage unavailable (private browsing, etc.), visitorId just stays null
+  }
+
+  // Streaming parser: holds back up to (delimiter.length - 1) trailing
+  // characters each call, in case the delimiter is split across chunks.
+  function makeStreamSplitter(delimiter) {
+    let mode = 'text';
+    let pending = '';
+    let metaText = '';
+    return {
+      push(chunk) {
+        if (mode === 'meta') {
+          metaText += chunk;
+          return '';
+        }
+        pending += chunk;
+        const idx = pending.indexOf(delimiter);
+        if (idx !== -1) {
+          const visible = pending.slice(0, idx);
+          metaText += pending.slice(idx + delimiter.length);
+          mode = 'meta';
+          pending = '';
+          return visible;
+        }
+        const safeLen = Math.max(0, pending.length - (delimiter.length - 1));
+        const toEmit = pending.slice(0, safeLen);
+        pending = pending.slice(safeLen);
+        return toEmit;
+      },
+      finish() {
+        const rest = pending;
+        pending = '';
+        return rest;
+      },
+      getMeta() {
+        return metaText;
+      },
+    };
+  }
+
+  // els: { input, submitBtn, hp, example, messagesEl, working, workingText,
+  //        followupRow, followupInput, followupSubmit, vpPreviewEl, enablementPreviewEl }
+  // example, followupRow/Input/Submit, and the preview elements are optional.
+  function createAgentChat(els) {
+    let transcript = [];
 
     function appendMessage(role, text) {
       const row = document.createElement('div');
@@ -109,63 +192,26 @@
       p.className = 'agent__message-text';
       p.textContent = text;
       row.appendChild(p);
-      messagesEl.appendChild(row);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+      els.messagesEl.appendChild(row);
+      els.messagesEl.scrollTop = els.messagesEl.scrollHeight;
       return p;
     }
 
     function startWorking() {
-      working.hidden = false;
+      els.working.hidden = false;
       if (prefersReducedMotion) {
-        workingText.textContent = WORKING_STEPS[WORKING_STEPS.length - 1];
-        return () => { working.hidden = true; };
+        els.workingText.textContent = WORKING_STEPS[WORKING_STEPS.length - 1];
+        return () => { els.working.hidden = true; };
       }
       let i = 0;
-      workingText.textContent = WORKING_STEPS[0];
+      els.workingText.textContent = WORKING_STEPS[0];
       const timer = setInterval(() => {
         i = (i + 1) % WORKING_STEPS.length;
-        workingText.textContent = WORKING_STEPS[i];
+        els.workingText.textContent = WORKING_STEPS[i];
       }, 1400);
       return () => {
         clearInterval(timer);
-        working.hidden = true;
-      };
-    }
-
-    // Streaming parser: holds back up to (delimiter.length - 1) trailing
-    // characters each call, in case the delimiter is split across chunks.
-    function makeStreamSplitter(delimiter) {
-      let mode = 'text';
-      let pending = '';
-      let metaText = '';
-      return {
-        push(chunk) {
-          if (mode === 'meta') {
-            metaText += chunk;
-            return '';
-          }
-          pending += chunk;
-          const idx = pending.indexOf(delimiter);
-          if (idx !== -1) {
-            const visible = pending.slice(0, idx);
-            metaText += pending.slice(idx + delimiter.length);
-            mode = 'meta';
-            pending = '';
-            return visible;
-          }
-          const safeLen = Math.max(0, pending.length - (delimiter.length - 1));
-          const toEmit = pending.slice(0, safeLen);
-          pending = pending.slice(safeLen);
-          return toEmit;
-        },
-        finish() {
-          const rest = pending;
-          pending = '';
-          return rest;
-        },
-        getMeta() {
-          return metaText;
-        },
+        els.working.hidden = true;
       };
     }
 
@@ -173,18 +219,18 @@
       const trimmed = (text || '').trim();
       if (!trimmed || transcript.length >= MESSAGE_LIMIT) return;
 
-      if (example) example.hidden = true;
-      messagesEl.hidden = false;
+      if (els.example) els.example.hidden = true;
+      els.messagesEl.hidden = false;
 
       transcript.push({ role: 'user', content: trimmed });
       appendMessage('user', trimmed);
 
-      input.value = '';
-      followupInput.value = '';
-      input.disabled = true;
-      submitBtn.disabled = true;
-      followupInput.disabled = true;
-      followupSubmit.disabled = true;
+      els.input.value = '';
+      if (els.followupInput) els.followupInput.value = '';
+      els.input.disabled = true;
+      els.submitBtn.disabled = true;
+      if (els.followupInput) els.followupInput.disabled = true;
+      if (els.followupSubmit) els.followupSubmit.disabled = true;
 
       const stopWorking = startWorking();
       const splitter = makeStreamSplitter(META_DELIMITER);
@@ -195,7 +241,7 @@
         const res = await fetch('/.netlify/functions/cro-agent', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: transcript, visitorId, hp: hp ? hp.value : '' }),
+          body: JSON.stringify({ messages: transcript, visitorId: sharedVisitorId, hp: els.hp ? els.hp.value : '' }),
         });
 
         const reader = res.body.getReader();
@@ -213,7 +259,7 @@
             }
             fullText += visible;
             replyEl.textContent = fullText;
-            messagesEl.scrollTop = messagesEl.scrollHeight;
+            els.messagesEl.scrollTop = els.messagesEl.scrollHeight;
           }
         }
 
@@ -235,8 +281,8 @@
         if (metaRaw) {
           try {
             const parsed = JSON.parse(metaRaw);
-            if (parsed.vpPreview && vpPreviewEl) vpPreviewEl.textContent = parsed.vpPreview;
-            if (parsed.enablementPreview && enablementPreviewEl) enablementPreviewEl.textContent = parsed.enablementPreview;
+            if (parsed.vpPreview && els.vpPreviewEl) els.vpPreviewEl.textContent = parsed.vpPreview;
+            if (parsed.enablementPreview && els.enablementPreviewEl) els.enablementPreviewEl.textContent = parsed.enablementPreview;
           } catch (e) {
             // Locked-card previews are a nice-to-have; the diagnosis above already shipped.
           }
@@ -245,32 +291,104 @@
         stopWorking();
         appendMessage('assistant', "I hit a snag on my end. Join the waitlist and I'll follow up directly.");
       } finally {
-        input.disabled = false;
-        submitBtn.disabled = false;
-        followupInput.disabled = false;
-        followupSubmit.disabled = false;
-        if (transcript.length > 0 && transcript.length < MESSAGE_LIMIT) {
-          followupRow.hidden = false;
-        } else {
-          followupRow.hidden = true;
+        els.input.disabled = false;
+        els.submitBtn.disabled = false;
+        if (els.followupInput) els.followupInput.disabled = false;
+        if (els.followupSubmit) els.followupSubmit.disabled = false;
+        if (els.followupRow) {
+          els.followupRow.hidden = !(transcript.length > 0 && transcript.length < MESSAGE_LIMIT);
         }
       }
     }
 
-    submitBtn.addEventListener('click', () => sendMessage(input.value));
-    input.addEventListener('keydown', (e) => {
+    els.submitBtn.addEventListener('click', () => sendMessage(els.input.value));
+    els.input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-        sendMessage(input.value);
+        sendMessage(els.input.value);
       }
     });
-    followupSubmit.addEventListener('click', () => sendMessage(followupInput.value));
-    followupInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        sendMessage(followupInput.value);
-      }
+    if (els.followupSubmit && els.followupInput) {
+      els.followupSubmit.addEventListener('click', () => sendMessage(els.followupInput.value));
+      els.followupInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage(els.followupInput.value);
+        }
+      });
+    }
+
+    return { sendMessage };
+  }
+
+  /* ---------- Homepage #agent panel ---------- */
+  const agentApp = document.getElementById('agentApp');
+  if (agentApp) {
+    createAgentChat({
+      input: document.getElementById('agentInput'),
+      submitBtn: document.getElementById('agentSubmit'),
+      hp: document.getElementById('agentHp'),
+      example: document.getElementById('agentExample'),
+      messagesEl: document.getElementById('agentMessages'),
+      working: document.getElementById('agentWorking'),
+      workingText: document.getElementById('agentWorkingText'),
+      followupRow: document.getElementById('agentFollowupRow'),
+      followupInput: document.getElementById('agentFollowupInput'),
+      followupSubmit: document.getElementById('agentFollowupSubmit'),
+      vpPreviewEl: document.getElementById('agentVpPreview'),
+      enablementPreviewEl: document.getElementById('agentEnablementPreview'),
     });
+  }
+
+  /* ---------- Floating agent bubble (every page) ---------- */
+  const agentBubble = document.getElementById('agentBubble');
+  if (agentBubble) {
+    const launcher = document.getElementById('agentBubbleLauncher');
+    const panel = document.getElementById('agentBubblePanel');
+    const closeBtn = document.getElementById('agentBubbleClose');
+    const homeAgentSection = document.getElementById('agent');
+
+    if (homeAgentSection) {
+      // Already on the homepage: the full #agent experience exists below,
+      // the bubble just gets you there instead of duplicating it.
+      agentBubble.classList.add('agentbubble--scroll-only');
+      launcher.addEventListener('click', () => {
+        homeAgentSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    } else if (panel) {
+      const chat = createAgentChat({
+        input: document.getElementById('agentBubbleInput'),
+        submitBtn: document.getElementById('agentBubbleSubmit'),
+        hp: document.getElementById('agentBubbleHp'),
+        messagesEl: document.getElementById('agentBubbleMessages'),
+        working: document.getElementById('agentBubbleWorking'),
+        workingText: document.getElementById('agentBubbleWorkingText'),
+      });
+
+      const openPanel = () => {
+        panel.hidden = false;
+        launcher.setAttribute('aria-expanded', 'true');
+        agentBubble.classList.add('is-open');
+        const input = document.getElementById('agentBubbleInput');
+        if (input) input.focus();
+      };
+      const closePanel = () => {
+        panel.hidden = true;
+        launcher.setAttribute('aria-expanded', 'false');
+        agentBubble.classList.remove('is-open');
+        launcher.focus();
+      };
+
+      launcher.addEventListener('click', () => {
+        if (panel.hidden) openPanel(); else closePanel();
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closePanel);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !panel.hidden) closePanel();
+      });
+      // Keep a reference so no-op lint tools don't flag an unused var.
+      void chat;
+    }
   }
 
   /* ---------- Contact + waitlist forms (Netlify Forms AJAX) ---------- */

@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../style.css?v=8" />
+  <link rel="stylesheet" href="../style.css?v=11" />
 
   <script type="application/ld+json">
   {
@@ -74,7 +74,7 @@
             "name": "Is SAILS a fixed program or does it run continuously?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Continuously, not on a clock. Assess, Build, and Coach are not phases you finish, they are the loop the platform runs every time your business changes. Change your ICP in month one and everything downstream, messaging, discovery, sequences, updates with it."
+              "text": "Continuously, not on a clock. Learn, Build, and Arm are not phases you finish, they are the loop the platform runs every time your business changes. Change your ICP in month one and everything downstream, messaging, discovery, sequences, updates with it."
             }
           },
           {
@@ -150,16 +150,16 @@
           <p class="tracks__eyebrow">Three agents · One system</p>
           <div class="tracks__grid">
             <div class="track">
-              <p class="track__label">CRO · It Diagnoses</p>
+              <p class="track__label">CRO · It Learns</p>
               <p class="track__desc">Reads your business, positioning, and proof, and finds where revenue is leaking before recommending anything. Blunt, numeric, never consoling: your opp rate is 11 percent, segment median is 24, that gap is worth $340K.</p>
             </div>
             <div class="track">
-              <p class="track__label">VP of Sales · It Teaches</p>
+              <p class="track__label">VP of Sales · It Builds</p>
               <p class="track__desc">Takes the CRO's diagnosis and builds the framework: ICP, messaging, pipeline stages, discovery and demo structure, objection handling, coaching plans. Nothing gets asked twice. Patient but exacting, the same way a real VP of Sales runs a pipeline review.</p>
             </div>
             <div class="track">
-              <p class="track__label">Enablement Lead · It Builds</p>
-              <p class="track__desc">Takes what the VP of Sales agent taught and builds the decks, one-pagers, and sequences a team runs on day one, matched to your brand. Practical, fast, on-format.</p>
+              <p class="track__label">Enablement Lead · It Arms</p>
+              <p class="track__desc">Takes what the VP of Sales agent built and arms the team with the decks, one-pagers, and sequences it runs on day one, matched to your brand. Practical, fast, on-format.</p>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@
       <div class="container">
         <div class="reveal">
           <h2 class="section__h section__h--light">How Do the Three Agents Work Together?</h2>
-          <p class="section__lede">Assess. Build. Coach. Continuous, not phased.</p>
+          <p class="section__lede">Learn. Build. Arm. Continuous, not phased.</p>
         </div>
 
         <div class="cards">
@@ -181,10 +181,10 @@
             <div class="card__icon" aria-hidden="true">
               <img src="../assets/icon-assess.svg" alt="" loading="lazy" width="96" height="96" />
             </div>
-            <p class="card__phase"><span class="card__phase-letter">A</span>ssess</p>
+            <p class="card__phase"><span class="card__phase-letter">L</span>earn</p>
             <p class="card__weeks">CRO</p>
             <h3 class="card__h">Diagnosis before prescription.</h3>
-            <p class="card__body">The CRO agent reads your business, sizes where revenue is leaking, and finds the opportunity worth fixing first. No generic frameworks applied before it knows what's actually broken.</p>
+            <p class="card__body">Every loop starts here, not with a framework applied blind. One read of your business, one prioritized list of what to fix first.</p>
           </article>
 
           <article class="card reveal">
@@ -192,23 +192,23 @@
               <img src="../assets/icon-build.svg" alt="" loading="lazy" width="96" height="96" />
             </div>
             <p class="card__phase"><span class="card__phase-letter">B</span>uild</p>
-            <p class="card__weeks">VP of Sales + Enablement Lead</p>
+            <p class="card__weeks">VP of Sales</p>
             <h3 class="card__h">The complete sales engine.</h3>
             <p class="card__body">Guided exercises produce your ICP, messaging, pipeline stages, discovery and demo frameworks, and outbound sequences. Each answer feeds the next.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">
-              <img src="../assets/icon-coach.svg" alt="" loading="lazy" width="96" height="96" />
+              <img src="../assets/icon-arms.svg" alt="" loading="lazy" width="96" height="96" />
             </div>
-            <p class="card__phase"><span class="card__phase-letter">C</span>oach</p>
-            <p class="card__weeks">Ongoing</p>
+            <p class="card__phase"><span class="card__phase-letter">A</span>rm</p>
+            <p class="card__weeks">Enablement Lead</p>
             <h3 class="card__h">Implementation that doesn't sit in a doc.</h3>
-            <p class="card__body">Playbooks reps actually run, and the assets they need day one, in your brand. Coach never stops: the system updates as your business does.</p>
+            <p class="card__body">Playbooks reps actually run, and the assets they need day one, in your brand. The loop never stops: the system updates as your business does.</p>
           </article>
         </div>
 
-        <p class="engagement__note reveal">SAILS runs continuously, not on a clock. Assess, Build, and Coach aren't phases you finish, they're the loop the platform runs every time your business changes. Change your ICP in month one and everything downstream, messaging, discovery, sequences, knows it. That's the platform pitch: the agents are locked to your context, so they compound instead of repeating.</p>
+        <p class="engagement__note reveal">SAILS runs continuously, not on a clock. Learn, Build, and Arm aren't phases you finish, they're the loop the platform runs every time your business changes. Change your ICP in month one and everything downstream, messaging, discovery, sequences, knows it. That's the platform pitch: the agents are locked to your context, so they compound instead of repeating.</p>
       </div>
     </section>
 
@@ -270,6 +270,34 @@
     </div>
   </footer>
 
-  <script src="../script.js" defer></script>
+  <script src="../script.js?v=2" defer></script>
+
+  <!-- ============== FLOATING AGENT BUBBLE ============== -->
+  <div class="agentbubble" id="agentBubble">
+    <div class="agentbubble__panel" id="agentBubblePanel" hidden>
+      <div class="agentbubble__header">
+        <span class="agentbubble__header-icon" aria-hidden="true"><img src="/assets/product-mark-white.svg" alt="" width="18" height="18" /></span>
+        <p class="agentbubble__title">CRO Agent &middot; Free Diagnosis</p>
+        <button type="button" class="agentbubble__close" id="agentBubbleClose" aria-label="Close chat">&#x2715;</button>
+      </div>
+      <div class="agentbubble__body">
+        <p class="agentbubble__intro">Drop in a URL or tell me what you sell. I'll tell you what's costing you deals, free, no email required.</p>
+        <div class="agentbubble__messages" id="agentBubbleMessages" aria-live="polite"></div>
+        <div class="agentbubble__working" id="agentBubbleWorking" hidden>
+          <span class="demo__agent-dot" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span id="agentBubbleWorkingText">Reading your positioning</span>
+        </div>
+      </div>
+      <p class="hp" aria-hidden="true"><label>Leave this blank: <input type="text" id="agentBubbleHp" tabindex="-1" autocomplete="off" /></label></p>
+      <div class="agentbubble__inputrow">
+        <input type="text" id="agentBubbleInput" placeholder="yourcompany.com or what you sell" autocomplete="off" />
+        <button type="button" id="agentBubbleSubmit" aria-label="Send">&#x2192;</button>
+      </div>
+    </div>
+    <button type="button" class="agentbubble__launcher" id="agentBubbleLauncher" aria-expanded="false" aria-controls="agentBubblePanel" aria-label="Chat with the CRO agent">
+      <img src="/assets/product-mark-white.svg" alt="" width="24" height="24" />
+    </button>
+  </div>
+
 </body>
 </html>
