@@ -655,15 +655,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* When lede follows the H2, pull it slightly closer */
 .section__h + .section__lede { margin-top: -1.25rem; margin-bottom: 1rem; }
 
-.about__h {
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 600;
-  font-style: italic;
-  color: var(--ink-2);
-  margin: 0 0 2rem;
-  letter-spacing: -0.005em;
-}
 .section__lede em {
   font-style: italic;
   color: rgba(255, 255, 255, 0.62);
@@ -1369,64 +1360,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Live CRO Agent (#agent) ----------
-   The one place on the site the AI layer exists, per the brand guide:
-   Glass Beacon (Phase 2) is only ever used here. Human input stays
-   navy-bordered, agent-authored content gets the cyan rule. */
-.agent { margin: 2.5rem 0 3rem; }
-.agent__noscript {
-  color: var(--ink-2);
-  font-size: 0.95rem;
-  margin: 0 0 2rem;
-  max-width: 60ch;
-}
-.agent__panel {
-  /* Solid --grad-beacon, not the translucent .glass--beacon: this panel
-     sits on a light page section, and the glass version's ~14% opacity
-     cyan wash is too pale for white text to read against a light backdrop.
-     Glass Beacon is for floating overlay contexts; matches the existing
-     .tracks--agents / .demo__mock--agent pattern used elsewhere. */
-  background: var(--grad-beacon);
-  border-radius: var(--r-glass);
-  padding: clamp(1.5rem, 4vw, 2.25rem);
-  color: var(--white);
-}
-.agent__label {
-  display: block;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 0.5rem;
-}
-.agent__row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.agent__input {
-  flex: 1 1 280px;
-  height: 56px;
-  font-family: var(--sans);
-  font-size: 1rem;
-  color: var(--white);
-  background: rgba(13, 27, 75, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: var(--r-control);
-  padding: 0 1.1rem;
-  transition: border-color var(--t), box-shadow var(--t);
-}
-.agent__input::placeholder { color: rgba(255, 255, 255, 0.6); }
-.agent__input:hover { border-color: rgba(255, 255, 255, 0.55); }
-.agent__input:focus {
-  outline: none;
-  border-color: var(--white);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
-}
-.agent__input:disabled { opacity: 0.6; }
-.agent__submit { flex: none; height: 56px; }
-
-.agent__chat { margin-top: 1.5rem; }
+/* ---------- Agent message rendering (shared by the floating bubble) ---------- */
 .agent__message {
   border-left: 3px solid var(--navy);
   padding: 0.9rem 1.1rem;
@@ -1454,72 +1388,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0;
   white-space: pre-wrap;
 }
-.agent__message--example { opacity: 0.92; }
-
-.agent__working {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.1rem;
-  color: var(--white);
-}
-.agent__working[hidden] { display: none; }
-.agent__working-text {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.agent__followup-row { margin-top: 0.5rem; }
-
-.agent__locked {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
-@media (min-width: 720px) {
-  .agent__locked { grid-template-columns: 1fr 1fr; }
-}
-.agent__locked-card {
-  background: var(--grad-paper);
-  border: 1px solid var(--gray-2);
-  border-left: 3px solid var(--cyan);
-  border-radius: var(--r-card);
-  padding: 1.5rem;
-}
-.agent__locked-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--r-control);
-  background: var(--grad-beacon);
-  color: var(--white);
-  margin: 0 0 0.85rem;
-}
-.agent__locked-label {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 0.5rem;
-}
-.agent__locked-preview {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--ink-2);
-  margin: 0 0 1rem;
-}
-.agent__locked-cta {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--blue);
-}
-.agent__locked-cta:hover { color: var(--blue-hover); }
-
 /* Waitlist form on a light section needs its own field styling;
    .form/.form__field default to the dark (contact-form) treatment. */
 .formwrap--onlight {
@@ -1601,56 +1469,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.5;
 }
 .fit__list li:last-child { border-bottom: none; }
-
-/* ---------- Stats ---------- */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 3rem;
-}
-@media (min-width: 760px) {
-  .stats { grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
-}
-.stat {
-  position: relative;
-  background: var(--paper);
-  border-radius: var(--r-card);
-  padding: 1.5rem 1.25rem;
-  border: 1px solid transparent;
-  overflow: hidden;
-  transition: border-color var(--t), transform var(--t);
-}
-.stat:hover {
-  border-color: var(--gray-2);
-  transform: translateY(-2px);
-}
-/* One Beacon-gradient standout stat max per block, per v4 Brand Guide
-   section 5.6. The one sanctioned non-AI use of Beacon: the brief
-   names this exact treatment explicitly for the Proof stat block. */
-.stat--standout {
-  background: var(--grad-beacon);
-  border-color: transparent;
-}
-.stat--standout::before { display: none; }
-.stat--standout .stat__num,
-.stat--standout .stat__label { color: var(--white); }
-.stat--standout .stat__label { opacity: 0.9; }
-.stat__num {
-  font-family: var(--serif);
-  font-size: clamp(1.6rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.01em;
-}
-.stat__label {
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: var(--ink-2);
-  margin: 0;
-}
 
 /* ---------- Investment callout ---------- */
 .callout {
@@ -3052,6 +2870,52 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: rgba(255, 255, 255, 0.7);
 }
 .agentbubble__working[hidden] { display: none; }
+
+.agentbubble__handoff {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.agentbubble__handoff[hidden] { display: none; }
+.agentbubble__handoff-label {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.agentbubble__handoff-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 2px solid var(--cyan);
+  border-radius: 0 var(--r-control) var(--r-control) 0;
+  padding: 0.7rem 0.85rem;
+}
+.agentbubble__handoff-card[hidden] { display: none; }
+.agentbubble__handoff-name {
+  margin: 0 0 0.25rem;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.agentbubble__handoff-preview {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.75);
+}
+.agentbubble__handoff-cta {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+.agentbubble__handoff-cta:hover { color: var(--white); }
+
 .agentbubble__inputrow {
   flex: none;
   display: flex;
